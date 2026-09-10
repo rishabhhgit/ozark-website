@@ -208,25 +208,22 @@ function PlatformsDefeated() {
 
   const platforms = [
     { 
-      name: "Safe Exam Browser", 
+      name: "Safe Exam Browser Crack", 
       image: "/seb.webp",
       badge: "SEB",
-      tags: ["Invisible overlay", "Bypasses lockdown", "AutoType answers"],
-      description: "Bypass SEB lockdown mode. Runs outside its monitoring scope — invisible to proctoring and tab-switch detection."
+      description: "Bypass restrictions and regain control in exam environments with enhanced functionality."
     },
     { 
-      name: "Mercer Mettl", 
+      name: "Mettl Secure Browser Crack", 
       image: "/mercel-mettl.png",
       badge: "MSB",
-      tags: ["Screen recording bypass", "Webcam blind", "Zero detection"],
-      description: "Hidden from Mettl's screen recording, browser lockdown, and webcam monitoring. Full stealth mode."
+      description: "Mettl Secure Browser Crack to cheat on Mettl exams."
     },
     { 
-      name: "HackerRank", 
+      name: "HackerRank Bypass", 
       image: "/hackerrank.svg",
       badge: "HRB",
-      tags: ["Screenshot capture", "AI code generation", "One-click AutoType"],
-      description: "Invisible AI assistance inside HackerRank. Capture questions, get instant solutions, AutoType answers."
+      description: "Bypass HackerRank proctoring and detect restrictions with advanced stealth technology."
     },
   ];
 
@@ -253,21 +250,13 @@ function PlatformsDefeated() {
         <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {platforms.map((p) => (
             <div key={p.name} className="platform-card rounded-2xl border border-white/[0.08] bg-white/[0.03] overflow-hidden transition-all duration-300 hover:border-red-500/20" style={{ opacity: 0 }}>
-              {/* Image section */}
-              <div className="relative h-[200px] flex items-center justify-center bg-gradient-to-b from-white/[0.02] to-transparent">
+              <div className="relative h-[240px] flex items-center justify-center bg-gradient-to-br from-[#1a1a2e] to-[#16213e]">
                 <span className="absolute top-4 left-4 px-2 py-0.5 rounded bg-accent/20 border border-accent/30 text-[9px] font-bold text-accent uppercase tracking-wider">Flashkick</span>
                 <span className="absolute top-4 right-4 text-[11px] font-semibold text-sub/50">{p.badge}</span>
-                <img src={p.image} alt={p.name} className="h-20 w-auto object-contain opacity-70" />
+                <img src={p.image} alt={p.name} className="h-28 w-auto object-contain" />
               </div>
-              {/* Tags */}
-              <div className="px-5 pb-4 flex flex-wrap gap-2 justify-center">
-                {p.tags.map((tag) => (
-                  <span key={tag} className="px-3 py-1 rounded-full border border-white/[0.08] bg-white/[0.03] text-[11px] text-sub/70">{tag}</span>
-                ))}
-              </div>
-              {/* Text section */}
-              <div className="px-5 pb-6">
-                <h3 className="text-xl font-bold text-ink mb-2">{p.name}</h3>
+              <div className="p-5">
+                <h3 className="text-lg font-bold text-ink mb-2">{p.name}</h3>
                 <p className="text-[13px] leading-relaxed text-sub">{p.description}</p>
               </div>
             </div>
