@@ -209,21 +209,21 @@ function PlatformsDefeated() {
   const platforms = [
     { 
       name: "Safe Exam Browser Crack", 
-      image: "/seb.webp",
+      icon: "🔒",
       badge: "SEB",
-      description: "Bypass restrictions and regain control in exam environments with enhanced functionality."
+      description: "Bypass SEB lockdown mode. Runs outside its monitoring scope — invisible to proctoring and tab-switch detection.",
     },
     { 
       name: "Mettl Secure Browser Crack", 
-      image: "/mercel-mettl.png",
+      icon: "🛡️",
       badge: "MSB",
-      description: "Mettl Secure Browser Crack to cheat on Mettl exams."
+      description: "Hidden from Mettl's screen recording, browser lockdown, and webcam monitoring. Full stealth mode.",
     },
     { 
       name: "HackerRank Bypass", 
-      image: "/hackerrank.svg",
+      icon: "⚡",
       badge: "HRB",
-      description: "Bypass HackerRank proctoring and detect restrictions with advanced stealth technology."
+      description: "Invisible AI assistance inside HackerRank. Capture questions, get instant solutions, AutoType answers.",
     },
   ];
 
@@ -250,13 +250,13 @@ function PlatformsDefeated() {
         <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {platforms.map((p) => (
             <div key={p.name} className="platform-card rounded-2xl border border-white/[0.08] bg-white/[0.03] overflow-hidden transition-all duration-300 hover:border-red-500/20" style={{ opacity: 0 }}>
-              <div className="relative h-[240px] flex items-center justify-center bg-gradient-to-br from-[#1a1a2e] to-[#16213e]">
+              <div className="relative h-[200px] flex items-center justify-center bg-gradient-to-b from-white/[0.02] to-transparent">
                 <span className="absolute top-4 left-4 px-2 py-0.5 rounded bg-accent/20 border border-accent/30 text-[9px] font-bold text-accent uppercase tracking-wider">Flashkick</span>
                 <span className="absolute top-4 right-4 text-[11px] font-semibold text-sub/50">{p.badge}</span>
-                <img src={p.image} alt={p.name} className="h-28 w-auto object-contain" />
+                <span className="text-5xl">{p.icon}</span>
               </div>
-              <div className="p-5">
-                <h3 className="text-lg font-bold text-ink mb-2">{p.name}</h3>
+              <div className="px-5 pb-6">
+                <h3 className="text-xl font-bold text-ink mb-2">{p.name}</h3>
                 <p className="text-[13px] leading-relaxed text-sub">{p.description}</p>
               </div>
             </div>
