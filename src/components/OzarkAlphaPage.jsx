@@ -174,69 +174,6 @@ function AlphaHero() {
   );
 }
 
-// ── Feature Grid (6 cards, matching reference) ──
-function FeatureGrid() {
-  const sectionRef = useRef(null);
-  const headerRef = useRef(null);
-  const gridRef = useRef(null);
-
-  const cards = [
-    { icon: Eye, title: "Zero Detection", description: "Hidden from screen capture, proctoring software, and browser lockdowns. HackerRank, Mettl, SEB — none of them see it." },
-    { icon: Cpu, title: "8 AI Providers", description: "GPT-4o, Claude, Gemini, DeepSeek, Groq, Mistral, Ollama, OpenRouter. Switch mid-assessment with one shortcut." },
-    { icon: Keyboard, title: "17 Hotkeys", description: "Capture screenshots, send prompts, toggle overlay, AutoType answers — all without touching the mouse." },
-    { icon: Camera, title: "Screenshot → Answer", description: "One hotkey captures the question. AI solves it in 0.24s. AutoType the answer. Done." },
-    { icon: Send, title: "Human-Like Typing", description: "Random delays, natural keystrokes. No proctoring tool can tell the difference between you and the AI." },
-    { icon: Shield, title: "Your Data, Your Machine", description: "No cloud. No accounts. No telemetry. API keys encrypted locally. Everything stays on your PC." },
-  ];
-
-  useEffect(() => {
-    if (prefersReducedMotion()) return;
-    const ctx = gsap.context(() => {
-      const headerChildren = headerRef.current?.children;
-      if (headerChildren) {
-        gsap.fromTo(headerChildren, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, stagger: 0.15, ease: "power3.out", scrollTrigger: { trigger: headerRef.current, start: "top 85%", toggleActions: "play none none none" } });
-      }
-      const line = sectionRef.current?.querySelector(".halloween-divider");
-      if (line) {
-        gsap.fromTo(line, { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 1.5, ease: "power3.inOut", scrollTrigger: { trigger: line, start: "top 90%", toggleActions: "play none none none" } });
-      }
-      const featureItems = gridRef.current?.querySelectorAll(".feature-item");
-      if (featureItems) {
-        featureItems.forEach((item, i) => {
-          gsap.fromTo(item, { opacity: 0, y: 35 }, { opacity: 1, y: 0, duration: 0.8, stagger: 0.18, ease: "power3.out", scrollTrigger: { trigger: item, start: "top 85%", toggleActions: "play none none none" } });
-        });
-      }
-    }, sectionRef);
-    return () => ctx.revert();
-  }, []);
-
-  return (
-    <section ref={sectionRef} id="features" className="relative mx-auto max-w-[1400px] px-6 sm:px-10 py-8 md:py-10 overflow-hidden">
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-20 pointer-events-none" style={{ background: "radial-gradient(circle, rgba(196,48,48,0.06) 0%, transparent 70%)", filter: "blur(80px)" }} />
-      <div ref={headerRef} className="mb-6 md:mb-5 text-center">
-        <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block" style={{ opacity: 0 }}>Why Ozark Alpha</span>
-        <h2 className="mt-2 text-4xl font-bold tracking-tight text-ink md:text-5xl lg:text-6xl" style={{ opacity: 0 }}>Built to beat proctoring</h2>
-        <p className="mx-auto mt-3 max-w-[60ch] text-[16px] sm:text-[18px] leading-relaxed text-sub" style={{ opacity: 0 }}>Every feature designed for one thing: getting answers without getting caught.</p>
-        <div className="halloween-divider mx-auto mt-5 w-[100px]" style={{ transformOrigin: "center" }} />
-      </div>
-      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {cards.map((card) => {
-          const Icon = card.icon;
-          return (
-            <div key={card.title} className="feature-item rounded-xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm p-6 transition-all duration-300 hover:border-white/[0.15] hover:shadow-lg hover:-translate-y-1 group" style={{ opacity: 0 }}>
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 border border-accent/20 mb-4 transition-all duration-300 group-hover:bg-accent/15 group-hover:scale-110">
-                <Icon size={20} className="text-accent" />
-              </div>
-              <h3 className="text-[16px] font-bold text-ink mb-2">{card.title}</h3>
-              <p className="text-[13px] leading-relaxed text-sub">{card.description}</p>
-            </div>
-          );
-        })}
-      </div>
-    </section>
-  );
-}
-
 // ── Platforms Defeated (Visual showcase) ──
 function PlatformsDefeated() {
   const sectionRef = useRef(null);
@@ -534,7 +471,6 @@ export default function OzarkAlphaPage() {
     <>
       <AlphaHero />
       <div className="lg:hidden px-6 pb-10"><ChatDemo /></div>
-      <FeatureGrid />
       <PlatformsDefeated />
       <FeatureShowcase />
       <Shortcuts />
