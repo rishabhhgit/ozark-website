@@ -2,14 +2,27 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, Shield, Cpu, Monitor, Eye, Zap, Globe, Key, ArrowRight, CheckCircle, Server, Camera, Send, Keyboard, Settings, Copy, Sparkles, IndianRupee } from "lucide-react";
+import { Download, Shield, Cpu, Monitor, Eye, Zap, Globe, Key, ArrowRight, CheckCircle, Server, Camera, Send, Keyboard, Settings, Copy, Sparkles, IndianRupee, Mic } from "lucide-react";
 import { prefersReducedMotion, createRipple } from "@/lib/motion";
 import { DOWNLOAD_URL } from "@/lib/config";
 import { FOOTER_LINKS } from "@/lib/data";
+import FeatureSection from "@/components/FeatureSection";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const ALPHA_DOWNLOAD_URL = "#"; // TODO: Update with real Ozark Alpha download link
+
+const ALPHA_FEATURES = [
+  { eyebrow: "DYNAMIC ISLAND", title: "Floating AI that stays out of your way", body: "A compact, always-on-top bar that hovers over any application. Type a question, get an answer, and never lose context. Works silently over HackerRank, Mercer Mettl, and SEB.", kind: "island", reverse: false },
+  { eyebrow: "STEALTH OVERLAY", title: "Invisible to screen sharing", body: "A tiny, cursor-following text layer powered by Windows GDI that is completely hidden from screen-sharing software and proctoring tools. Ask questions during your assessment without anyone knowing.", kind: "stealth", reverse: true },
+  { eyebrow: "SCREENSHOT ANALYSIS", title: "Capture, ask, solve", body: "Press Ctrl+Shift+Space to capture your screen. The AI sees exactly what you see — coding problems, diagrams, system designs. Ask it to solve, explain, or optimize anything in the screenshot.", kind: "screenshot", reverse: false },
+  { eyebrow: "AUTOTYPE", title: "Let the AI type for you", body: "AutoType simulates human typing with random delays directly into any text field. Press F9 to start, F10 to stop. Perfect for HackerRank and Mettl coding challenges.", kind: "autotype", reverse: true },
+  { eyebrow: "CODE MODE", title: "Optimized for competitive programming", body: "Specialized prompts detect your coding platform, identify algorithmic patterns (DP, greedy, graph), state optimal complexity, and produce clean, well-commented code with self-checks for edge cases.", kind: "code", reverse: false },
+  { eyebrow: "MULTI-MODEL INTELLIGENCE", title: "The best models, one shortcut away", body: "Switch instantly between OpenAI, Claude, Gemini, DeepSeek, Groq, Mistral, Ollama, or OpenRouter. Use the optimal model for algorithmic puzzles, system design, or behavioral strategies.", kind: "providers", reverse: true },
+  { eyebrow: "DISGUISE MODE", title: "Hide in plain sight", body: "Press Ctrl+Shift+U to instantly morph Ozark Alpha into a realistic Windows Update screen. One hotkey transforms your AI assistant into something nobody questions.", kind: "disguise", reverse: false },
+  { eyebrow: "CUSTOM SYSTEM PROMPT", title: "Define your ideal assistant", body: "Permanently add your own instructions to every AI request. 'Always answer in bullet points', 'Use TypeScript', 'Explain like I'm 5' — saved automatically, persists after restart.", kind: "prompt", reverse: true },
+  { eyebrow: "ZERO TELEMETRY", title: "Absolute privacy by design", body: "No accounts, no cloud sync, and no tracking. API keys are encrypted locally and communicate directly with providers. Your prep work stays strictly on your machine.", kind: "privacy", reverse: false },
+];
 
 // ── Chat Demo Component ──
 function ChatDemo() {
@@ -44,13 +57,7 @@ function ChatDemo() {
       <div className="p-4 space-y-4 custom-scrollbar max-h-[320px] overflow-y-auto">
         <AnimatePresence>
           {messages.map((msg, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: i * 0.3 }}
-              className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
-            >
+            <motion.div key={i} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: i * 0.3 }} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
               <div className={`max-w-[85%] rounded-xl px-4 py-3 ${msg.role === "user" ? "bg-accent/15 border border-accent/20" : "bg-white/[0.04] border border-white/[0.06]"}`}>
                 <p className="text-[13px] text-ink/90 leading-relaxed">{msg.text}</p>
                 {msg.code && (
@@ -90,13 +97,14 @@ function ChatDemo() {
   );
 }
 
-// ── Hero Section ──
+// ── Hero Section (matching reference: "Presenting Ozark" with counter) ──
 function AlphaHero() {
   const sectionRef = useRef(null);
   const badgeRef = useRef(null);
   const headingRef = useRef(null);
   const subtitleRef = useRef(null);
   const ctaRef = useRef(null);
+  const counterRef = useRef(null);
 
   useEffect(() => {
     if (prefersReducedMotion()) return;
@@ -112,6 +120,10 @@ function AlphaHero() {
       const ctaButtons = ctaRef.current?.children;
       if (ctaButtons?.length) {
         tl.fromTo(ctaButtons, { opacity: 0, y: 20, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, stagger: 0.12, ease: "back.out(1.4)" }, 1);
+      }
+      // Counter animation
+      if (counterRef.current) {
+        gsap.fromTo(counterRef.current, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.4, stagger: 0.08, ease: "power3.out", delay: 0.8 });
       }
     }, sectionRef);
     return () => ctx.revert();
@@ -135,20 +147,20 @@ function AlphaHero() {
         <div>
           <div ref={badgeRef} className="mb-6 sm:mb-8 inline-flex items-center gap-2 rounded-full border border-border/50 bg-bg/80 px-4 py-2 sm:px-5 sm:py-2.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-accent backdrop-blur-sm" style={{ opacity: 0 }}>
             <Sparkles size={13} className="text-accent" />
-            Ozark Alpha
+            Presenting Ozark Alpha
           </div>
           <h1 ref={headingRef} className="mb-6 sm:mb-8 text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] font-bold leading-[1.05] tracking-tight">
-            {splitText("Bypass any online")}
+            {splitText("The invisible AI bypass")}
             <br />
-            <span className="text-ink/30">{splitText("assessment in seconds.")}</span>
+            <span className="text-ink/30">{splitText("for online assessments.")}</span>
           </h1>
           <p ref={subtitleRef} className="mb-8 sm:mb-10 max-w-[520px] text-[16px] sm:text-[18px] lg:text-[20px] leading-relaxed text-sub" style={{ opacity: 0 }}>
-            Ozark Alpha is an invisible AI bypass for HackerRank, Mercer Mettl, and Safe Exam Browser. Runs as a stealth overlay — undetected by proctors, screen recorders, and browser lockdowns.
+            Ozark Alpha sits discreetly beside your screen. Switch models instantly, stream coding solutions, and AutoType answers — completely invisible to HackerRank, Mercer Mettl, and SEB proctoring.
           </p>
           <div ref={ctaRef} className="flex flex-wrap items-center gap-4 sm:gap-5">
             <a href={ALPHA_DOWNLOAD_URL} className="ghs-btn-primary inline-flex items-center gap-3 rounded-xl bg-accent px-7 py-3.5 sm:px-8 sm:py-4 text-[14px] sm:text-[16px] font-semibold text-white shadow-premium relative overflow-hidden transition-all duration-300 hover:scale-105" style={{ opacity: 0 }} data-cursor="magnetic">
               <Download size={18} strokeWidth={2.5} />
-              Download Ozark Alpha
+              Download for Windows 11
             </a>
             <div className="flex items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-5 py-3.5" style={{ opacity: 0 }}>
               <IndianRupee size={16} className="text-accent" />
@@ -165,24 +177,36 @@ function AlphaHero() {
   );
 }
 
-// ── Supported Platforms Section ──
-function SupportedPlatforms() {
+// ── Feature Grid (6 cards, matching reference) ──
+function FeatureGrid() {
   const sectionRef = useRef(null);
+  const headerRef = useRef(null);
   const gridRef = useRef(null);
 
-  const platforms = [
-    { name: "HackerRank", tag: "HRB", description: "Invisible overlay inside HackerRank. AutoType answers directly into the code editor.", color: "#1BA94C" },
-    { name: "Mercer Mettl", tag: "MSB", description: "Hidden from Mettl's screen recording, browser lockdown, and webcam monitoring.", color: "#E44D26" },
-    { name: "Safe Exam Browser", tag: "SEB", description: "Runs outside SEB's lockdown scope. Invisible to its proctoring and tab-switch detection.", color: "#2563EB" },
+  const cards = [
+    { icon: Eye, title: "Invisible Overlay", description: "Hidden from screen-capture, proctoring software, and browser lockdowns. Use it without detection on HackerRank, Mettl, and SEB." },
+    { icon: Cpu, title: "Multi-Model AI Support", description: "Connect to OpenAI, Anthropic, Gemini, Mistral, Groq, or local Ollama models. Switch instantly during your assessment." },
+    { icon: Keyboard, title: "Hotkey-Driven Workflow", description: "Control everything with intuitive hotkeys — capture screenshots, send prompts, toggle overlay, AutoType answers." },
+    { icon: Camera, title: "Screenshot Analysis", description: "One hotkey captures the assessment question and sends it to AI. Perfect for coding problems and system design diagrams." },
+    { icon: Send, title: "Auto-Typing", description: "AI answers are typed directly into the assessment — no copy-paste needed. Human-like typing that evades detection." },
+    { icon: Shield, title: "Privacy First", description: "No server-side storage. All AI requests go directly from your machine to your chosen provider. Your data stays yours." },
   ];
 
   useEffect(() => {
     if (prefersReducedMotion()) return;
     const ctx = gsap.context(() => {
-      const cards = gridRef.current?.querySelectorAll(".platform-card");
-      if (cards) {
-        cards.forEach((card, i) => {
-          gsap.fromTo(card, { opacity: 0, y: 40, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, delay: i * 0.1, ease: "power3.out", scrollTrigger: { trigger: card, start: "top 88%", toggleActions: "play none none none" } });
+      const headerChildren = headerRef.current?.children;
+      if (headerChildren) {
+        gsap.fromTo(headerChildren, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, stagger: 0.15, ease: "power3.out", scrollTrigger: { trigger: headerRef.current, start: "top 85%", toggleActions: "play none none none" } });
+      }
+      const line = sectionRef.current?.querySelector(".halloween-divider");
+      if (line) {
+        gsap.fromTo(line, { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 1.5, ease: "power3.inOut", scrollTrigger: { trigger: line, start: "top 90%", toggleActions: "play none none none" } });
+      }
+      const featureItems = gridRef.current?.querySelectorAll(".feature-item");
+      if (featureItems) {
+        featureItems.forEach((item, i) => {
+          gsap.fromTo(item, { opacity: 0, y: 35 }, { opacity: 1, y: 0, duration: 0.8, stagger: 0.18, ease: "power3.out", scrollTrigger: { trigger: item, start: "top 85%", toggleActions: "play none none none" } });
         });
       }
     }, sectionRef);
@@ -190,84 +214,51 @@ function SupportedPlatforms() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-10 md:py-16 overflow-hidden">
-      <div className="absolute top-[20%] left-[5%] w-[500px] h-[500px] rounded-full opacity-15 pointer-events-none" style={{ background: "radial-gradient(circle, rgba(196,48,48,0.04) 0%, transparent 70%)", filter: "blur(80px)" }} />
-      <div className="mx-auto max-w-[1000px] px-6 sm:px-10">
-        <div className="text-center mb-10">
-          <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block mb-3">Supported Platforms</span>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink">Built for every lockdown browser</h2>
-        </div>
-        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-          {platforms.map((p) => (
-            <div key={p.name} className="platform-card group rounded-xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm p-6 transition-all duration-300 hover:border-white/[0.15] hover:shadow-lg hover:-translate-y-1" style={{ opacity: 0 }}>
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-2">
-                  <div className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: p.color }} />
-                  <span className="text-[14px] font-bold text-ink">{p.name}</span>
-                </div>
-                <span className="text-[10px] font-bold text-accent bg-accent/10 border border-accent/20 rounded-full px-2 py-0.5">{p.tag}</span>
+    <section ref={sectionRef} id="features" className="relative mx-auto max-w-[1400px] px-6 sm:px-10 py-8 md:py-10 overflow-hidden">
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-20 pointer-events-none" style={{ background: "radial-gradient(circle, rgba(196,48,48,0.06) 0%, transparent 70%)", filter: "blur(80px)" }} />
+      <div ref={headerRef} className="mb-6 md:mb-5 text-center">
+        <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block" style={{ opacity: 0 }}>Explore Ozark Alpha Features</span>
+        <h2 className="mt-2 text-4xl font-bold tracking-tight text-ink md:text-5xl lg:text-6xl" style={{ opacity: 0 }}>Everything you need to bypass</h2>
+        <p className="mx-auto mt-3 max-w-[60ch] text-[16px] sm:text-[18px] leading-relaxed text-sub" style={{ opacity: 0 }}>Stealth overlay, instant AI solving, and auto-typing — all in one tool for HackerRank, Mercer Mettl, and SEB.</p>
+        <div className="halloween-divider mx-auto mt-5 w-[100px]" style={{ transformOrigin: "center" }} />
+      </div>
+      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {cards.map((card) => {
+          const Icon = card.icon;
+          return (
+            <div key={card.title} className="feature-item rounded-xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm p-6 transition-all duration-300 hover:border-white/[0.15] hover:shadow-lg hover:-translate-y-1 group" style={{ opacity: 0 }}>
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 border border-accent/20 mb-4 transition-all duration-300 group-hover:bg-accent/15 group-hover:scale-110">
+                <Icon size={20} className="text-accent" />
               </div>
-              <p className="text-[13px] text-sub leading-relaxed">{p.description}</p>
+              <h3 className="text-[16px] font-bold text-ink mb-2">{card.title}</h3>
+              <p className="text-[13px] leading-relaxed text-sub">{card.description}</p>
             </div>
-          ))}
-        </div>
+          );
+        })}
       </div>
     </section>
   );
 }
 
-// ── What Is Ozark Alpha Section ──
-function WhatIsOzark() {
-  const sectionRef = useRef(null);
-  const contentRef = useRef(null);
-
-  useEffect(() => {
-    if (prefersReducedMotion()) return;
-    const ctx = gsap.context(() => {
-      const children = contentRef.current?.children;
-      if (children) {
-        gsap.fromTo(children, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, stagger: 0.12, ease: "power3.out", scrollTrigger: { trigger: sectionRef.current, start: "top 80%", toggleActions: "play none none none" } });
-      }
-    }, sectionRef);
-    return () => ctx.revert();
-  }, []);
-
-  return (
-    <section ref={sectionRef} className="relative py-10 md:py-16 overflow-hidden">
-      <div className="mx-auto max-w-[1000px] px-6 sm:px-10">
-        <div ref={contentRef} className="text-center">
-          <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block mb-3">What is Ozark Alpha?</span>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink mb-6">An AI copilot that stays invisible</h2>
-          <p className="mx-auto max-w-[65ch] text-[16px] sm:text-[18px] leading-relaxed text-sub">
-            Ozark Alpha is a lightweight desktop tool that runs as a <span className="text-ink/80 font-medium">stealth overlay</span> on top of your assessment. It captures your screen, sends it to AI, and types the answer for you — all while remaining <span className="text-ink/80 font-medium">completely hidden</span> from HackerRank, Mercer Mettl, and Safe Exam Browser proctoring.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ── Key Features Section ──
-function KeyFeatures() {
+// ── Use Cases (4 cards, matching reference) ──
+function UseCases() {
   const sectionRef = useRef(null);
   const gridRef = useRef(null);
 
-  const features = [
-    { icon: Eye, title: "Invisible Overlay", description: "Hidden from screen-capture, proctoring software, and browser lockdowns.", details: ["GDI-powered text rendering", "Zero DOM elements captured", "Invisible to all proctors", "Position anywhere on screen"] },
-    { icon: Camera, title: "Screenshot Capture", description: "One hotkey captures the assessment question and sends it to AI.", details: ["Self-exclusion from captures", "Multi-screenshot support", "Works in all lockdown browsers", "Ctrl+Shift+Space shortcut"] },
-    { icon: Send, title: "AutoType", description: "AI answers are typed directly into the assessment — no copy-paste needed.", details: ["Human-like typing speed", "Random delays between keys", "F9 to start, F10 to stop", "Works in any text field"] },
-    { icon: Cpu, title: "Multi-Model AI", description: "Choose from OpenAI, Claude, Gemini, Groq, Mistral, or local Ollama.", details: ["8 built-in providers", "Custom endpoints supported", "Local Ollama for offline use", "Instant model switching"] },
-    { icon: Keyboard, title: "Hotkey Control", description: "Everything controlled via keyboard — no mouse needed during the assessment.", details: ["Ctrl+Shift+Space: Capture", "Alt+I: Focus input", "Ctrl+Shift+U: Disguise mode", "F9/F10: AutoType on/off"] },
-    { icon: Shield, title: "Privacy First", description: "Your API keys and data stay on your machine. Nothing is stored on servers.", details: ["Local API key encryption", "Zero telemetry tracking", "No cloud sync required", "Direct provider communication"] },
+  const cases = [
+    { title: "HackerRank Bypass", description: "Get instant help with algorithms, data structures, and syntax. AutoType answers directly into the HackerRank editor.", icon: Zap },
+    { title: "Mercer Mettl Bypass", description: "Hidden from Mettl's screen recording, browser lockdown, and webcam monitoring. Full stealth overlay.", icon: Shield },
+    { title: "Safe Exam Browser", description: "Runs outside SEB's lockdown scope. Invisible to its proctoring and tab-switch detection.", icon: Eye },
+    { title: "Any Assessment", description: "Works with any online assessment platform — LeetCode, Codeforces, custom portals, and more.", icon: Globe },
   ];
 
   useEffect(() => {
     if (prefersReducedMotion()) return;
     const ctx = gsap.context(() => {
-      const cards = gridRef.current?.querySelectorAll(".feature-card");
-      if (cards) {
-        cards.forEach((card, i) => {
-          gsap.fromTo(card, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7, delay: i * 0.1, ease: "power3.out", scrollTrigger: { trigger: card, start: "top 85%", toggleActions: "play none none none" } });
+      const items = gridRef.current?.querySelectorAll(".use-case-item");
+      if (items) {
+        items.forEach((item, i) => {
+          gsap.fromTo(item, { opacity: 0, y: 35 }, { opacity: 1, y: 0, duration: 0.8, delay: i * 0.1, ease: "power3.out", scrollTrigger: { trigger: item, start: "top 88%", toggleActions: "play none none none" } });
         });
       }
     }, sectionRef);
@@ -275,32 +266,22 @@ function KeyFeatures() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-10 md:py-16 overflow-hidden">
-      <div className="absolute top-[30%] right-[5%] w-[400px] h-[400px] rounded-full opacity-15 pointer-events-none" style={{ background: "radial-gradient(circle, rgba(196,48,48,0.04) 0%, transparent 70%)", filter: "blur(60px)" }} />
-      <div className="mx-auto max-w-[1200px] px-6 sm:px-10">
-        <div className="text-center mb-10">
-          <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block mb-3">Features</span>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink md:text-5xl">Everything you need to bypass</h2>
-          <p className="mx-auto mt-4 max-w-[55ch] text-[16px] leading-relaxed text-sub">Stealth overlay, instant AI solving, and auto-typing — all in one tool.</p>
+    <section ref={sectionRef} className="relative py-6 md:py-8 overflow-hidden">
+      <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+        <div className="text-center mb-6">
+          <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block mb-3">Use Cases</span>
+          <h2 className="text-3xl font-bold tracking-tight text-ink md:text-4xl">How Engineers Use Ozark Alpha</h2>
         </div>
-        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {features.map((f) => {
-            const Icon = f.icon;
+        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {cases.map((c) => {
+            const Icon = c.icon;
             return (
-              <div key={f.title} className="feature-card rounded-xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm p-6 transition-all duration-300 hover:border-white/[0.15] hover:shadow-lg hover:-translate-y-1 group" style={{ opacity: 0 }}>
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 border border-accent/20 mb-4 transition-all duration-300 group-hover:bg-accent/15 group-hover:scale-110">
-                  <Icon size={20} className="text-accent" />
+              <div key={c.title} className="use-case-item rounded-xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm p-5 transition-all duration-300 hover:border-white/[0.15] hover:shadow-md" style={{ opacity: 0 }}>
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 border border-accent/20 mb-3">
+                  <Icon size={18} className="text-accent" />
                 </div>
-                <h3 className="text-[16px] font-bold text-ink mb-2">{f.title}</h3>
-                <p className="text-[13px] leading-relaxed text-sub mb-4">{f.description}</p>
-                <ul className="space-y-1.5">
-                  {f.details.map((d) => (
-                    <li key={d} className="flex items-start gap-2 text-[12px] text-sub">
-                      <CheckCircle size={12} className="text-accent mt-0.5 flex-shrink-0" />
-                      <span>{d}</span>
-                    </li>
-                  ))}
-                </ul>
+                <h3 className="text-[15px] font-bold text-ink mb-2">{c.title}</h3>
+                <p className="text-[13px] leading-relaxed text-sub">{c.description}</p>
               </div>
             );
           })}
@@ -310,33 +291,98 @@ function KeyFeatures() {
   );
 }
 
-// ── Interactive Demo Section ──
-function InteractiveDemo() {
+// ── How It Works (4 steps, matching reference) ──
+function HowItWorks() {
   const sectionRef = useRef(null);
-  const contentRef = useRef(null);
+  const stepsRef = useRef(null);
+
+  const steps = [
+    { step: "01", title: "Download & Install", body: "Single executable, no installation wizard. Double-click to run. Works on Windows 10/11 with .NET 6+ runtime.", icon: Download, details: "self-contained single executable file (180 MB)" },
+    { step: "02", title: "Add Your API Keys", body: "Enter keys for OpenAI, Anthropic, Gemini, or any supported provider. Keys are stored locally and never leave your machine.", icon: Key },
+    { step: "03", title: "Start Your Assessment", body: "Open HackerRank, Mettl, or SEB. Ozark Alpha runs invisibly in the background. Press Ctrl+Shift+Space to capture questions.", icon: Monitor, details: "Ctrl+Enter to send, or use AutoType with F9" },
+    { step: "04", title: "Stay Invisible", body: "Enable Stealth Mode or Disguise Mode. The AI stays hidden from screen capture, screen sharing, and proctoring software.", icon: Shield },
+  ];
 
   useEffect(() => {
     if (prefersReducedMotion()) return;
     const ctx = gsap.context(() => {
-      const children = contentRef.current?.children;
-      if (children) {
-        gsap.fromTo(children, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, stagger: 0.15, ease: "power3.out", scrollTrigger: { trigger: sectionRef.current, start: "top 80%", toggleActions: "play none none none" } });
+      const cards = stepsRef.current?.querySelectorAll(".step-card");
+      if (cards) {
+        cards.forEach((card, i) => {
+          gsap.fromTo(card, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.08, ease: "power3.out", scrollTrigger: { trigger: card, start: "top 85%", toggleActions: "play none none none" } });
+        });
       }
     }, sectionRef);
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-10 md:py-16 overflow-hidden">
-      <div className="mx-auto max-w-[1000px] px-6 sm:px-10">
-        <div ref={contentRef}>
-          <div className="text-center mb-8">
-            <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block mb-3">See It In Action</span>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink">Real-time AI solving</h2>
-            <p className="mx-auto mt-4 max-w-[50ch] text-[16px] leading-relaxed text-sub">Capture any question, get instant solutions with syntax highlighting, and AutoType the answer.</p>
-          </div>
-          <ChatDemo />
+    <section ref={sectionRef} id="how-it-works" className="relative py-6 md:py-8 overflow-hidden">
+      <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+        <div className="text-center mb-10 md:mb-14">
+          <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block mb-3">Simple Setup</span>
+          <h2 className="text-4xl font-bold tracking-tight text-ink md:text-5xl lg:text-6xl">Up and running in 60 seconds</h2>
+          <p className="mx-auto mt-4 max-w-[50ch] text-[16px] sm:text-[18px] leading-relaxed text-sub">No accounts, no installation wizards, no cloud sync. Just download, add your keys, and start asking.</p>
         </div>
+        <div ref={stepsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          {steps.map((s) => {
+            const Icon = s.icon;
+            return (
+              <div key={s.step} className="step-card relative group rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm p-8 transition-all duration-300 hover:border-white/[0.15] hover:shadow-lg" style={{ opacity: 0 }}>
+                <div className="absolute -top-3 -left-1 text-[64px] font-bold text-accent/[0.07] leading-none select-none">{s.step}</div>
+                <div className="relative mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 border border-accent/20 transition-all duration-300 group-hover:bg-accent/15 group-hover:scale-110">
+                  <Icon size={20} className="text-accent" />
+                </div>
+                <h3 className="mb-3 text-lg font-bold text-ink">{s.title}</h3>
+                <p className="text-[14px] leading-relaxed text-sub">{s.body}</p>
+                {s.details && <p className="mt-2 text-[12px] text-accent/70 font-mono">{s.details}</p>}
+              </div>
+            );
+          })}
+        </div>
+        <div className="mt-16 text-center">
+          <div className="inline-flex items-center gap-3 rounded-full border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm px-6 py-3">
+            <span className="text-[13px] text-sub">System Requirements:</span>
+            <span className="text-[13px] font-semibold text-ink">Windows 11 (64-bit)</span>
+            <span className="text-border">|</span>
+            <span className="text-[13px] font-semibold text-ink">.NET 6+ Runtime</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ── Feature Showcase (11 deep-dive sections, matching reference) ──
+function FeatureShowcase() {
+  const sectionRef = useRef(null);
+  const headerRef = useRef(null);
+
+  useEffect(() => {
+    if (prefersReducedMotion()) return;
+    const ctx = gsap.context(() => {
+      const headerChildren = headerRef.current?.children;
+      if (headerChildren) {
+        gsap.fromTo(headerChildren, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, stagger: 0.15, ease: "power3.out", scrollTrigger: { trigger: headerRef.current, start: "top 85%", toggleActions: "play none none none" } });
+      }
+    }, sectionRef);
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="relative mx-auto max-w-[1400px] px-6 sm:px-10 py-8 md:py-10 overflow-hidden">
+      <div ref={headerRef} className="mb-6 md:mb-5 text-center">
+        <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block" style={{ opacity: 0 }}>Feature Deep Dive</span>
+        <h2 className="mt-2 text-4xl font-bold tracking-tight text-ink md:text-5xl lg:text-6xl" style={{ opacity: 0 }}>Smart Features</h2>
+        <p className="mx-auto mt-3 max-w-[60ch] text-[16px] sm:text-[18px] leading-relaxed text-sub" style={{ opacity: 0 }}>Powerful features wrapped in a clean, distraction-free interface.</p>
+        <div className="halloween-divider mx-auto mt-5 w-[100px]" style={{ transformOrigin: "center" }} />
+      </div>
+      <div>
+        {ALPHA_FEATURES.map((f, i) => (
+          <div key={f.eyebrow} className="feature-item" style={{ opacity: 0 }} data-spotlight>
+            <FeatureSection {...f} index={i} />
+          </div>
+        ))}
       </div>
     </section>
   );
@@ -381,38 +427,6 @@ function Pricing() {
             Get Ozark Alpha
           </a>
         </div>
-      </div>
-    </section>
-  );
-}
-
-// ── CTA Section ──
-function ClosingCTA() {
-  const sectionRef = useRef(null);
-  const cardRef = useRef(null);
-  const btnRef = useRef(null);
-
-  useEffect(() => {
-    if (prefersReducedMotion()) return;
-    const ctx = gsap.context(() => {
-      gsap.fromTo(cardRef.current, { opacity: 0, y: 60, rotateX: 8, scale: 0.94 }, { opacity: 1, y: 0, rotateX: 0, scale: 1, duration: 1.1, ease: "power3.out", scrollTrigger: { trigger: cardRef.current, start: "top 88%", toggleActions: "play none none none" } });
-    }, sectionRef);
-    return () => ctx.revert();
-  }, []);
-
-  const handleBtnClick = (e) => createRipple(e, btnRef.current);
-
-  return (
-    <section ref={sectionRef} className="relative mx-auto max-w-[1200px] px-6 sm:px-10 pb-16 pt-10 overflow-hidden">
-      <div ref={cardRef} className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.03] px-8 py-10 text-center shadow-2xl sm:px-12 sm:py-14 md:py-16" style={{ opacity: 0 }}>
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
-        <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent">Ready to start?</span>
-        <h2 className="mt-4 mb-4 text-3xl font-bold tracking-tight text-ink sm:text-4xl md:text-5xl">Get Ozark Alpha now</h2>
-        <p className="mx-auto mb-8 max-w-[55ch] text-[16px] sm:text-[18px] leading-relaxed text-sub">Monthly subscription. Cancel anytime. Works with HackerRank, Mercer Mettl, and SEB.</p>
-        <a ref={btnRef} href={ALPHA_DOWNLOAD_URL} onClick={handleBtnClick} className="ghs-btn-primary inline-flex items-center gap-3 rounded-xl bg-accent px-8 py-4 text-[15px] sm:text-[17px] font-semibold text-white shadow-premium relative overflow-hidden transition-all duration-300 hover:scale-105" data-cursor="magnetic" data-cursor-text="Download">
-          <Download size={18} strokeWidth={2.5} />
-          Get Ozark Alpha — ₹1999/mo
-        </a>
       </div>
     </section>
   );
@@ -469,11 +483,10 @@ export default function OzarkAlphaPage() {
     <>
       <AlphaHero />
       <div className="lg:hidden px-6 pb-10"><ChatDemo /></div>
-      <WhatIsOzark />
-      <SupportedPlatforms />
-      <KeyFeatures />
-      <InteractiveDemo />
-      <ClosingCTA />
+      <FeatureGrid />
+      <UseCases />
+      <HowItWorks />
+      <FeatureShowcase />
       <Pricing />
       <AlphaFooter />
     </>
