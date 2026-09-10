@@ -247,58 +247,6 @@ function WhatIsOzark() {
   );
 }
 
-// ── How It Works Section ──
-function HowItWorks() {
-  const sectionRef = useRef(null);
-  const stepsRef = useRef(null);
-
-  const steps = [
-    { step: "01", title: "Download & Open", body: "Run Ozark Alpha. No installation wizard — it just works on Windows 10/11.", icon: Download },
-    { step: "02", title: "Set Your AI Key", body: "Add your OpenAI, Claude, or Gemini API key. Stored locally, never leaves your machine.", icon: Key },
-    { step: "03", title: "Start Your Assessment", body: "Open HackerRank, Mettl, or SEB. Ozark Alpha runs invisibly in the background.", icon: Monitor },
-    { step: "04", title: "Get Answers Instantly", body: "Press Ctrl+Shift+Space to capture the question. AI solves it. F9 AutoTypes the answer.", icon: Zap },
-  ];
-
-  useEffect(() => {
-    if (prefersReducedMotion()) return;
-    const ctx = gsap.context(() => {
-      const cards = stepsRef.current?.querySelectorAll(".step-card");
-      if (cards) {
-        cards.forEach((card, i) => {
-          gsap.fromTo(card, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, delay: i * 0.15, ease: "power3.out", scrollTrigger: { trigger: card, start: "top 85%", toggleActions: "play none none none" } });
-        });
-      }
-    }, sectionRef);
-    return () => ctx.revert();
-  }, []);
-
-  return (
-    <section ref={sectionRef} className="relative py-10 md:py-16 overflow-hidden">
-      <div className="mx-auto max-w-[1200px] px-6 sm:px-10">
-        <div className="text-center mb-10">
-          <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block mb-3">How It Works</span>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink md:text-5xl">Up and running in 60 seconds</h2>
-        </div>
-        <div ref={stepsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {steps.map((s) => {
-            const Icon = s.icon;
-            return (
-              <div key={s.step} className="step-card relative group rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm p-7 transition-all duration-300 hover:border-white/[0.15] hover:shadow-lg" style={{ opacity: 0 }}>
-                <div className="absolute -top-3 -left-1 text-[64px] font-bold text-accent/[0.07] leading-none select-none">{s.step}</div>
-                <div className="relative mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 border border-accent/20 transition-all duration-300 group-hover:bg-accent/15 group-hover:scale-110">
-                  <Icon size={20} className="text-accent" />
-                </div>
-                <h3 className="mb-3 text-[16px] font-bold text-ink">{s.title}</h3>
-                <p className="text-[13px] leading-relaxed text-sub">{s.body}</p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 // ── Key Features Section ──
 function KeyFeatures() {
   const sectionRef = useRef(null);
@@ -460,7 +408,7 @@ function ClosingCTA() {
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
         <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent">Ready to start?</span>
         <h2 className="mt-4 mb-4 text-3xl font-bold tracking-tight text-ink sm:text-4xl md:text-5xl">Get Ozark Alpha now</h2>
-        <p className="mx-auto mb-8 max-w-[55ch] text-[16px] sm:text-[18px] leading-relaxed text-sub">One purchase. Lifetime access. Works with HackerRank, Mercer Mettl, and SEB.</p>
+        <p className="mx-auto mb-8 max-w-[55ch] text-[16px] sm:text-[18px] leading-relaxed text-sub">Monthly subscription. Cancel anytime. Works with HackerRank, Mercer Mettl, and SEB.</p>
         <a ref={btnRef} href={ALPHA_DOWNLOAD_URL} onClick={handleBtnClick} className="ghs-btn-primary inline-flex items-center gap-3 rounded-xl bg-accent px-8 py-4 text-[15px] sm:text-[17px] font-semibold text-white shadow-premium relative overflow-hidden transition-all duration-300 hover:scale-105" data-cursor="magnetic" data-cursor-text="Download">
           <Download size={18} strokeWidth={2.5} />
           Get Ozark Alpha — ₹1999/mo
@@ -524,7 +472,6 @@ export default function OzarkAlphaPage() {
       <WhatIsOzark />
       <SupportedPlatforms />
       <KeyFeatures />
-      <HowItWorks />
       <InteractiveDemo />
       <Pricing />
       <ClosingCTA />
