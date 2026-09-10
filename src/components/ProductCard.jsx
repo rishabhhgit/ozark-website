@@ -36,7 +36,7 @@ const PRODUCTS = [
     description: "Bypass HackerRank proctoring and detect restrictions with advanced stealth technology.",
     price: "₹1999",
     bgGradient: "from-[#1a1a2e] via-[#1c2333] to-[#0d1b2a]",
-    image: "/hackerrank.png",
+    image: "/hackerrank.svg",
   },
 ];
 
