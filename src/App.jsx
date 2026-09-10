@@ -9,6 +9,7 @@ import CursorMotion from "./components/CursorMotion";
 import SmoothScroll from "./components/SmoothScroll";
 import BackgroundMotion from "./components/BackgroundMotion";
 import Service1Sections from "./lib/service1Sections";
+import OzarkAlphaPage from "./components/OzarkAlphaPage";
 
 function usePrefersReducedMotion() {
   return useMemo(() => {
@@ -39,21 +40,7 @@ function Service1Page() {
   );
 }
 
-// Ozark Alpha placeholder page
-function OzarkAlphaPage() {
-  return (
-    <>
-      <Header />
-      <div className="min-h-screen flex items-center justify-center px-6">
-        <div className="text-center">
-          <img src="/eyes-logo.png" alt="Ozark Alpha" className="w-20 h-20 mx-auto mb-6 object-contain" />
-          <h1 className="text-4xl font-bold text-ink mb-4">Ozark Alpha</h1>
-          <p className="text-sub text-lg">Coming soon. Content will be added here.</p>
-        </div>
-      </div>
-    </>
-  );
-}
+// Ozark Alpha page
 
 export default function App() {
   const reducedMotion = usePrefersReducedMotion();
@@ -68,7 +55,7 @@ export default function App() {
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="/ozark" element={<Service1Page />} />
-              <Route path="/ozarkAlpha" element={<OzarkAlphaPage />} />
+              <Route path="/ozarkAlpha" element={<><Header /><OzarkAlphaPage /></>} />
             </Routes>
           </BrowserRouter>
         </main>
