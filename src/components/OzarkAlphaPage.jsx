@@ -51,7 +51,7 @@ function MultitaskDemo() {
           </div>
           <div className="flex-1 flex items-center gap-2 ml-3 rounded-md bg-white/[0.04] px-3 py-1.5">
             <span className="text-[11px] text-sub/40">🔒</span>
-            <span className="text-[11px] text-sub/50 truncate">hackerrank.com/challenges/sliding-window</span>
+            <span className="text-[11px] text-sub/50 truncate">hackerrank.com/campus-placements</span>
           </div>
         </div>
         {/* Assessment content */}
