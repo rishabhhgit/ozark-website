@@ -170,9 +170,9 @@ function PlatformsDefeated() {
   const gridRef = useRef(null);
 
   const platforms = [
-    { name: "HackerRank", image: "/hackerrank.svg", tagline: "DSA solved in 0.24s", sad: "Try again next time! 😭", emoji: "😭" },
-    { name: "Mercer Mettl", image: "/mercel-mettl.png", tagline: "Screen recording? Didn't see anything.", sad: "We never saw it coming 💀", emoji: "💀" },
-    { name: "Safe Exam Browser", image: "/seb.webp", tagline: "Lockdown? What lockdown?", sad: "Our security is a joke now 🤡", emoji: "🤡" },
+    { name: "HackerRank", image: "/hackerrank.svg", tagline: "0.24s. That's all it took.", sad: "GG", emoji: "💀" },
+    { name: "Mercer Mettl", image: "/mercel-mettl.png", tagline: "Saw nothing. Recorded nothing.", sad: "RIP", emoji: "🪦" },
+    { name: "Safe Exam Browser", image: "/seb.webp", tagline: "Locked down? Not us.", sad: "L", emoji: "🤡" },
   ];
 
   useEffect(() => {
