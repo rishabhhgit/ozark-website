@@ -39,36 +39,36 @@ export default function OzarkBox() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative mx-auto w-full px-6 sm:px-10 py-16 md:py-20 overflow-hidden">
+    <section ref={sectionRef} className="relative mx-auto w-full px-6 sm:px-10 py-8 md:py-10 overflow-hidden">
       {/* Decorative background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] pointer-events-none opacity-15" style={{
         background: "radial-gradient(circle, rgba(196,48,48,0.04) 0%, transparent 70%)",
         filter: "blur(80px)",
       }} />
 
-      <div ref={headingRef} className="mb-10 md:mb-14 text-center">
+      <div ref={headingRef} className="mb-6 md:mb-8 text-center">
         <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block" style={{ opacity: 0 }}>Core Product</span>
-        <h2 className="mt-3 text-4xl font-bold tracking-tight text-ink md:text-5xl lg:text-6xl" style={{ opacity: 0 }}>
+        <h2 className="mt-2 text-4xl font-bold tracking-tight text-ink md:text-5xl lg:text-6xl" style={{ opacity: 0 }}>
           Ozark
         </h2>
-        <p className="mx-auto mt-4 max-w-[60ch] text-[16px] sm:text-[18px] leading-relaxed text-sub md:text-[19px]" style={{ opacity: 0 }}>
+        <p className="mx-auto mt-3 max-w-[60ch] text-[16px] sm:text-[18px] leading-relaxed text-sub md:text-[19px]" style={{ opacity: 0 }}>
           The invisible AI copilot for online assessments and technical interviews.
         </p>
-        <div className="halloween-divider mx-auto mt-8 w-[100px]" />
+        <div className="halloween-divider mx-auto mt-5 w-[100px]" />
       </div>
 
-      <div className="mx-auto max-w-[1000px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
+      <div className="mx-auto max-w-[1000px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch">
         {FEATURES.map((feature, idx) => {
           const Icon = feature.icon;
           return (
             <div
               key={feature.name}
-              className="group rounded-xl border border-[rgba(196,48,48,0.08)] bg-transparent p-5 transition-all duration-300 hover:border-[rgba(196,48,48,0.2)] hover:bg-[rgba(196,48,48,0.02)]"
+              className="group rounded-xl border border-[rgba(196,48,48,0.08)] bg-transparent p-4 transition-all duration-300 hover:border-[rgba(196,48,48,0.2)] hover:bg-[rgba(196,48,48,0.02)]"
               style={{ opacity: 0 }}
             >
-              <div className="flex items-center gap-3 mb-3">
-                <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-[#c43030]/10 border border-[#c43030]/20">
-                  <Icon size={16} className="text-[#c43030]" />
+              <div className="flex items-center gap-3 mb-2">
+                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#c43030]/10 border border-[#c43030]/20">
+                  <Icon size={14} className="text-[#c43030]" />
                 </div>
                 <h3 className="text-sm font-bold text-ink">{feature.name}</h3>
               </div>
@@ -78,8 +78,8 @@ export default function OzarkBox() {
         })}
       </div>
 
-      <div className="text-center mt-10">
-        <a href="/ozark" className="inline-flex items-center gap-2 rounded-xl bg-[#c43030] px-6 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#a02525] hover:scale-105">
+      <div className="text-center mt-6">
+        <a href="/ozark" className="inline-flex items-center gap-2 rounded-xl bg-[#c43030] px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#a02525] hover:scale-105">
           Explore Ozark Features
         </a>
       </div>
