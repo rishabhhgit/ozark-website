@@ -39,26 +39,26 @@ function MultitaskDemo() {
   }, []);
 
   return (
-    <div className="relative w-full max-w-[750px] mx-auto">
+    <div className="relative w-full max-w-[900px] mx-auto">
       {/* Main assessment window */}
       <div className="rounded-xl border border-white/[0.1] bg-[#1a1a1f] overflow-hidden shadow-2xl">
         {/* Browser chrome */}
-        <div className="flex items-center gap-2 px-3 py-2.5 bg-[#121215] border-b border-white/[0.06]">
+        <div className="flex items-center gap-2 px-4 py-3 bg-[#121215] border-b border-white/[0.06]">
           <div className="flex gap-1.5">
             <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
             <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
             <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
           </div>
-          <div className="flex-1 flex items-center gap-2 ml-3 rounded-md bg-white/[0.04] px-2 py-1.5">
+          <div className="flex-1 flex items-center gap-2 ml-3 rounded-md bg-white/[0.04] px-3 py-1.5">
             <span className="text-[11px] text-sub/40">🔒</span>
             <span className="text-[11px] text-sub/50 truncate">hackerrank.com/challenges/sliding-window</span>
           </div>
         </div>
         {/* Assessment content */}
-        <div className="p-6">
-          <div className="flex items-center gap-2 mb-4">
+        <div className="p-6 sm:p-8">
+          <div className="flex items-center gap-3 mb-4">
             <span className="px-2.5 py-1 rounded bg-orange-500/10 border border-orange-500/20 text-[11px] font-bold text-orange-400 uppercase">Medium</span>
-            <span className="text-[13px] text-sub/60">Sliding Window Maximum</span>
+            <span className="text-[14px] text-sub/60">Sliding Window Maximum</span>
           </div>
           <div className="rounded-lg bg-[#0d0d10] border border-white/[0.06] overflow-hidden">
             <div className="flex items-center justify-between px-4 py-2 border-b border-white/[0.04]">
@@ -68,18 +68,18 @@ function MultitaskDemo() {
                 <span className="text-[10px] text-accent/80 bg-accent/10 px-2 py-0.5 rounded font-mono">0.24s</span>
               </div>
             </div>
-            <div className="p-4 font-mono text-[12px] leading-relaxed text-ink/70 h-[220px] overflow-hidden">
+            <div className="p-5 font-mono text-[13px] leading-relaxed text-ink/70 h-[260px] overflow-hidden">
               {codeLines.slice(0, line + 1).map((l, i) => (
                 <div key={i} className={i === line ? "text-accent" : ""}>
                   {l}
-                  {i === line && <span className="inline-block w-1.5 h-3.5 bg-accent ml-0.5 animate-pulse" />}
+                  {i === line && <span className="inline-block w-2 h-4 bg-accent ml-0.5 animate-pulse" />}
                 </div>
               ))}
             </div>
           </div>
           {/* AutoType indicator */}
-          <div className="mt-3 flex items-center gap-2">
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-accent/10 border border-accent/20">
+          <div className="mt-4 flex items-center gap-3">
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-accent/10 border border-accent/20">
               <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
               <span className="text-[11px] font-mono text-accent">AutoTyping...</span>
             </div>
@@ -88,10 +88,10 @@ function MultitaskDemo() {
         </div>
       </div>
 
-      {/* Floating YouTube player - embedded */}
-      <div className="absolute -top-8 -right-10 w-[280px] rounded-lg border border-white/[0.1] bg-[#121215] shadow-2xl overflow-hidden z-10">
+      {/* Floating YouTube player - larger */}
+      <div className="absolute -top-10 -right-12 w-[320px] rounded-lg border border-white/[0.1] bg-[#121215] shadow-2xl overflow-hidden z-10">
         {/* Video header */}
-        <div className="flex items-center gap-1.5 px-2 py-1.5 bg-red-500/10 border-b border-white/[0.06]">
+        <div className="flex items-center gap-1.5 px-2.5 py-2 bg-red-500/10 border-b border-white/[0.06]">
           <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
           <span className="text-[9px] font-bold text-red-400 uppercase tracking-wider">Playing</span>
         </div>
@@ -109,12 +109,11 @@ function MultitaskDemo() {
           />
         </div>
         {/* Video info */}
-        <div className="px-2.5 py-2">
-          <p className="text-[10px] text-ink/80 font-medium truncate">Fight Night - Best Knockouts</p>
-          <p className="text-[9px] text-sub/40">🎮 Entertainment</p>
+        <div className="px-3 py-2">
+          <p className="text-[11px] text-ink/80 font-medium truncate">Fight Night - Best Knockouts</p>
+          <p className="text-[10px] text-sub/40">🎮 Entertainment</p>
         </div>
       </div>
-
     </div>
   );
 }
@@ -165,20 +164,30 @@ function AlphaHero() {
       <div className="absolute top-0 right-[10%] w-[600px] h-[600px] rounded-full opacity-20 pointer-events-none" style={{ background: "radial-gradient(circle, rgba(196,48,48,0.06) 0%, transparent 70%)", filter: "blur(100px)" }} />
       <div className="absolute bottom-0 left-[5%] w-[400px] h-[400px] rounded-full opacity-15 pointer-events-none" style={{ background: "radial-gradient(circle, rgba(196,48,48,0.04) 0%, transparent 70%)", filter: "blur(80px)" }} />
 
-      <div className="relative z-10 grid items-center gap-12 lg:grid-cols-[1fr_700px] lg:gap-8">
-        <div>
-          <div ref={badgeRef} className="mb-6 sm:mb-8 inline-flex items-center gap-2 rounded-full border border-border/50 bg-bg/80 px-4 py-2 sm:px-5 sm:py-2.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-accent backdrop-blur-sm" style={{ opacity: 0 }}>
-            <Sparkles size={13} className="text-accent" />
-            Play YouTube while AI writes your answer
+      <div className="relative z-10">
+        {/* Headline above demo */}
+        <div ref={badgeRef} className="mb-6 sm:mb-8 inline-flex items-center gap-2 rounded-full border border-border/50 bg-bg/80 px-4 py-2 sm:px-5 sm:py-2.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-accent backdrop-blur-sm" style={{ opacity: 0 }}>
+          <Sparkles size={13} className="text-accent" />
+          Play YouTube while AI writes your answer
+        </div>
+
+        {/* Demo - full width */}
+        <div className="mb-10 sm:mb-14">
+          <MultitaskDemo />
+        </div>
+
+        {/* Text and CTA below */}
+        <div className="grid items-start gap-8 lg:grid-cols-[1fr_auto] lg:gap-16">
+          <div>
+            <h1 ref={headingRef} className="mb-6 sm:mb-8 text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] font-bold leading-[1.05] tracking-tight">
+              {splitText("Cheat every exam.")}
+              <br />
+              <span className="text-ink/30">{splitText("They'll never know.")}</span>
+            </h1>
+            <p ref={subtitleRef} className="mb-8 sm:mb-10 max-w-[520px] text-[16px] sm:text-[18px] lg:text-[20px] leading-relaxed text-sub" style={{ opacity: 0 }}>
+              Invisible AI that bypasses HackerRank, Mercer Mettl, and Safe Exam Browser. Capture questions, get instant answers, AutoType solutions — completely undetected.
+            </p>
           </div>
-          <h1 ref={headingRef} className="mb-6 sm:mb-8 text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] font-bold leading-[1.05] tracking-tight">
-            {splitText("Cheat every exam.")}
-            <br />
-            <span className="text-ink/30">{splitText("They'll never know.")}</span>
-          </h1>
-          <p ref={subtitleRef} className="mb-8 sm:mb-10 max-w-[520px] text-[16px] sm:text-[18px] lg:text-[20px] leading-relaxed text-sub" style={{ opacity: 0 }}>
-            Invisible AI that bypasses HackerRank, Mercer Mettl, and Safe Exam Browser. Capture questions, get instant answers, AutoType solutions — completely undetected.
-          </p>
           <div ref={ctaRef} className="flex flex-wrap items-center gap-4 sm:gap-5">
             <a href={ALPHA_DOWNLOAD_URL} className="ghs-btn-primary inline-flex items-center gap-3 rounded-xl bg-accent px-7 py-3.5 sm:px-8 sm:py-4 text-[14px] sm:text-[16px] font-semibold text-white shadow-premium relative overflow-hidden transition-all duration-300 hover:scale-105" style={{ opacity: 0 }} data-cursor="magnetic">
               <Download size={18} strokeWidth={2.5} />
@@ -190,9 +199,6 @@ function AlphaHero() {
               <span className="text-[13px] text-sub">/month</span>
             </div>
           </div>
-        </div>
-        <div className="hidden lg:block">
-          <MultitaskDemo />
         </div>
       </div>
     </section>
@@ -460,7 +466,6 @@ export default function OzarkAlphaPage() {
   return (
     <>
       <AlphaHero />
-      <div className="lg:hidden px-6 pb-10"><MultitaskDemo /></div>
       <PlatformsDefeated />
       <Shortcuts />
       <Pricing />
