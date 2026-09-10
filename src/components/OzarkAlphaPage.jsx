@@ -331,7 +331,7 @@ function Shortcuts() {
   const shortcuts = [
     { keys: ["Ctrl", "Shift", "M"], action: "Mouse double-click (take screenshot)" },
     { keys: ["Alt", "T"], action: "Start auto-typing (pending file → overlay → last AI response)" },
-    { keys: ["Esc"], action: "Stop auto-typing immediately" },
+    { keys: ["Alt", "T", "Esc"], action: "Stop auto-typing immediately" },
     { keys: ["Alt", "H"], action: "Toggle overlay visibility (show/hide)" },
     { keys: ["Alt", "Z"], action: "Increase window size" },
     { keys: ["Alt", "C"], action: "Decrease window size" },
