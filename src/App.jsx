@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import AppShowcase from "./components/AppShowcase";
 import ProductCard from "./components/ProductCard";
+import OzarkAlphaBanner from "./components/OzarkAlphaBanner";
 import CursorMotion from "./components/CursorMotion";
 import SmoothScroll from "./components/SmoothScroll";
 import BackgroundMotion from "./components/BackgroundMotion";
@@ -25,6 +26,7 @@ function LandingPage() {
       <Hero />
       <AppShowcase />
       <ProductCard />
+      <OzarkAlphaBanner />
     </>
   );
 }
