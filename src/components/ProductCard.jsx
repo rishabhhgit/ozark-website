@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom";
-import { ShoppingCart, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { prefersReducedMotion } from "@/lib/motion";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -103,17 +103,9 @@ function ProductCardItem({ product, index }) {
 
           <div className="p-5 md:p-6 flex flex-col flex-1">
             <h3 className="text-lg font-bold text-white mb-2">{product.name}</h3>
-            <p className="text-sm text-white/50 mb-4 leading-relaxed flex-1 min-h-[60px]">{product.description}</p>
+            <p className="text-sm text-white/50 leading-relaxed flex-1 min-h-[60px]">{product.description}</p>
 
-            <div className="flex items-center justify-between pt-4 border-t border-white/5">
-              <div>
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-white/30 block mb-0.5">From</span>
-                <span className="text-xl font-bold text-white">{product.price}</span>
-              </div>
-              <button className="flex items-center justify-center w-10 h-10 rounded-full bg-purple-600 hover:bg-purple-500 transition-colors shadow-lg shadow-purple-600/30">
-                <ShoppingCart size={16} className="text-white" />
-              </button>
-            </div>
+
           </div>
         </div>
       </div>
@@ -125,11 +117,34 @@ export default function ProductCard() {
   const sectionRef = useRef(null);
 
   return (
-    <section ref={sectionRef} className="relative mx-auto w-full px-6 sm:px-10 overflow-hidden min-h-screen flex items-center justify-center">
-      <div className="mx-auto max-w-[1400px] w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-        {PRODUCTS.map((product, idx) => (
-          <ProductCardItem key={product.id} product={product} index={idx} />
-        ))}
+    <section ref={sectionRef} className="relative mx-auto w-full px-6 sm:px-10 overflow-hidden py-20 sm:py-28">
+      <div className="relative max-w-[1200px] mx-auto rounded-3xl border border-white/[0.08] bg-gradient-to-br from-[#0f0f1a] via-[#12121f] to-[#0a0a14] overflow-hidden shadow-2xl p-8 sm:p-12 lg:p-16">
+        {/* Top gradient accent */}
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-purple-500/60 to-transparent" />
+
+        {/* Header */}
+        <div className="text-center mb-10 sm:mb-14">
+          <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-1.5 mb-6">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-purple-300">Premium Bundle</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+            Presenting Ozark <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">Alpha</span>
+          </h2>
+          <p className="text-base sm:text-lg text-white/50 max-w-[600px] mx-auto leading-relaxed mb-6">
+            The ultimate exam bypass toolkit. One subscription unlocks stealth access to all supported secure browsers.
+          </p>
+          <div className="inline-flex items-baseline gap-2">
+            <span className="text-sm font-medium text-white/40">Starting from</span>
+            <span className="text-2xl sm:text-3xl font-bold text-white">₹1999</span>
+          </div>
+        </div>
+
+        {/* Product cards grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+          {PRODUCTS.map((product, idx) => (
+            <ProductCardItem key={product.id} product={product} index={idx} />
+          ))}
+        </div>
       </div>
     </section>
   );
