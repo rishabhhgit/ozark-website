@@ -235,7 +235,7 @@ function Pricing() {
         <div ref={cardRef} className="relative rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm p-8 text-center shadow-2xl" style={{ opacity: 0 }}>
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
           <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block mb-2">Ozark Alpha</span>
-          <h3 className="text-3xl font-bold text-ink mb-2">₹1999/mo. No excuses left.</h3>
+          <h3 className="text-3xl font-bold text-ink mb-2">Cheat your way through</h3>
           <div className="flex items-center justify-center gap-1 mb-4">
             <IndianRupee size={28} className="text-accent" />
             <span className="text-5xl font-bold text-ink">1999</span>
