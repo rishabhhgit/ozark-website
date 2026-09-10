@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AppWindow from "./AppWindow";
+import OzarkBox from "./OzarkBox";
 import { prefersReducedMotion } from "@/lib/motion";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -75,6 +76,8 @@ export default function AppShowcase() {
           <circle cx="69" cy="51" r="2" fill="#8a3030"/>
         </svg>
       </div>
+
+      <OzarkBox />
 
       <div ref={headingRef} className="mb-16 md:mb-24 text-center">
         <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block" style={{ opacity: 0 }}>Interactive Demo</span>
