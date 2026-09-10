@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, AnimatePresence } from "framer-motion";
 import { Download, Shield, Cpu, Monitor, Eye, Zap, Globe, Key, ArrowRight, CheckCircle, Server, Camera, Send, Keyboard, Settings, Copy, Sparkles, IndianRupee } from "lucide-react";
-import { prefersReducedMotion, createRipple } from "@/lib/motion";
+import { prefersReducedMotion } from "@/lib/motion";
 import { DOWNLOAD_URL } from "@/lib/config";
 import { FOOTER_LINKS } from "@/lib/data";
 
@@ -386,38 +386,6 @@ function Pricing() {
   );
 }
 
-// ── CTA Section ──
-function ClosingCTA() {
-  const sectionRef = useRef(null);
-  const cardRef = useRef(null);
-  const btnRef = useRef(null);
-
-  useEffect(() => {
-    if (prefersReducedMotion()) return;
-    const ctx = gsap.context(() => {
-      gsap.fromTo(cardRef.current, { opacity: 0, y: 60, rotateX: 8, scale: 0.94 }, { opacity: 1, y: 0, rotateX: 0, scale: 1, duration: 1.1, ease: "power3.out", scrollTrigger: { trigger: cardRef.current, start: "top 88%", toggleActions: "play none none none" } });
-    }, sectionRef);
-    return () => ctx.revert();
-  }, []);
-
-  const handleBtnClick = (e) => createRipple(e, btnRef.current);
-
-  return (
-    <section ref={sectionRef} className="relative mx-auto max-w-[1200px] px-6 sm:px-10 pb-16 pt-10 overflow-hidden">
-      <div ref={cardRef} className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.03] px-8 py-10 text-center shadow-2xl sm:px-12 sm:py-14 md:py-16" style={{ opacity: 0 }}>
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
-        <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent">Ready to start?</span>
-        <h2 className="mt-4 mb-4 text-3xl font-bold tracking-tight text-ink sm:text-4xl md:text-5xl">Get Ozark Alpha now</h2>
-        <p className="mx-auto mb-8 max-w-[55ch] text-[16px] sm:text-[18px] leading-relaxed text-sub">Monthly subscription. Cancel anytime. Works with HackerRank, Mercer Mettl, and SEB.</p>
-        <a ref={btnRef} href={ALPHA_DOWNLOAD_URL} onClick={handleBtnClick} className="ghs-btn-primary inline-flex items-center gap-3 rounded-xl bg-accent px-8 py-4 text-[15px] sm:text-[17px] font-semibold text-white shadow-premium relative overflow-hidden transition-all duration-300 hover:scale-105" data-cursor="magnetic" data-cursor-text="Download">
-          <Download size={18} strokeWidth={2.5} />
-          Get Ozark Alpha — ₹1999/mo
-        </a>
-      </div>
-    </section>
-  );
-}
-
 // ── Footer ──
 function AlphaFooter() {
   const footerRef = useRef(null);
@@ -474,7 +442,6 @@ export default function OzarkAlphaPage() {
       <KeyFeatures />
       <InteractiveDemo />
       <Pricing />
-      <ClosingCTA />
       <AlphaFooter />
     </>
   );
