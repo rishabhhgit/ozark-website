@@ -5,12 +5,8 @@
       <stop offset="100%" style="stop-color:#15803d"/>
     </linearGradient>
   </defs>
-  <!-- Outer circle -->
-  <circle cx="100" cy="85" r="65" fill="none" stroke="url(#hrGrad)" stroke-width="6"/>
-  <!-- Inner shield -->
-  <path d="M100 30 L140 55 L140 100 L100 125 L60 100 L60 55 Z" fill="url(#hrGrad)" opacity="0.9"/>
   <!-- H letter -->
-  <text x="100" y="92" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="48" fill="white">H</text>
-  <!-- Text -->
-  <text x="100" y="178" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="white" opacity="0.9">HackerRank</text>
+  <text x="70" y="110" font-family="Arial, sans-serif" font-weight="bold" font-size="100" fill="white">H</text>
+  <!-- Green square -->
+  <rect x="120" y="60" width="40" height="40" rx="4" fill="url(#hrGrad)"/>
 </svg>
