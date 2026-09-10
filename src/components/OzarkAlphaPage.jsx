@@ -137,12 +137,12 @@ function AlphaHero() {
             Presenting Ozark Alpha
           </div>
           <h1 ref={headingRef} className="mb-6 sm:mb-8 text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] font-bold leading-[1.05] tracking-tight">
-            {splitText("AI that bypasses")}
+            {splitText("Cheat every exam.")}
             <br />
-            <span className="text-ink/30">{splitText("your online exams.")}</span>
+            <span className="text-ink/30">{splitText("They'll never know.")}</span>
           </h1>
           <p ref={subtitleRef} className="mb-8 sm:mb-10 max-w-[520px] text-[16px] sm:text-[18px] lg:text-[20px] leading-relaxed text-sub" style={{ opacity: 0 }}>
-            Invisible overlay, instant AI solving, and auto-typing — built for HackerRank, Mercer Mettl, and Safe Exam Browser.
+            Invisible AI that bypasses HackerRank, Mercer Mettl, and Safe Exam Browser. Capture questions, get instant answers, AutoType solutions — completely undetected.
           </p>
           <div ref={ctaRef} className="flex flex-wrap items-center gap-4 sm:gap-5">
             <a href={ALPHA_DOWNLOAD_URL} className="ghs-btn-primary inline-flex items-center gap-3 rounded-xl bg-accent px-7 py-3.5 sm:px-8 sm:py-4 text-[14px] sm:text-[16px] font-semibold text-white shadow-premium relative overflow-hidden transition-all duration-300 hover:scale-105" style={{ opacity: 0 }} data-cursor="magnetic">
@@ -181,7 +181,7 @@ function PlatformsDefeated() {
       const items = gridRef.current?.querySelectorAll(".platform-card");
       if (items) {
         items.forEach((item, i) => {
-          gsap.fromTo(item, { opacity: 0, scale: 0.85, rotateZ: -3 }, { opacity: 1, scale: 1, rotateZ: 0, duration: 0.7, delay: i * 0.15, ease: "back.out(1.7)", scrollTrigger: { trigger: item, start: "top 88%", toggleActions: "play none none none" } });
+          gsap.fromTo(item, { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.6, delay: i * 0.12, ease: "power3.out", scrollTrigger: { trigger: item, start: "top 88%", toggleActions: "play none none none" } });
         });
       }
     }, sectionRef);
@@ -189,56 +189,23 @@ function PlatformsDefeated() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-6 md:py-10 overflow-hidden">
-      <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-        <div className="text-center mb-6">
+    <section ref={sectionRef} className="relative py-8 md:py-12 overflow-hidden">
+      <div className="mx-auto max-w-[1000px] px-6 md:px-10">
+        <div className="text-center mb-8">
           <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block mb-2">Platforms</span>
-          <h2 className="text-3xl font-bold tracking-tight text-ink md:text-4xl lg:text-5xl">Beats them all</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-ink md:text-4xl">Beats them all</h2>
         </div>
-        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {platforms.map((p) => (
-            <div key={p.name} className="platform-card relative rounded-2xl overflow-hidden group cursor-pointer border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm transition-all duration-500 hover:border-red-500/30 hover:shadow-2xl hover:shadow-red-500/20 hover:scale-[1.02]" style={{ opacity: 0 }}>
-              {/* Image container */}
-              <div className="relative aspect-[4/3] overflow-hidden bg-[#0a0a0c]">
-                {/* Platform image - grayscale and dimmed */}
-                <img 
-                  src={p.image} 
-                  alt={p.name} 
-                  className="absolute inset-0 w-full h-full object-contain p-8 grayscale opacity-40 group-hover:opacity-60 transition-all duration-500 scale-110"
-                />
-                {/* Dark gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30" />
-                {/* Red cracked overlay effect */}
-                <div className="absolute inset-0 bg-red-900/20 mix-blend-multiply" />
-                {/* Animated scratch lines */}
-                <div className="absolute inset-0 opacity-30">
-                  <div className="absolute top-[20%] left-[10%] w-[80%] h-[2px] bg-gradient-to-r from-transparent via-red-500/50 to-transparent rotate-[-15deg]" />
-                  <div className="absolute top-[60%] left-[5%] w-[90%] h-[1px] bg-gradient-to-r from-transparent via-red-500/30 to-transparent rotate-[8deg]" />
-                </div>
-                {/* DEFEATED stamp */}
-                <div className="absolute top-6 left-1/2 -translate-x-1/2 z-20">
-                  <div className="relative">
-                    <div className="px-5 py-2 border-[3px] border-red-500 rounded-lg bg-black/40 backdrop-blur-sm -rotate-[12deg] shadow-[0_0_20px_rgba(239,68,68,0.3)]">
-                      <span className="text-xl md:text-2xl font-black text-red-500 uppercase tracking-[0.2em] drop-shadow-[0_0_10px_rgba(239,68,68,0.5)]">DEFEATED</span>
-                    </div>
-                    {/* Stamp shadow */}
-                    <div className="absolute inset-0 px-5 py-2 border-[3px] border-red-500/20 rounded-lg -rotate-[12deg] translate-x-1 translate-y-1" />
-                  </div>
-                </div>
-                {/* Big X */}
-                <div className="absolute top-4 right-4 z-20">
-                  <span className="text-5xl md:text-6xl font-black text-red-500/90 leading-none select-none drop-shadow-[0_0_15px_rgba(239,68,68,0.6)]">X</span>
-                </div>
-                {/* Bottom text overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black via-black/95 to-transparent z-10">
-                  <h3 className="text-xl font-bold text-ink mb-1">{p.name}</h3>
-                </div>
-              </div>
+            <div key={p.name} className="platform-card rounded-xl border border-white/[0.08] bg-white/[0.03] p-6 flex flex-col items-center gap-4 transition-all duration-300 hover:border-red-500/20" style={{ opacity: 0 }}>
+              <img src={p.image} alt={p.name} className="h-14 w-auto object-contain opacity-70 grayscale" />
+              <span className="px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-[11px] font-bold text-red-400 uppercase tracking-wider">Defeated</span>
+              <h3 className="text-lg font-semibold text-ink">{p.name}</h3>
             </div>
           ))}
         </div>
         <div className="mt-6 text-center">
-          <p className="text-[15px] text-sub">
+          <p className="text-[14px] text-sub">
             <span className="text-accent font-semibold">17 hotkeys.</span>{" "}
             <span className="text-ink font-semibold">0 detections.</span>{" "}
             <span className="text-sub">Every exam. Guaranteed.</span>
