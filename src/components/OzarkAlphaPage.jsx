@@ -170,9 +170,9 @@ function PlatformsDefeated() {
   const gridRef = useRef(null);
 
   const platforms = [
-    { name: "HackerRank", image: "/hackerrank.svg", tagline: "0.24s. That's all it took." },
-    { name: "Mercer Mettl", image: "/mercel-mettl.png", tagline: "Saw nothing. Recorded nothing." },
-    { name: "Safe Exam Browser", image: "/seb.webp", tagline: "Locked down? Not us." },
+    { name: "HackerRank", image: "/hackerrank.svg" },
+    { name: "Mercer Mettl", image: "/mercel-mettl.png" },
+    { name: "Safe Exam Browser", image: "/seb.webp" },
   ];
 
   useEffect(() => {
@@ -232,7 +232,6 @@ function PlatformsDefeated() {
                 {/* Bottom text overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black via-black/95 to-transparent z-10">
                   <h3 className="text-xl font-bold text-ink mb-1">{p.name}</h3>
-                  <p className="text-[13px] text-sub/80">{p.tagline}</p>
                 </div>
               </div>
             </div>
