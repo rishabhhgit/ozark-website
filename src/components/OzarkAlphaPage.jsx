@@ -13,15 +13,12 @@ gsap.registerPlugin(ScrollTrigger);
 const ALPHA_DOWNLOAD_URL = "#"; // TODO: Update with real Ozark Alpha download link
 
 const ALPHA_FEATURES = [
-  { eyebrow: "DYNAMIC ISLAND", title: "Floating AI that stays out of your way", body: "A compact, always-on-top bar that hovers over any application. Type a question, get an answer, and never lose context. Works silently over HackerRank, Mercer Mettl, and SEB.", kind: "island", reverse: false },
-  { eyebrow: "STEALTH OVERLAY", title: "Invisible to screen sharing", body: "A tiny, cursor-following text layer powered by Windows GDI that is completely hidden from screen-sharing software and proctoring tools. Ask questions during your assessment without anyone knowing.", kind: "stealth", reverse: true },
-  { eyebrow: "SCREENSHOT ANALYSIS", title: "Capture, ask, solve", body: "Press Ctrl+Shift+Space to capture your screen. The AI sees exactly what you see — coding problems, diagrams, system designs. Ask it to solve, explain, or optimize anything in the screenshot.", kind: "screenshot", reverse: false },
-  { eyebrow: "AUTOTYPE", title: "Let the AI type for you", body: "AutoType simulates human typing with random delays directly into any text field. Press F9 to start, F10 to stop. Perfect for HackerRank and Mettl coding challenges.", kind: "autotype", reverse: true },
-  { eyebrow: "CODE MODE", title: "Optimized for competitive programming", body: "Specialized prompts detect your coding platform, identify algorithmic patterns (DP, greedy, graph), state optimal complexity, and produce clean, well-commented code with self-checks for edge cases.", kind: "code", reverse: false },
-  { eyebrow: "MULTI-MODEL INTELLIGENCE", title: "The best models, one shortcut away", body: "Switch instantly between OpenAI, Claude, Gemini, DeepSeek, Groq, Mistral, Ollama, or OpenRouter. Use the optimal model for algorithmic puzzles, system design, or behavioral strategies.", kind: "providers", reverse: true },
-  { eyebrow: "DISGUISE MODE", title: "Hide in plain sight", body: "Press Ctrl+Shift+U to instantly morph Ozark Alpha into a realistic Windows Update screen. One hotkey transforms your AI assistant into something nobody questions.", kind: "disguise", reverse: false },
-  { eyebrow: "CUSTOM SYSTEM PROMPT", title: "Define your ideal assistant", body: "Permanently add your own instructions to every AI request. 'Always answer in bullet points', 'Use TypeScript', 'Explain like I'm 5' — saved automatically, persists after restart.", kind: "prompt", reverse: true },
-  { eyebrow: "ZERO TELEMETRY", title: "Absolute privacy by design", body: "No accounts, no cloud sync, and no tracking. API keys are encrypted locally and communicate directly with providers. Your prep work stays strictly on your machine.", kind: "privacy", reverse: false },
+  { eyebrow: "INVISIBLE OVERLAY", title: "They can't see it. You see everything.", body: "A cursor-following text layer powered by Windows GDI — completely invisible to screen capture, screen sharing, and proctoring tools. You see the answers. They see nothing.", kind: "stealth", reverse: false },
+  { eyebrow: "SCREENSHOT SOLVER", title: "One hotkey. Instant answer.", body: "Press Ctrl+Shift+Space. The AI sees exactly what you see — coding problems, diagrams, MCQs. It solves them in 0.24s. You AutoType the answer. Done.", kind: "screenshot", reverse: true },
+  { eyebrow: "AUTOTYPE ENGINE", title: "Let the AI do the typing.", body: "Human-like keystrokes with random delays. No one can tell the difference. F9 to start, F10 to stop. Works in HackerRank, Mettl, and SEB editors.", kind: "autotype", reverse: false },
+  { eyebrow: "DISGUISE MODE", title: "One hotkey. You're invisible.", body: "Press Ctrl+Shift+U and Ozark Alpha morphs into a Windows Update screen. Your proctor sees nothing suspicious. You keep solving.", kind: "disguise", reverse: true },
+  { eyebrow: "MULTI-MODEL AI", title: "8 providers. One shortcut.", body: "GPT-4o for complex DSA. Claude for system design. Gemini for speed. Switch mid-assessment with Alt+X. Use the best model for each question.", kind: "providers", reverse: false },
+  { eyebrow: "CODE MODE", title: "Built for competitive programming.", body: "Detects LeetCode, HackerRank, Codeforces. Identifies DP, greedy, graph patterns. Outputs clean code with correct function signatures and edge case checks.", kind: "code", reverse: true },
 ];
 
 // ── Chat Demo Component ──
@@ -150,12 +147,12 @@ function AlphaHero() {
             Presenting Ozark Alpha
           </div>
           <h1 ref={headingRef} className="mb-6 sm:mb-8 text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] font-bold leading-[1.05] tracking-tight">
-            {splitText("The invisible AI bypass")}
+            {splitText("Cheat every exam.")}
             <br />
-            <span className="text-ink/30">{splitText("for online assessments.")}</span>
+            <span className="text-ink/30">{splitText("They'll never know.")}</span>
           </h1>
           <p ref={subtitleRef} className="mb-8 sm:mb-10 max-w-[520px] text-[16px] sm:text-[18px] lg:text-[20px] leading-relaxed text-sub" style={{ opacity: 0 }}>
-            Ozark Alpha sits discreetly beside your screen. Switch models instantly, stream coding solutions, and AutoType answers — completely invisible to HackerRank, Mercer Mettl, and SEB proctoring.
+            Invisible AI that bypasses HackerRank, Mercer Mettl, and Safe Exam Browser. Capture questions, get instant answers, AutoType solutions — completely undetected.
           </p>
           <div ref={ctaRef} className="flex flex-wrap items-center gap-4 sm:gap-5">
             <a href={ALPHA_DOWNLOAD_URL} className="ghs-btn-primary inline-flex items-center gap-3 rounded-xl bg-accent px-7 py-3.5 sm:px-8 sm:py-4 text-[14px] sm:text-[16px] font-semibold text-white shadow-premium relative overflow-hidden transition-all duration-300 hover:scale-105" style={{ opacity: 0 }} data-cursor="magnetic">
@@ -184,12 +181,12 @@ function FeatureGrid() {
   const gridRef = useRef(null);
 
   const cards = [
-    { icon: Eye, title: "Invisible Overlay", description: "Hidden from screen-capture, proctoring software, and browser lockdowns. Use it without detection on HackerRank, Mettl, and SEB." },
-    { icon: Cpu, title: "Multi-Model AI Support", description: "Connect to OpenAI, Anthropic, Gemini, Mistral, Groq, or local Ollama models. Switch instantly during your assessment." },
-    { icon: Keyboard, title: "Hotkey-Driven Workflow", description: "Control everything with intuitive hotkeys — capture screenshots, send prompts, toggle overlay, AutoType answers." },
-    { icon: Camera, title: "Screenshot Analysis", description: "One hotkey captures the assessment question and sends it to AI. Perfect for coding problems and system design diagrams." },
-    { icon: Send, title: "Auto-Typing", description: "AI answers are typed directly into the assessment — no copy-paste needed. Human-like typing that evades detection." },
-    { icon: Shield, title: "Privacy First", description: "No server-side storage. All AI requests go directly from your machine to your chosen provider. Your data stays yours." },
+    { icon: Eye, title: "Zero Detection", description: "Hidden from screen capture, proctoring software, and browser lockdowns. HackerRank, Mettl, SEB — none of them see it." },
+    { icon: Cpu, title: "8 AI Providers", description: "GPT-4o, Claude, Gemini, DeepSeek, Groq, Mistral, Ollama, OpenRouter. Switch mid-assessment with one shortcut." },
+    { icon: Keyboard, title: "17 Hotkeys", description: "Capture screenshots, send prompts, toggle overlay, AutoType answers — all without touching the mouse." },
+    { icon: Camera, title: "Screenshot → Answer", description: "One hotkey captures the question. AI solves it in 0.24s. AutoType the answer. Done." },
+    { icon: Send, title: "Human-Like Typing", description: "Random delays, natural keystrokes. No proctoring tool can tell the difference between you and the AI." },
+    { icon: Shield, title: "Your Data, Your Machine", description: "No cloud. No accounts. No telemetry. API keys encrypted locally. Everything stays on your PC." },
   ];
 
   useEffect(() => {
@@ -217,9 +214,9 @@ function FeatureGrid() {
     <section ref={sectionRef} id="features" className="relative mx-auto max-w-[1400px] px-6 sm:px-10 py-8 md:py-10 overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-20 pointer-events-none" style={{ background: "radial-gradient(circle, rgba(196,48,48,0.06) 0%, transparent 70%)", filter: "blur(80px)" }} />
       <div ref={headerRef} className="mb-6 md:mb-5 text-center">
-        <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block" style={{ opacity: 0 }}>Explore Ozark Alpha Features</span>
-        <h2 className="mt-2 text-4xl font-bold tracking-tight text-ink md:text-5xl lg:text-6xl" style={{ opacity: 0 }}>Everything you need to bypass</h2>
-        <p className="mx-auto mt-3 max-w-[60ch] text-[16px] sm:text-[18px] leading-relaxed text-sub" style={{ opacity: 0 }}>Stealth overlay, instant AI solving, and auto-typing — all in one tool for HackerRank, Mercer Mettl, and SEB.</p>
+        <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block" style={{ opacity: 0 }}>Why Ozark Alpha</span>
+        <h2 className="mt-2 text-4xl font-bold tracking-tight text-ink md:text-5xl lg:text-6xl" style={{ opacity: 0 }}>Built to beat proctoring</h2>
+        <p className="mx-auto mt-3 max-w-[60ch] text-[16px] sm:text-[18px] leading-relaxed text-sub" style={{ opacity: 0 }}>Every feature designed for one thing: getting answers without getting caught.</p>
         <div className="halloween-divider mx-auto mt-5 w-[100px]" style={{ transformOrigin: "center" }} />
       </div>
       <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -246,10 +243,10 @@ function UseCases() {
   const gridRef = useRef(null);
 
   const cases = [
-    { title: "HackerRank Bypass", description: "Get instant help with algorithms, data structures, and syntax. AutoType answers directly into the HackerRank editor.", icon: Zap },
-    { title: "Mercer Mettl Bypass", description: "Hidden from Mettl's screen recording, browser lockdown, and webcam monitoring. Full stealth overlay.", icon: Shield },
-    { title: "Safe Exam Browser", description: "Runs outside SEB's lockdown scope. Invisible to its proctoring and tab-switch detection.", icon: Eye },
-    { title: "Any Assessment", description: "Works with any online assessment platform — LeetCode, Codeforces, custom portals, and more.", icon: Globe },
+    { title: "HackerRank", description: "DSA, MCQs, debugging — solved in 0.24s. AutoType directly into the editor. Proctor sees nothing.", icon: Zap },
+    { title: "Mercer Mettl", description: "Bypasses screen recording, browser lockdown, and webcam monitoring. Full stealth. Full marks.", icon: Shield },
+    { title: "Safe Exam Browser", description: "Runs outside SEB's lockdown. Invisible to tab-switch detection and proctoring. Complete freedom.", icon: Eye },
+    { title: "Any Platform", description: "LeetCode, Codeforces, Codility, custom portals — if it's in a browser, Ozark Alpha beats it.", icon: Globe },
   ];
 
   useEffect(() => {
@@ -269,8 +266,8 @@ function UseCases() {
     <section ref={sectionRef} className="relative py-6 md:py-8 overflow-hidden">
       <div className="mx-auto max-w-[1200px] px-6 md:px-10">
         <div className="text-center mb-6">
-          <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block mb-3">Use Cases</span>
-          <h2 className="text-3xl font-bold tracking-tight text-ink md:text-4xl">How Engineers Use Ozark Alpha</h2>
+          <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block mb-3">Platforms</span>
+          <h2 className="text-3xl font-bold tracking-tight text-ink md:text-4xl">Beats them all</h2>
         </div>
         <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {cases.map((c) => {
@@ -297,10 +294,10 @@ function HowItWorks() {
   const stepsRef = useRef(null);
 
   const steps = [
-    { step: "01", title: "Download & Install", body: "Single executable, no installation wizard. Double-click to run. Works on Windows 10/11 with .NET 6+ runtime.", icon: Download, details: "self-contained single executable file (180 MB)" },
-    { step: "02", title: "Add Your API Keys", body: "Enter keys for OpenAI, Anthropic, Gemini, or any supported provider. Keys are stored locally and never leave your machine.", icon: Key },
-    { step: "03", title: "Start Your Assessment", body: "Open HackerRank, Mettl, or SEB. Ozark Alpha runs invisibly in the background. Press Ctrl+Shift+Space to capture questions.", icon: Monitor, details: "Ctrl+Enter to send, or use AutoType with F9" },
-    { step: "04", title: "Stay Invisible", body: "Enable Stealth Mode or Disguise Mode. The AI stays hidden from screen capture, screen sharing, and proctoring software.", icon: Shield },
+    { step: "01", title: "Download", body: "Single file. Double-click to run. No installer, no accounts, no cloud. Works on Windows 10/11.", icon: Download, details: "180 MB self-contained executable" },
+    { step: "02", title: "Add API Keys", body: "Paste your OpenAI, Claude, or Gemini key. Stored locally. Never leaves your machine.", icon: Key },
+    { step: "03", title: "Open Your Exam", body: "Launch HackerRank, Mettl, or SEB. Ozark Alpha runs invisible in the background. Ready when you are.", icon: Monitor, details: "Alt+I to start typing into overlay" },
+    { step: "04", title: "Get Answers", body: "Capture the question. AI solves it. AutoType the answer. Your proctor sees nothing.", icon: Shield },
   ];
 
   useEffect(() => {
@@ -320,9 +317,9 @@ function HowItWorks() {
     <section ref={sectionRef} id="how-it-works" className="relative py-6 md:py-8 overflow-hidden">
       <div className="mx-auto max-w-[1200px] px-6 md:px-10">
         <div className="text-center mb-10 md:mb-14">
-          <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block mb-3">Simple Setup</span>
-          <h2 className="text-4xl font-bold tracking-tight text-ink md:text-5xl lg:text-6xl">Up and running in 60 seconds</h2>
-          <p className="mx-auto mt-4 max-w-[50ch] text-[16px] sm:text-[18px] leading-relaxed text-sub">No accounts, no installation wizards, no cloud sync. Just download, add your keys, and start asking.</p>
+          <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block mb-3">Setup</span>
+          <h2 className="text-4xl font-bold tracking-tight text-ink md:text-5xl lg:text-6xl">Ready in 60 seconds</h2>
+          <p className="mx-auto mt-4 max-w-[50ch] text-[16px] sm:text-[18px] leading-relaxed text-sub">Download. Add keys. Start your exam. That's it.</p>
         </div>
         <div ref={stepsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {steps.map((s) => {
@@ -372,9 +369,9 @@ function FeatureShowcase() {
   return (
     <section ref={sectionRef} className="relative mx-auto max-w-[1400px] px-6 sm:px-10 py-8 md:py-10 overflow-hidden">
       <div ref={headerRef} className="mb-6 md:mb-5 text-center">
-        <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block" style={{ opacity: 0 }}>Feature Deep Dive</span>
-        <h2 className="mt-2 text-4xl font-bold tracking-tight text-ink md:text-5xl lg:text-6xl" style={{ opacity: 0 }}>Smart Features</h2>
-        <p className="mx-auto mt-3 max-w-[60ch] text-[16px] sm:text-[18px] leading-relaxed text-sub" style={{ opacity: 0 }}>Powerful features wrapped in a clean, distraction-free interface.</p>
+        <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block" style={{ opacity: 0 }}>Deep Dive</span>
+        <h2 className="mt-2 text-4xl font-bold tracking-tight text-ink md:text-5xl lg:text-6xl" style={{ opacity: 0 }}>How it works</h2>
+        <p className="mx-auto mt-3 max-w-[60ch] text-[16px] sm:text-[18px] leading-relaxed text-sub" style={{ opacity: 0 }}>The technology behind undetectable AI assistance.</p>
         <div className="halloween-divider mx-auto mt-5 w-[100px]" style={{ transformOrigin: "center" }} />
       </div>
       <div>
@@ -407,13 +404,13 @@ function Pricing() {
         <div ref={cardRef} className="relative rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm p-8 text-center shadow-2xl" style={{ opacity: 0 }}>
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
           <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block mb-2">Ozark Alpha</span>
-          <h3 className="text-3xl font-bold text-ink mb-2">Monthly subscription</h3>
+          <h3 className="text-3xl font-bold text-ink mb-2">Pass every exam. Guaranteed.</h3>
           <div className="flex items-center justify-center gap-1 mb-4">
             <IndianRupee size={28} className="text-accent" />
             <span className="text-5xl font-bold text-ink">1999</span>
             <span className="text-lg text-sub">/month</span>
           </div>
-          <p className="text-[14px] text-sub mb-6">Cancel anytime. Access all platforms.</p>
+          <p className="text-[14px] text-sub mb-6">One subscription. All platforms. Unlimited answers.</p>
           <ul className="space-y-3 mb-8 text-left max-w-[320px] mx-auto">
             {["HackerRank bypass", "Mercer Mettl bypass", "Safe Exam Browser bypass", "All future platforms", "Priority support"].map((item) => (
               <li key={item} className="flex items-center gap-2 text-[14px] text-sub">
@@ -424,7 +421,7 @@ function Pricing() {
           </ul>
           <a href={ALPHA_DOWNLOAD_URL} className="ghs-btn-primary inline-flex items-center gap-3 rounded-xl bg-accent px-8 py-4 text-[16px] font-semibold text-white shadow-premium relative overflow-hidden transition-all duration-300 hover:scale-105 w-full justify-center" data-cursor="magnetic">
             <Download size={18} strokeWidth={2.5} />
-            Get Ozark Alpha
+            Start Cheating Now
           </a>
         </div>
       </div>
@@ -525,13 +522,13 @@ function Shortcuts() {
       <div className="mx-auto max-w-[800px] px-6 md:px-10">
         <div className="text-center mb-12">
           <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block mb-3">
-            Keyboard Shortcuts
+            Hotkeys
           </span>
           <h2 className="text-3xl font-bold tracking-tight text-ink md:text-4xl">
-            Control everything from anywhere
+            Control everything. Touch nothing.
           </h2>
           <p className="mx-auto mt-4 max-w-[45ch] text-[15px] leading-relaxed text-sub">
-            Global hotkeys work even when Ozark Alpha is in the background. No need to switch windows.
+            17 shortcuts. All global. All invisible to proctoring software.
           </p>
         </div>
 
