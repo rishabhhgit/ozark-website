@@ -155,7 +155,7 @@ export default function Hero() {
       </div>
 
         {/* Giant watching eyes — track the cursor across the whole viewport */}
-        <div className="hidden md:block absolute top-[2%] right-[-2%] w-[560px] lg:w-[680px] opacity-[0.5] pointer-events-none">
+        <div className="absolute top-[2%] right-[-2%] w-[300px] sm:w-[400px] md:w-[560px] lg:w-[680px] opacity-[0.5] pointer-events-none">
           <EyePair size={680} gap={0.1} trackCursor blink blinkMin={4000} blinkMax={9000} />
         </div>
 
@@ -168,7 +168,7 @@ export default function Hero() {
             Built for Online Assessment and Interview
           </div>
 
-          <h1 ref={headingRef} className="mb-6 sm:mb-8 text-[40px] sm:text-[52px] lg:text-[68px] font-bold leading-[1.05] tracking-tight">
+          <h1 ref={headingRef} className="mb-6 sm:mb-8 text-[32px] sm:text-[40px] md:text-[52px] lg:text-[68px] font-bold leading-[1.05] tracking-tight">
               {splitText("Ace every online assessment and interview.")}
             <br />
             <span className="text-ink/30">
@@ -211,7 +211,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div ref={appWindowRef} className="relative max-w-[880px] sm:max-w-[1000px] justify-self-center w-full min-w-0 order-1 lg:order-2 app-window-container" style={{ opacity: 0, transformStyle: "preserve-3d" }}>
+        <div ref={appWindowRef} className="relative max-w-[320px] sm:max-w-[480px] md:max-w-[600px] lg:max-w-[880px] xl:max-w-[1000px] justify-self-center w-full min-w-0 order-1 lg:order-2 app-window-container" style={{ opacity: 0, transformStyle: "preserve-3d" }}>
           <div className="absolute inset-0 bg-accent/5 rounded-2xl filter blur-2xl" />
           <AppWindow />
         </div>
