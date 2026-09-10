@@ -28,6 +28,16 @@ const PRODUCTS = [
     bgGradient: "from-[#1a1a2e] via-[#1e293b] to-[#0f172a]",
     image: "/mercel-mettl.png",
   },
+  {
+    id: 3,
+    name: "HackerRank Bypass",
+    tag: "HRB",
+    badge: "Flashkick",
+    description: "Bypass HackerRank proctoring and detect restrictions with advanced stealth technology.",
+    price: "₹1999",
+    bgGradient: "from-[#1a1a2e] via-[#1c2333] to-[#0d1b2a]",
+    image: "/hackerrank.png",
+  },
 ];
 
 function ProductCardItem({ product, index }) {
@@ -116,7 +126,7 @@ export default function ProductCard() {
 
   return (
     <section ref={sectionRef} className="relative mx-auto w-full px-6 sm:px-10 overflow-hidden min-h-screen flex items-center justify-center">
-      <div className="mx-auto max-w-[1100px] w-full grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+      <div className="mx-auto max-w-[1400px] w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
         {PRODUCTS.map((product, idx) => (
           <ProductCardItem key={product.id} product={product} index={idx} />
         ))}
