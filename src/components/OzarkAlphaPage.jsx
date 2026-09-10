@@ -153,7 +153,7 @@ function AlphaHero() {
             <div className="flex items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-5 py-3.5" style={{ opacity: 0 }}>
               <IndianRupee size={16} className="text-accent" />
               <span className="text-[16px] font-bold text-ink">1999</span>
-              <span className="text-[13px] text-sub">one-time</span>
+              <span className="text-[13px] text-sub">/month</span>
             </div>
           </div>
         </div>
@@ -413,14 +413,15 @@ function Pricing() {
         <div ref={cardRef} className="relative rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm p-8 text-center shadow-2xl" style={{ opacity: 0 }}>
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
           <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block mb-2">Ozark Alpha</span>
-          <h3 className="text-3xl font-bold text-ink mb-2">One-time purchase</h3>
+          <h3 className="text-3xl font-bold text-ink mb-2">Monthly subscription</h3>
           <div className="flex items-center justify-center gap-1 mb-4">
             <IndianRupee size={28} className="text-accent" />
             <span className="text-5xl font-bold text-ink">1999</span>
+            <span className="text-lg text-sub">/month</span>
           </div>
-          <p className="text-[14px] text-sub mb-6">Pay once. Use forever. Free updates included.</p>
+          <p className="text-[14px] text-sub mb-6">Cancel anytime. Access all platforms.</p>
           <ul className="space-y-3 mb-8 text-left max-w-[320px] mx-auto">
-            {["HackerRank bypass", "Mercer Mettl bypass", "Safe Exam Browser bypass", "All future platforms", "Lifetime updates"].map((item) => (
+            {["HackerRank bypass", "Mercer Mettl bypass", "Safe Exam Browser bypass", "All future platforms", "Priority support"].map((item) => (
               <li key={item} className="flex items-center gap-2 text-[14px] text-sub">
                 <CheckCircle size={16} className="text-accent flex-shrink-0" />
                 <span>{item}</span>
@@ -462,7 +463,7 @@ function ClosingCTA() {
         <p className="mx-auto mb-8 max-w-[55ch] text-[16px] sm:text-[18px] leading-relaxed text-sub">One purchase. Lifetime access. Works with HackerRank, Mercer Mettl, and SEB.</p>
         <a ref={btnRef} href={ALPHA_DOWNLOAD_URL} onClick={handleBtnClick} className="ghs-btn-primary inline-flex items-center gap-3 rounded-xl bg-accent px-8 py-4 text-[15px] sm:text-[17px] font-semibold text-white shadow-premium relative overflow-hidden transition-all duration-300 hover:scale-105" data-cursor="magnetic" data-cursor-text="Download">
           <Download size={18} strokeWidth={2.5} />
-          Download Ozark Alpha — ₹1999
+          Get Ozark Alpha — ₹1999/mo
         </a>
       </div>
     </section>

@@ -13,27 +13,30 @@ const PRODUCTS = [
     name: "Safe Exam Browser Crack",
     tag: "SEB",
     badge: "Flashkick",
-    description: "Bypass restrictions and regain control in exam environments with enhanced functionality.",
+    description: "Bypass SEB lockdown mode. Runs outside its monitoring scope — invisible to proctoring and tab-switch detection.",
     bgGradient: "from-[rgba(26,26,31,0.6)] via-[rgba(30,28,32,0.5)] to-[rgba(22,20,24,0.4)]",
-    image: "/seb.webp",
+    icon: "🔒",
+    features: ["Invisible overlay", "Bypasses lockdown", "AutoType answers"],
   },
   {
     id: 2,
     name: "Mettl Secure Browser Crack",
     tag: "MSB",
     badge: null,
-    description: "Mettl Secure Browser Crack to cheat on Mettl exams.",
+    description: "Hidden from Mettl's screen recording, browser lockdown, and webcam monitoring. Full stealth mode.",
     bgGradient: "from-[rgba(26,26,31,0.6)] via-[rgba(29,27,31,0.5)] to-[rgba(21,19,23,0.4)]",
-    image: "/mercel-mettl.png",
+    icon: "🛡️",
+    features: ["Screen recording bypass", "Webcam blind", "Zero detection"],
   },
   {
     id: 3,
     name: "HackerRank Bypass",
     tag: "HRB",
     badge: "Flashkick",
-    description: "Bypass HackerRank proctoring and detect restrictions with advanced stealth technology.",
+    description: "Invisible AI assistance inside HackerRank. Capture questions, get instant solutions, AutoType answers.",
     bgGradient: "from-[rgba(26,26,31,0.6)] via-[rgba(28,26,30,0.5)] to-[rgba(20,18,22,0.4)]",
-    image: "/hackerrank.svg",
+    icon: "⚡",
+    features: ["Screenshot capture", "AI code generation", "One-click AutoType"],
   },
 ];
 
@@ -61,11 +64,18 @@ function ProductCardItem({ product, index }) {
         style={{ opacity: 0 }}
       >
         <div className="flex flex-col h-full">
-          <div className={`relative aspect-[16/10] bg-gradient-to-br ${product.bgGradient} flex items-center justify-center p-8 overflow-hidden`}>
+          <div className={`relative aspect-[16/10] bg-gradient-to-br ${product.bgGradient} flex flex-col items-center justify-center p-8 overflow-hidden`}>
             <div className="absolute inset-0 opacity-30" style={{
               background: "radial-gradient(circle at 30% 40%, rgba(196,48,48,0.08) 0%, transparent 50%), radial-gradient(circle at 70% 60%, rgba(196,48,48,0.05) 0%, transparent 50%)",
             }} />
-            <img src={product.image} alt={product.name} className="relative w-40 h-40 md:w-48 md:h-48 object-contain drop-shadow-2xl" />
+            <span className="text-5xl mb-4">{product.icon}</span>
+            <div className="flex flex-wrap gap-2 justify-center">
+              {product.features.map((f) => (
+                <span key={f} className="text-[10px] font-medium text-accent/80 bg-accent/10 border border-accent/20 rounded-full px-2.5 py-1">
+                  {f}
+                </span>
+              ))}
+            </div>
             {product.badge && (
               <div className="absolute top-3 left-3 rounded bg-[#c43030]/90 px-2 py-0.5 text-[9px] font-bold text-white uppercase tracking-wider">
                 {product.badge}
@@ -125,6 +135,7 @@ export default function ProductCard() {
         <div className="inline-flex items-baseline gap-2 mt-6" style={{ opacity: 0 }}>
           <span className="text-sm font-medium text-sub">Starting from</span>
           <span className="text-2xl sm:text-3xl font-bold text-ink">₹1999</span>
+          <span className="text-sm font-medium text-sub">/month</span>
         </div>
         <div className="halloween-divider mx-auto mt-8 w-[100px]" />
       </div>
