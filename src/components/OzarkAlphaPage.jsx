@@ -170,9 +170,9 @@ function PlatformsDefeated() {
   const gridRef = useRef(null);
 
   const platforms = [
-    { name: "HackerRank", image: "/hackerrank.svg", status: "DEFEATED", tagline: "DSA solved in 0.24s", sad: "Try again next time! 😭" },
-    { name: "Mercer Mettl", image: "/mercel-mettl.png", status: "DEFEATED", tagline: "Screen recording? Didn't see anything.", sad: "We never saw it coming 💀" },
-    { name: "Safe Exam Browser", image: "/seb.webp", status: "DEFEATED", tagline: "Lockdown? What lockdown?", sad: "Our security is a joke now 🤡" },
+    { name: "HackerRank", image: "/hackerrank.svg", tagline: "DSA solved in 0.24s", sad: "Try again next time! 😭", emoji: "😭" },
+    { name: "Mercer Mettl", image: "/mercel-mettl.png", tagline: "Screen recording? Didn't see anything.", sad: "We never saw it coming 💀", emoji: "💀" },
+    { name: "Safe Exam Browser", image: "/seb.webp", tagline: "Lockdown? What lockdown?", sad: "Our security is a joke now 🤡", emoji: "🤡" },
   ];
 
   useEffect(() => {
@@ -181,7 +181,7 @@ function PlatformsDefeated() {
       const items = gridRef.current?.querySelectorAll(".platform-card");
       if (items) {
         items.forEach((item, i) => {
-          gsap.fromTo(item, { opacity: 0, scale: 0.9, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.7, delay: i * 0.15, ease: "back.out(1.4)", scrollTrigger: { trigger: item, start: "top 88%", toggleActions: "play none none none" } });
+          gsap.fromTo(item, { opacity: 0, scale: 0.85, rotateZ: -3 }, { opacity: 1, scale: 1, rotateZ: 0, duration: 0.7, delay: i * 0.15, ease: "back.out(1.7)", scrollTrigger: { trigger: item, start: "top 88%", toggleActions: "play none none none" } });
         });
       }
     }, sectionRef);
@@ -197,31 +197,47 @@ function PlatformsDefeated() {
         </div>
         <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {platforms.map((p) => (
-            <div key={p.name} className="platform-card relative rounded-2xl overflow-hidden group cursor-pointer border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm transition-all duration-500 hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/10" style={{ opacity: 0 }}>
-              {/* Image container with sad overlay */}
-              <div className="relative aspect-[4/3] overflow-hidden">
+            <div key={p.name} className="platform-card relative rounded-2xl overflow-hidden group cursor-pointer border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm transition-all duration-500 hover:border-red-500/30 hover:shadow-2xl hover:shadow-red-500/20 hover:scale-[1.02]" style={{ opacity: 0 }}>
+              {/* Image container */}
+              <div className="relative aspect-[4/3] overflow-hidden bg-[#0a0a0c]">
+                {/* Platform image - grayscale and dimmed */}
                 <img 
                   src={p.image} 
                   alt={p.name} 
-                  className="w-full h-full object-cover grayscale-[80%] opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+                  className="absolute inset-0 w-full h-full object-contain p-8 grayscale opacity-40 group-hover:opacity-60 transition-all duration-500 scale-110"
                 />
-                {/* Red defeat overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-red-900/80 via-red-600/30 to-transparent" />
+                {/* Dark gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30" />
+                {/* Red cracked overlay effect */}
+                <div className="absolute inset-0 bg-red-900/20 mix-blend-multiply" />
+                {/* Animated scratch lines */}
+                <div className="absolute inset-0 opacity-30">
+                  <div className="absolute top-[20%] left-[10%] w-[80%] h-[2px] bg-gradient-to-r from-transparent via-red-500/50 to-transparent rotate-[-15deg]" />
+                  <div className="absolute top-[60%] left-[5%] w-[90%] h-[1px] bg-gradient-to-r from-transparent via-red-500/30 to-transparent rotate-[8deg]" />
+                </div>
                 {/* DEFEATED stamp */}
-                <div className="absolute top-4 left-1/2 -translate-x-1/2 -rotate-12">
-                  <div className="px-4 py-2 border-4 border-red-500 rounded-lg bg-red-500/10 backdrop-blur-sm">
-                    <span className="text-2xl md:text-3xl font-black text-red-500 uppercase tracking-widest">DEFEATED</span>
+                <div className="absolute top-6 left-1/2 -translate-x-1/2 z-20">
+                  <div className="relative">
+                    <div className="px-5 py-2 border-[3px] border-red-500 rounded-lg bg-black/40 backdrop-blur-sm -rotate-[12deg] shadow-[0_0_20px_rgba(239,68,68,0.3)]">
+                      <span className="text-xl md:text-2xl font-black text-red-500 uppercase tracking-[0.2em] drop-shadow-[0_0_10px_rgba(239,68,68,0.5)]">DEFEATED</span>
+                    </div>
+                    {/* Stamp shadow */}
+                    <div className="absolute inset-0 px-5 py-2 border-[3px] border-red-500/20 rounded-lg -rotate-[12deg] translate-x-1 translate-y-1" />
                   </div>
                 </div>
-                {/* X mark */}
-                <div className="absolute top-3 right-3">
-                  <span className="text-[60px] font-black text-red-500/80 leading-none select-none drop-shadow-lg">X</span>
+                {/* Big X */}
+                <div className="absolute top-4 right-4 z-20">
+                  <span className="text-5xl md:text-6xl font-black text-red-500/90 leading-none select-none drop-shadow-[0_0_15px_rgba(239,68,68,0.6)]">X</span>
                 </div>
-                {/* Sad text at bottom */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
+                {/* Sad emoji floating */}
+                <div className="absolute bottom-20 right-6 text-4xl opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:translate-y-[-10px] z-20">
+                  {p.emoji}
+                </div>
+                {/* Bottom text overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black via-black/95 to-transparent z-10">
                   <h3 className="text-xl font-bold text-ink mb-1">{p.name}</h3>
-                  <p className="text-[13px] text-sub">{p.tagline}</p>
-                  <p className="text-[12px] text-accent/80 mt-2 font-medium">{p.sad}</p>
+                  <p className="text-[13px] text-sub/80">{p.tagline}</p>
+                  <p className="text-[12px] text-red-400 mt-2 font-semibold">{p.sad}</p>
                 </div>
               </div>
             </div>
