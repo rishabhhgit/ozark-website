@@ -395,7 +395,7 @@ function Shortcuts() {
             Hotkeys
           </span>
           <h2 className="text-3xl font-bold tracking-tight text-ink md:text-4xl">
-            Control everything. Touch nothing.
+            17 keys. Zero mouse.
           </h2>
           <p className="mx-auto mt-4 max-w-[45ch] text-[15px] leading-relaxed text-sub">
             17 shortcuts. All global. All invisible to proctoring software.
