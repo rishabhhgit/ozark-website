@@ -288,68 +288,6 @@ function UseCases() {
   );
 }
 
-// ── How It Works (4 steps, matching reference) ──
-function HowItWorks() {
-  const sectionRef = useRef(null);
-  const stepsRef = useRef(null);
-
-  const steps = [
-    { step: "01", title: "Download", body: "Single file. Double-click to run. No installer, no accounts, no cloud. Works on Windows 10/11.", icon: Download, details: "180 MB self-contained executable" },
-    { step: "02", title: "Add API Keys", body: "Paste your OpenAI, Claude, or Gemini key. Stored locally. Never leaves your machine.", icon: Key },
-    { step: "03", title: "Open Your Exam", body: "Launch HackerRank, Mettl, or SEB. Ozark Alpha runs invisible in the background. Ready when you are.", icon: Monitor, details: "Alt+I to start typing into overlay" },
-    { step: "04", title: "Get Answers", body: "Capture the question. AI solves it. AutoType the answer. Your proctor sees nothing.", icon: Shield },
-  ];
-
-  useEffect(() => {
-    if (prefersReducedMotion()) return;
-    const ctx = gsap.context(() => {
-      const cards = stepsRef.current?.querySelectorAll(".step-card");
-      if (cards) {
-        cards.forEach((card, i) => {
-          gsap.fromTo(card, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.08, ease: "power3.out", scrollTrigger: { trigger: card, start: "top 85%", toggleActions: "play none none none" } });
-        });
-      }
-    }, sectionRef);
-    return () => ctx.revert();
-  }, []);
-
-  return (
-    <section ref={sectionRef} id="how-it-works" className="relative py-6 md:py-8 overflow-hidden">
-      <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-        <div className="text-center mb-10 md:mb-14">
-          <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block mb-3">Setup</span>
-          <h2 className="text-4xl font-bold tracking-tight text-ink md:text-5xl lg:text-6xl">Ready in 60 seconds</h2>
-          <p className="mx-auto mt-4 max-w-[50ch] text-[16px] sm:text-[18px] leading-relaxed text-sub">Download. Add keys. Start your exam. That's it.</p>
-        </div>
-        <div ref={stepsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          {steps.map((s) => {
-            const Icon = s.icon;
-            return (
-              <div key={s.step} className="step-card relative group rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm p-8 transition-all duration-300 hover:border-white/[0.15] hover:shadow-lg" style={{ opacity: 0 }}>
-                <div className="absolute -top-3 -left-1 text-[64px] font-bold text-accent/[0.07] leading-none select-none">{s.step}</div>
-                <div className="relative mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 border border-accent/20 transition-all duration-300 group-hover:bg-accent/15 group-hover:scale-110">
-                  <Icon size={20} className="text-accent" />
-                </div>
-                <h3 className="mb-3 text-lg font-bold text-ink">{s.title}</h3>
-                <p className="text-[14px] leading-relaxed text-sub">{s.body}</p>
-                {s.details && <p className="mt-2 text-[12px] text-accent/70 font-mono">{s.details}</p>}
-              </div>
-            );
-          })}
-        </div>
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-3 rounded-full border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm px-6 py-3">
-            <span className="text-[13px] text-sub">System Requirements:</span>
-            <span className="text-[13px] font-semibold text-ink">Windows 11 (64-bit)</span>
-            <span className="text-border">|</span>
-            <span className="text-[13px] font-semibold text-ink">.NET 6+ Runtime</span>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 // ── Feature Showcase (11 deep-dive sections, matching reference) ──
 function FeatureShowcase() {
   const sectionRef = useRef(null);
@@ -581,7 +519,6 @@ export default function OzarkAlphaPage() {
       <div className="lg:hidden px-6 pb-10"><ChatDemo /></div>
       <FeatureGrid />
       <UseCases />
-      <HowItWorks />
       <FeatureShowcase />
       <Shortcuts />
       <Pricing />
