@@ -39,7 +39,7 @@ function MultitaskDemo() {
   }, []);
 
   return (
-    <div className="relative w-full max-w-[520px] mx-auto">
+    <div className="relative w-full max-w-[620px] mx-auto">
       {/* Main assessment window */}
       <div className="rounded-xl border border-white/[0.1] bg-[#1a1a1f] overflow-hidden shadow-2xl">
         {/* Browser chrome */}
@@ -55,20 +55,20 @@ function MultitaskDemo() {
           </div>
         </div>
         {/* Assessment content */}
-        <div className="p-4">
+        <div className="p-5">
           <div className="flex items-center gap-2 mb-3">
-            <span className="px-2 py-0.5 rounded bg-orange-500/10 border border-orange-500/20 text-[9px] font-bold text-orange-400 uppercase">Medium</span>
-            <span className="text-[11px] text-sub/50">Sliding Window Maximum</span>
+            <span className="px-2 py-0.5 rounded bg-orange-500/10 border border-orange-500/20 text-[10px] font-bold text-orange-400 uppercase">Medium</span>
+            <span className="text-[12px] text-sub/60">Sliding Window Maximum</span>
           </div>
           <div className="rounded-lg bg-[#0d0d10] border border-white/[0.06] overflow-hidden">
             <div className="flex items-center justify-between px-3 py-1.5 border-b border-white/[0.04]">
-              <span className="text-[9px] text-sub/40 font-mono">solution.js</span>
+              <span className="text-[10px] text-sub/40 font-mono">solution.js</span>
               <div className="flex items-center gap-2">
-                <span className="text-[8px] text-green-400/80 bg-green-400/10 px-1.5 py-0.5 rounded font-mono">O(N)</span>
-                <span className="text-[8px] text-accent/80 bg-accent/10 px-1.5 py-0.5 rounded font-mono">0.24s</span>
+                <span className="text-[9px] text-green-400/80 bg-green-400/10 px-1.5 py-0.5 rounded font-mono">O(N)</span>
+                <span className="text-[9px] text-accent/80 bg-accent/10 px-1.5 py-0.5 rounded font-mono">0.24s</span>
               </div>
             </div>
-            <div className="p-3 font-mono text-[10px] leading-relaxed text-ink/70 h-[160px] overflow-hidden">
+            <div className="p-4 font-mono text-[11px] leading-relaxed text-ink/70 h-[180px] overflow-hidden">
               {codeLines.slice(0, line + 1).map((l, i) => (
                 <div key={i} className={i === line ? "text-accent" : ""}>
                   {l}
@@ -78,43 +78,47 @@ function MultitaskDemo() {
             </div>
           </div>
           {/* AutoType indicator */}
-          <div className="mt-2 flex items-center gap-2">
+          <div className="mt-3 flex items-center gap-2">
             <div className="flex items-center gap-1.5 px-2 py-1 rounded bg-accent/10 border border-accent/20">
               <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-              <span className="text-[9px] font-mono text-accent">AutoTyping...</span>
+              <span className="text-[10px] font-mono text-accent">AutoTyping...</span>
             </div>
-            <span className="text-[9px] text-sub/30">F10 to stop</span>
+            <span className="text-[10px] text-sub/30">F10 to stop</span>
           </div>
         </div>
       </div>
 
-      {/* Floating YouTube player */}
-      <div className="absolute -top-4 -right-6 w-[180px] rounded-lg border border-white/[0.1] bg-[#121215] shadow-2xl overflow-hidden z-10">
+      {/* Floating YouTube player - embedded */}
+      <div className="absolute -top-6 -right-8 w-[220px] rounded-lg border border-white/[0.1] bg-[#121215] shadow-2xl overflow-hidden z-10">
         {/* Video header */}
         <div className="flex items-center gap-1.5 px-2 py-1.5 bg-red-500/10 border-b border-white/[0.06]">
           <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
           <span className="text-[8px] font-bold text-red-400 uppercase tracking-wider">Playing</span>
         </div>
-        {/* Video placeholder */}
-        <div className="aspect-video bg-gradient-to-br from-purple-900/40 to-red-900/40 flex items-center justify-center relative">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center backdrop-blur-sm border border-white/10">
-              <div className="w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[10px] border-l-white ml-0.5" />
-            </div>
-          </div>
-          <span className="absolute bottom-1 right-1 text-[7px] text-white/40 font-mono">3:42</span>
+        {/* Actual YouTube embed */}
+        <div className="aspect-video">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/Q-7menWAF1g?autoplay=1&mute=1&loop=1&playlist=Q-7menWAF1g&controls=0&showinfo=0&rel=0"
+            title="Fight Night"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full"
+          />
         </div>
         {/* Video info */}
         <div className="px-2 py-1.5">
-          <p className="text-[8px] text-ink/80 font-medium truncate">Fight Night - Best Knockouts</p>
-          <p className="text-[7px] text-sub/40">Watch later • 🎮 Entertainment</p>
+          <p className="text-[9px] text-ink/80 font-medium truncate">Fight Night - Best Knockouts</p>
+          <p className="text-[8px] text-sub/40">🎮 Entertainment</p>
         </div>
       </div>
 
       {/* AI overlay badge */}
       <div className="absolute -bottom-3 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/20 border border-accent/30 backdrop-blur-sm z-10">
         <Eye size={10} className="text-accent" />
-        <span className="text-[9px] font-bold text-accent">AI solving invisibly</span>
+        <span className="text-[10px] font-bold text-accent">AI solving invisibly</span>
       </div>
     </div>
   );
