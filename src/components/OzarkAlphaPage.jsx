@@ -237,25 +237,24 @@ function FeatureGrid() {
   );
 }
 
-// ── Use Cases (4 cards, matching reference) ──
-function UseCases() {
+// ── Platforms Defeated (Visual showcase) ──
+function PlatformsDefeated() {
   const sectionRef = useRef(null);
   const gridRef = useRef(null);
 
-  const cases = [
-    { title: "HackerRank", description: "DSA, MCQs, debugging — solved in 0.24s. AutoType directly into the editor. Proctor sees nothing.", icon: Zap },
-    { title: "Mercer Mettl", description: "Bypasses screen recording, browser lockdown, and webcam monitoring. Full stealth. Full marks.", icon: Shield },
-    { title: "Safe Exam Browser", description: "Runs outside SEB's lockdown. Invisible to tab-switch detection and proctoring. Complete freedom.", icon: Eye },
-    { title: "Any Platform", description: "LeetCode, Codeforces, Codility, custom portals — if it's in a browser, Ozark Alpha beats it.", icon: Globe },
+  const platforms = [
+    { name: "HackerRank", status: "DEFEATED", tagline: "DSA solved in 0.24s", gradient: "from-orange-500/20 to-red-500/20" },
+    { name: "Mercer Mettl", status: "DEFEATED", tagline: "Screen recording? Didn't see anything.", gradient: "from-purple-500/20 to-pink-500/20" },
+    { name: "Safe Exam Browser", status: "DEFEATED", tagline: "Lockdown? What lockdown?", gradient: "from-blue-500/20 to-cyan-500/20" },
   ];
 
   useEffect(() => {
     if (prefersReducedMotion()) return;
     const ctx = gsap.context(() => {
-      const items = gridRef.current?.querySelectorAll(".use-case-item");
+      const items = gridRef.current?.querySelectorAll(".platform-card");
       if (items) {
         items.forEach((item, i) => {
-          gsap.fromTo(item, { opacity: 0, y: 35 }, { opacity: 1, y: 0, duration: 0.8, delay: i * 0.1, ease: "power3.out", scrollTrigger: { trigger: item, start: "top 88%", toggleActions: "play none none none" } });
+          gsap.fromTo(item, { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.6, delay: i * 0.15, ease: "back.out(1.4)", scrollTrigger: { trigger: item, start: "top 88%", toggleActions: "play none none none" } });
         });
       }
     }, sectionRef);
@@ -263,25 +262,43 @@ function UseCases() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-6 md:py-8 overflow-hidden">
+    <section ref={sectionRef} className="relative py-8 md:py-12 overflow-hidden">
       <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-        <div className="text-center mb-6">
-          <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block mb-3">Platforms</span>
-          <h2 className="text-3xl font-bold tracking-tight text-ink md:text-4xl">Beats them all</h2>
+        <div className="text-center mb-8">
+          <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block mb-2">Platforms</span>
+          <h2 className="text-3xl font-bold tracking-tight text-ink md:text-4xl lg:text-5xl">Beats them all</h2>
         </div>
-        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {cases.map((c) => {
-            const Icon = c.icon;
-            return (
-              <div key={c.title} className="use-case-item rounded-xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm p-5 transition-all duration-300 hover:border-white/[0.15] hover:shadow-md" style={{ opacity: 0 }}>
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 border border-accent/20 mb-3">
-                  <Icon size={18} className="text-accent" />
+        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {platforms.map((p) => (
+            <div key={p.name} className="platform-card relative rounded-2xl overflow-hidden group cursor-pointer" style={{ opacity: 0 }}>
+              <div className={`aspect-[4/3] bg-gradient-to-br ${p.gradient} flex flex-col items-center justify-center p-8 border border-white/[0.08] transition-all duration-500 hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/10`}>
+                <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
+                <div className="relative z-10 text-center">
+                  <div className="inline-flex items-center gap-2 mb-4">
+                    <span className="px-3 py-1 rounded-full bg-red-500/20 border border-red-500/30 text-[11px] font-bold text-red-400 uppercase tracking-wider">
+                      {p.status}
+                    </span>
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-ink mb-2">{p.name}</h3>
+                  <p className="text-[14px] text-sub">{p.tagline}</p>
+                  <div className="mt-6 flex items-center justify-center gap-2 text-[13px] font-semibold text-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span>Try to stop us</span>
+                    <Zap size={14} />
+                  </div>
                 </div>
-                <h3 className="text-[15px] font-bold text-ink mb-2">{c.title}</h3>
-                <p className="text-[13px] leading-relaxed text-sub">{c.description}</p>
+                <div className="absolute top-4 right-4">
+                  <span className="text-[80px] md:text-[100px] font-black text-white/[0.03] leading-none select-none">X</span>
+                </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
+        </div>
+        <div className="mt-8 text-center">
+          <p className="text-[15px] text-sub">
+            <span className="text-accent font-semibold">17 hotkeys.</span>{" "}
+            <span className="text-ink font-semibold">0 detections.</span>{" "}
+            <span className="text-sub">Every exam. Guaranteed.</span>
+          </p>
         </div>
       </div>
     </section>
@@ -518,7 +535,7 @@ export default function OzarkAlphaPage() {
       <AlphaHero />
       <div className="lg:hidden px-6 pb-10"><ChatDemo /></div>
       <FeatureGrid />
-      <UseCases />
+      <PlatformsDefeated />
       <FeatureShowcase />
       <Shortcuts />
       <Pricing />
