@@ -83,7 +83,7 @@ function MultitaskDemo() {
               <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
               <span className="text-[11px] font-mono text-accent">AutoTyping...</span>
             </div>
-            <span className="text-[11px] text-sub/30">F10 to stop</span>
+            <span className="text-[11px] text-sub/30">Alt+T+Esc to stop</span>
           </div>
         </div>
       </div>
