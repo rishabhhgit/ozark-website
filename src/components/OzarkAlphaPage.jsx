@@ -261,13 +261,6 @@ function PlatformsDefeated() {
             </div>
           ))}
         </div>
-        <div className="mt-6 text-center">
-          <p className="text-[14px] text-sub">
-            <span className="text-accent font-semibold">17 hotkeys.</span>{" "}
-            <span className="text-ink font-semibold">0 detections.</span>{" "}
-            <span className="text-sub">Every exam. Guaranteed.</span>
-          </p>
-        </div>
       </div>
     </section>
   );
