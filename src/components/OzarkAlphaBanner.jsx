@@ -89,9 +89,13 @@ export default function OzarkAlphaBanner() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
               Ozark <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">Alpha</span>
             </h2>
-            <p className="text-base sm:text-lg text-white/50 max-w-[600px] leading-relaxed">
+            <p className="text-base sm:text-lg text-white/50 max-w-[600px] leading-relaxed mb-6">
               The ultimate exam bypass toolkit. One subscription unlocks stealth access to all supported secure browsers.
             </p>
+            <div className="inline-flex items-baseline gap-2">
+              <span className="text-sm font-medium text-white/40">Starting from</span>
+              <span className="text-2xl sm:text-3xl font-bold text-white">₹1999</span>
+            </div>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
