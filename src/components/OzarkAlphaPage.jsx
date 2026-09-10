@@ -6,20 +6,10 @@ import { Download, Shield, Cpu, Monitor, Eye, Zap, Globe, Key, ArrowRight, Check
 import { prefersReducedMotion, createRipple } from "@/lib/motion";
 import { DOWNLOAD_URL } from "@/lib/config";
 import { FOOTER_LINKS } from "@/lib/data";
-import FeatureSection from "@/components/FeatureSection";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const ALPHA_DOWNLOAD_URL = "#"; // TODO: Update with real Ozark Alpha download link
-
-const ALPHA_FEATURES = [
-  { eyebrow: "INVISIBLE OVERLAY", title: "They can't see it. You see everything.", body: "A cursor-following text layer powered by Windows GDI — completely invisible to screen capture, screen sharing, and proctoring tools. You see the answers. They see nothing.", kind: "stealth", reverse: false },
-  { eyebrow: "SCREENSHOT SOLVER", title: "One hotkey. Instant answer.", body: "Press Ctrl+Shift+Space. The AI sees exactly what you see — coding problems, diagrams, MCQs. It solves them in 0.24s. You AutoType the answer. Done.", kind: "screenshot", reverse: true },
-  { eyebrow: "AUTOTYPE ENGINE", title: "Let the AI do the typing.", body: "Human-like keystrokes with random delays. No one can tell the difference. F9 to start, F10 to stop. Works in HackerRank, Mettl, and SEB editors.", kind: "autotype", reverse: false },
-  { eyebrow: "DISGUISE MODE", title: "One hotkey. You're invisible.", body: "Press Ctrl+Shift+U and Ozark Alpha morphs into a Windows Update screen. Your proctor sees nothing suspicious. You keep solving.", kind: "disguise", reverse: true },
-  { eyebrow: "MULTI-MODEL AI", title: "8 providers. One shortcut.", body: "GPT-4o for complex DSA. Claude for system design. Gemini for speed. Switch mid-assessment with Alt+X. Use the best model for each question.", kind: "providers", reverse: false },
-  { eyebrow: "CODE MODE", title: "Built for competitive programming.", body: "Detects LeetCode, HackerRank, Codeforces. Identifies DP, greedy, graph patterns. Outputs clean code with correct function signatures and edge case checks.", kind: "code", reverse: true },
-];
 
 // ── Chat Demo Component ──
 function ChatDemo() {
@@ -242,41 +232,6 @@ function PlatformsDefeated() {
   );
 }
 
-// ── Feature Showcase (11 deep-dive sections, matching reference) ──
-function FeatureShowcase() {
-  const sectionRef = useRef(null);
-  const headerRef = useRef(null);
-
-  useEffect(() => {
-    if (prefersReducedMotion()) return;
-    const ctx = gsap.context(() => {
-      const headerChildren = headerRef.current?.children;
-      if (headerChildren) {
-        gsap.fromTo(headerChildren, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, stagger: 0.15, ease: "power3.out", scrollTrigger: { trigger: headerRef.current, start: "top 85%", toggleActions: "play none none none" } });
-      }
-    }, sectionRef);
-    return () => ctx.revert();
-  }, []);
-
-  return (
-    <section ref={sectionRef} className="relative mx-auto max-w-[1400px] px-6 sm:px-10 py-8 md:py-10 overflow-hidden">
-      <div ref={headerRef} className="mb-6 md:mb-5 text-center">
-        <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block" style={{ opacity: 0 }}>Deep Dive</span>
-        <h2 className="mt-2 text-4xl font-bold tracking-tight text-ink md:text-5xl lg:text-6xl" style={{ opacity: 0 }}>How it works</h2>
-        <p className="mx-auto mt-3 max-w-[60ch] text-[16px] sm:text-[18px] leading-relaxed text-sub" style={{ opacity: 0 }}>The technology behind undetectable AI assistance.</p>
-        <div className="halloween-divider mx-auto mt-5 w-[100px]" style={{ transformOrigin: "center" }} />
-      </div>
-      <div>
-        {ALPHA_FEATURES.map((f, i) => (
-          <div key={f.eyebrow} className="feature-item" style={{ opacity: 0 }} data-spotlight>
-            <FeatureSection {...f} index={i} />
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 // ── Pricing Section ──
 function Pricing() {
   const sectionRef = useRef(null);
@@ -472,7 +427,6 @@ export default function OzarkAlphaPage() {
       <AlphaHero />
       <div className="lg:hidden px-6 pb-10"><ChatDemo /></div>
       <PlatformsDefeated />
-      <FeatureShowcase />
       <Shortcuts />
       <Pricing />
       <AlphaFooter />
