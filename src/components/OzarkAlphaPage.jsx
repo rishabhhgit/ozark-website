@@ -164,13 +164,9 @@ function AlphaHero() {
       <div className="absolute top-0 right-[10%] w-[600px] h-[600px] rounded-full opacity-20 pointer-events-none" style={{ background: "radial-gradient(circle, rgba(196,48,48,0.06) 0%, transparent 70%)", filter: "blur(100px)" }} />
       <div className="absolute bottom-0 left-[5%] w-[400px] h-[400px] rounded-full opacity-15 pointer-events-none" style={{ background: "radial-gradient(circle, rgba(196,48,48,0.04) 0%, transparent 70%)", filter: "blur(80px)" }} />
 
-      <div className="relative z-10 grid items-center gap-12 lg:grid-cols-[400px_1fr] lg:gap-10">
+      <div className="relative z-10 grid items-start gap-10 lg:grid-cols-[1fr_1fr] lg:gap-8">
         {/* Left side - text */}
-        <div>
-          <div ref={badgeRef} className="mb-6 sm:mb-8 inline-flex items-center gap-2 rounded-full border border-border/50 bg-bg/80 px-4 py-2 sm:px-5 sm:py-2.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-accent backdrop-blur-sm" style={{ opacity: 0 }}>
-            <Sparkles size={13} className="text-accent" />
-            Play YouTube while AI writes your answer
-          </div>
+        <div className="pt-8">
           <h1 ref={headingRef} className="mb-6 sm:mb-8 text-[36px] sm:text-[44px] md:text-[56px] lg:text-[68px] font-bold leading-[1.05] tracking-tight">
             {splitText("Cheat every exam.")}
             <br />
@@ -192,8 +188,12 @@ function AlphaHero() {
           </div>
         </div>
 
-        {/* Right side - demo */}
+        {/* Right side - headline + demo */}
         <div className="hidden lg:block">
+          <div ref={badgeRef} className="mb-5 inline-flex items-center gap-2 rounded-full border border-border/50 bg-bg/80 px-4 py-2 sm:px-5 sm:py-2.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-accent backdrop-blur-sm" style={{ opacity: 0 }}>
+            <Sparkles size={13} className="text-accent" />
+            Play YouTube while AI writes your answer
+          </div>
           <MultitaskDemo />
         </div>
       </div>
