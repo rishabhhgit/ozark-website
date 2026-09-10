@@ -207,24 +207,9 @@ function PlatformsDefeated() {
   const gridRef = useRef(null);
 
   const platforms = [
-    { 
-      name: "Safe Exam Browser Crack", 
-      icon: "🔒",
-      badge: "SEB",
-      description: "Bypass SEB lockdown mode. Runs outside its monitoring scope — invisible to proctoring and tab-switch detection.",
-    },
-    { 
-      name: "Mettl Secure Browser Crack", 
-      icon: "🛡️",
-      badge: "MSB",
-      description: "Hidden from Mettl's screen recording, browser lockdown, and webcam monitoring. Full stealth mode.",
-    },
-    { 
-      name: "HackerRank Bypass", 
-      icon: "⚡",
-      badge: "HRB",
-      description: "Invisible AI assistance inside HackerRank. Capture questions, get instant solutions, AutoType answers.",
-    },
+    { name: "HackerRank", image: "/hackerrank.svg" },
+    { name: "Mercer Mettl", image: "/mercel-mettl.png" },
+    { name: "Safe Exam Browser", image: "/seb.webp" },
   ];
 
   useEffect(() => {
@@ -233,7 +218,7 @@ function PlatformsDefeated() {
       const items = gridRef.current?.querySelectorAll(".platform-card");
       if (items) {
         items.forEach((item, i) => {
-          gsap.fromTo(item, { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.6, delay: i * 0.12, ease: "power3.out", scrollTrigger: { trigger: item, start: "top 88%", toggleActions: "play none none none" } });
+          gsap.fromTo(item, { opacity: 0, scale: 0.9, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.7, delay: i * 0.15, ease: "back.out(1.4)", scrollTrigger: { trigger: item, start: "top 88%", toggleActions: "play none none none" } });
         });
       }
     }, sectionRef);
@@ -241,26 +226,43 @@ function PlatformsDefeated() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-8 md:py-12 overflow-hidden">
+    <section ref={sectionRef} className="relative py-6 md:py-10 overflow-hidden">
       <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-        <div className="text-center mb-8">
+        <div className="text-center mb-6">
           <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block mb-2">Platforms</span>
-          <h2 className="text-3xl font-bold tracking-tight text-ink md:text-4xl">Beats them all</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-ink md:text-4xl lg:text-5xl">Beats them all</h2>
         </div>
         <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {platforms.map((p) => (
-            <div key={p.name} className="platform-card rounded-2xl border border-white/[0.08] bg-white/[0.03] overflow-hidden transition-all duration-300 hover:border-red-500/20" style={{ opacity: 0 }}>
-              <div className="relative h-[200px] flex items-center justify-center bg-gradient-to-b from-white/[0.02] to-transparent">
-                <span className="absolute top-4 left-4 px-2 py-0.5 rounded bg-accent/20 border border-accent/30 text-[9px] font-bold text-accent uppercase tracking-wider">Flashkick</span>
-                <span className="absolute top-4 right-4 text-[11px] font-semibold text-sub/50">{p.badge}</span>
-                <span className="text-5xl">{p.icon}</span>
-              </div>
-              <div className="px-5 pb-6">
-                <h3 className="text-xl font-bold text-ink mb-2">{p.name}</h3>
-                <p className="text-[13px] leading-relaxed text-sub">{p.description}</p>
+            <div key={p.name} className="platform-card relative rounded-2xl overflow-hidden group cursor-pointer border border-white/[0.08] bg-white/[0.03] transition-all duration-500 hover:border-red-500/30 hover:shadow-2xl hover:shadow-red-500/20" style={{ opacity: 0 }}>
+              <div className="relative aspect-[4/3] overflow-hidden bg-[#0a0a0c]">
+                <img src={p.image} alt={p.name} className="absolute inset-0 w-full h-full object-contain p-8 grayscale opacity-40 group-hover:opacity-60 transition-all duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30" />
+                <div className="absolute inset-0 bg-red-900/20 mix-blend-multiply" />
+                <div className="absolute top-6 left-1/2 -translate-x-1/2 z-20">
+                  <div className="relative">
+                    <div className="px-5 py-2 border-[3px] border-red-500 rounded-lg bg-black/40 backdrop-blur-sm -rotate-[12deg] shadow-[0_0_20px_rgba(239,68,68,0.3)]">
+                      <span className="text-xl md:text-2xl font-black text-red-500 uppercase tracking-[0.2em] drop-shadow-[0_0_10px_rgba(239,68,68,0.5)]">DEFEATED</span>
+                    </div>
+                    <div className="absolute inset-0 px-5 py-2 border-[3px] border-red-500/20 rounded-lg -rotate-[12deg] translate-x-1 translate-y-1" />
+                  </div>
+                </div>
+                <div className="absolute top-4 right-4 z-20">
+                  <span className="text-5xl md:text-6xl font-black text-red-500/90 leading-none select-none drop-shadow-[0_0_15px_rgba(239,68,68,0.6)]">X</span>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black via-black/95 to-transparent z-10">
+                  <h3 className="text-xl font-bold text-ink">{p.name}</h3>
+                </div>
               </div>
             </div>
           ))}
+        </div>
+        <div className="mt-6 text-center">
+          <p className="text-[14px] text-sub">
+            <span className="text-accent font-semibold">17 hotkeys.</span>{" "}
+            <span className="text-ink font-semibold">0 detections.</span>{" "}
+            <span className="text-sub">Every exam. Guaranteed.</span>
+          </p>
         </div>
       </div>
     </section>
