@@ -164,30 +164,21 @@ function AlphaHero() {
       <div className="absolute top-0 right-[10%] w-[600px] h-[600px] rounded-full opacity-20 pointer-events-none" style={{ background: "radial-gradient(circle, rgba(196,48,48,0.06) 0%, transparent 70%)", filter: "blur(100px)" }} />
       <div className="absolute bottom-0 left-[5%] w-[400px] h-[400px] rounded-full opacity-15 pointer-events-none" style={{ background: "radial-gradient(circle, rgba(196,48,48,0.04) 0%, transparent 70%)", filter: "blur(80px)" }} />
 
-      <div className="relative z-10">
-        {/* Headline above demo */}
-        <div ref={badgeRef} className="mb-6 sm:mb-8 inline-flex items-center gap-2 rounded-full border border-border/50 bg-bg/80 px-4 py-2 sm:px-5 sm:py-2.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-accent backdrop-blur-sm" style={{ opacity: 0 }}>
-          <Sparkles size={13} className="text-accent" />
-          Play YouTube while AI writes your answer
-        </div>
-
-        {/* Demo - full width */}
-        <div className="mb-10 sm:mb-14">
-          <MultitaskDemo />
-        </div>
-
-        {/* Text and CTA below */}
-        <div className="grid items-start gap-8 lg:grid-cols-[1fr_auto] lg:gap-16">
-          <div>
-            <h1 ref={headingRef} className="mb-6 sm:mb-8 text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] font-bold leading-[1.05] tracking-tight">
-              {splitText("Cheat every exam.")}
-              <br />
-              <span className="text-ink/30">{splitText("They'll never know.")}</span>
-            </h1>
-            <p ref={subtitleRef} className="mb-8 sm:mb-10 max-w-[520px] text-[16px] sm:text-[18px] lg:text-[20px] leading-relaxed text-sub" style={{ opacity: 0 }}>
-              Invisible AI that bypasses HackerRank, Mercer Mettl, and Safe Exam Browser. Capture questions, get instant answers, AutoType solutions — completely undetected.
-            </p>
+      <div className="relative z-10 grid items-center gap-12 lg:grid-cols-[400px_1fr] lg:gap-10">
+        {/* Left side - text */}
+        <div>
+          <div ref={badgeRef} className="mb-6 sm:mb-8 inline-flex items-center gap-2 rounded-full border border-border/50 bg-bg/80 px-4 py-2 sm:px-5 sm:py-2.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-accent backdrop-blur-sm" style={{ opacity: 0 }}>
+            <Sparkles size={13} className="text-accent" />
+            Play YouTube while AI writes your answer
           </div>
+          <h1 ref={headingRef} className="mb-6 sm:mb-8 text-[36px] sm:text-[44px] md:text-[56px] lg:text-[68px] font-bold leading-[1.05] tracking-tight">
+            {splitText("Cheat every exam.")}
+            <br />
+            <span className="text-ink/30">{splitText("They'll never know.")}</span>
+          </h1>
+          <p ref={subtitleRef} className="mb-8 sm:mb-10 max-w-[420px] text-[16px] sm:text-[18px] lg:text-[20px] leading-relaxed text-sub" style={{ opacity: 0 }}>
+            Invisible AI that bypasses HackerRank, Mercer Mettl, and Safe Exam Browser. Capture questions, get instant answers, AutoType solutions — completely undetected.
+          </p>
           <div ref={ctaRef} className="flex flex-wrap items-center gap-4 sm:gap-5">
             <a href={ALPHA_DOWNLOAD_URL} className="ghs-btn-primary inline-flex items-center gap-3 rounded-xl bg-accent px-7 py-3.5 sm:px-8 sm:py-4 text-[14px] sm:text-[16px] font-semibold text-white shadow-premium relative overflow-hidden transition-all duration-300 hover:scale-105" style={{ opacity: 0 }} data-cursor="magnetic">
               <Download size={18} strokeWidth={2.5} />
@@ -199,6 +190,11 @@ function AlphaHero() {
               <span className="text-[13px] text-sub">/month</span>
             </div>
           </div>
+        </div>
+
+        {/* Right side - demo */}
+        <div className="hidden lg:block">
+          <MultitaskDemo />
         </div>
       </div>
     </section>
@@ -459,6 +455,7 @@ export default function OzarkAlphaPage() {
   return (
     <>
       <AlphaHero />
+      <div className="lg:hidden px-6 pb-10"><MultitaskDemo /></div>
       <PlatformsDefeated />
       <Shortcuts />
       <Pricing />
