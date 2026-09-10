@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#0a0a0f" rx="12"/>
+  <!-- Left eye -->
+  <path d="M6 32C6 32 14 10 32 8C50 10 58 32 58 32C58 32 50 48 32 54C14 48 6 32 6 32Z" fill="#e60000" transform="translate(-12, 0) scale(0.75)"/>
+  <ellipse cx="17" cy="30" rx="3.5" ry="16" fill="#000"/>
+  <!-- Right eye -->
+  <path d="M6 32C6 32 14 10 32 8C50 10 58 32 58 32C58 32 50 48 32 54C14 48 6 32 6 32Z" fill="#e60000" transform="translate(12, 0) scale(0.75)"/>
+  <ellipse cx="47" cy="30" rx="3.5" ry="16" fill="#000"/>
+</svg>

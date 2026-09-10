@@ -1,0 +1,107 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./index.html", "./src/**/*.{js,jsx}"],
+  theme: {
+    extend: {
+      colors: {
+        bg: "#1a1a1f",
+        card: "rgba(15,12,14,0.85)",
+        cardSolid: "#0f0c0e",
+        ink: "#e8e8ec",
+        sub: "#9a8a8a",
+        border: "rgba(196,48,48,.1)",
+        accent: "#c43030",
+        hover: "rgba(196,48,48,0.04)",
+        highlight: "rgba(196,48,48,.06)",
+        warm: "#0c0a0b",
+        cool: "#0b0a0c",
+        lavender: "#0d0b0d",
+        peach: "#0e0c0d",
+        mint: "#0c0c0d",
+        glass: "rgba(14,10,12,0.7)",
+        glassDark: "rgba(196,48,48,0.02)",
+        gold: {
+          50: "#fff5f5",
+          100: "#ffe0e0",
+          200: "#ffb3b3",
+          300: "#ff7a7a",
+          400: "#e85050",
+          500: "#c43030",
+          600: "#a02525",
+          700: "#7a1a1a",
+          800: "#501010",
+          900: "#2a0808",
+        },
+      },
+      fontFamily: {
+        sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        mono: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+      },
+      boxShadow: {
+        soft: "0 2px 12px rgba(0,0,0,.3)",
+        softLg: "0 12px 40px rgba(0,0,0,.4)",
+        accentGlow: "0 8px 32px rgba(196,48,48,.12)",
+        premium: "0 1px 3px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.3)",
+        premiumLg: "0 0 1px rgba(196,48,48,0.05), 0 2px 8px rgba(0,0,0,0.3), 0 20px 50px rgba(0,0,0,0.5)",
+        glow: "0 0 40px rgba(196,48,48,0.08)",
+        colored: "0 8px 32px rgba(196,48,48,0.08)",
+        golden: "0 8px 32px rgba(196,48,48,0.08)",
+        goldenGlow: "0 0 60px rgba(196,48,48,0.1)",
+        glass: "0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(196,48,48,0.04)",
+        haunted: "0 0 60px rgba(0,0,0,0.5), 0 0 120px rgba(196,48,48,0.05)",
+      },
+      transitionTimingFunction: {
+        ghs: "cubic-bezier(.22,1,.36,1)",
+        spring: "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+        spooky: "cubic-bezier(0.4, 0, 0.2, 1)",
+      },
+      animation: {
+        "pulse-slow": "pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "ghost-float": "ghost-float 6s ease-in-out infinite",
+        "golden-pulse": "golden-pulse 4s ease-in-out infinite",
+        "golden-shimmer": "golden-shimmer 3s ease-in-out infinite",
+        "flicker": "flicker 0.15s infinite",
+        "float-leaf": "float-leaf 8s ease-in-out infinite",
+        "candle-glow": "candle-glow 2s ease-in-out infinite",
+        "eye-blink": "eye-blink 5.5s ease-in-out infinite",
+      },
+      keyframes: {
+        "pulse-slow": {
+          "0%, 100%": { opacity: 1 },
+          "50%": { opacity: 0.6 },
+        },
+        "ghost-float": {
+          "0%, 100%": { transform: "translateY(0) rotate(0deg)" },
+          "25%": { transform: "translateY(-15px) rotate(2deg)" },
+          "50%": { transform: "translateY(-8px) rotate(-1deg)" },
+          "75%": { transform: "translateY(-20px) rotate(1deg)" },
+        },
+        "golden-pulse": {
+          "0%, 100%": { opacity: 0.4, transform: "scale(1)" },
+          "50%": { opacity: 0.7, transform: "scale(1.05)" },
+        },
+        "golden-shimmer": {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
+        "flicker": {
+          "0%, 100%": { opacity: 1 },
+          "50%": { opacity: 0.8 },
+        },
+        "float-leaf": {
+          "0%, 100%": { transform: "translateY(0) rotate(0deg)" },
+          "50%": { transform: "translateY(-20px) rotate(10deg)" },
+        },
+        "candle-glow": {
+          "0%, 100%": { filter: "brightness(1) drop-shadow(0 0 6px rgba(196,48,48,0.25))" },
+          "50%": { filter: "brightness(1.1) drop-shadow(0 0 10px rgba(196,48,48,0.4))" },
+        },
+        "eye-blink": {
+          "0%, 92%, 100%": { transform: "scaleY(1)" },
+          "96%": { transform: "scaleY(0.05)" },
+        },
+      },
+    },
+  },
+  plugins: [],
+};
