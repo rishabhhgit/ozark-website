@@ -1,12 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
   <defs>
-    <linearGradient id="hrGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1BA94C"/>
-      <stop offset="100%" style="stop-color:#15803d"/>
+    <linearGradient id="hrGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2BB673"/>
+      <stop offset="100%" style="stop-color:#1FA85D"/>
     </linearGradient>
   </defs>
-  <!-- H letter -->
-  <text x="70" y="110" font-family="Arial, sans-serif" font-weight="bold" font-size="100" fill="white">H</text>
-  <!-- Green square -->
-  <rect x="120" y="60" width="40" height="40" rx="4" fill="url(#hrGrad)"/>
+  <!-- H letter - clean, centered -->
+  <g transform="translate(30, 35)">
+    <!-- Left vertical bar -->
+    <rect x="0" y="0" width="32" height="130" rx="4" fill="white"/>
+    <!-- Right vertical bar -->
+    <rect x="88" y="0" width="32" height="130" rx="4" fill="white"/>
+    <!-- Horizontal bar -->
+    <rect x="0" y="48" width="120" height="32" rx="4" fill="white"/>
+  </g>
+  <!-- Green square - positioned at bottom right of H, not overlapping center -->
+  <rect x="128" y="85" width="45" height="45" rx="8" fill="url(#hrGreen)"/>
 </svg>
