@@ -89,7 +89,7 @@ function MultitaskDemo() {
       </div>
 
       {/* Floating YouTube player - larger */}
-      <div className="absolute -top-10 -right-12 w-[320px] rounded-lg border border-white/[0.1] bg-[#121215] shadow-2xl overflow-hidden z-10">
+      <div className="absolute -top-10 left-[55%] w-[280px] rounded-lg border border-white/[0.1] bg-[#121215] shadow-2xl overflow-hidden z-10">
         {/* Video header */}
         <div className="flex items-center gap-1.5 px-2.5 py-2 bg-red-500/10 border-b border-white/[0.06]">
           <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
@@ -190,7 +190,7 @@ function AlphaHero() {
 
         {/* Right side - headline + demo */}
         <div className="hidden lg:block">
-          <div ref={badgeRef} className="mb-5 inline-flex items-center gap-2.5 rounded-full border border-white/[0.15] bg-white/[0.05] px-5 py-3 text-[14px] sm:text-[16px] font-bold uppercase tracking-wider text-white backdrop-blur-sm" style={{ opacity: 0 }}>
+          <div ref={badgeRef} className="mb-5 inline-flex items-center gap-2.5 rounded-full border border-white/[0.15] bg-white/[0.05] px-5 py-3 text-[14px] sm:text-[16px] font-bold uppercase tracking-wider text-white backdrop-blur-sm ml-4" style={{ opacity: 0 }}>
             <Sparkles size={16} className="text-white" />
             Play YouTube while AI writes your answer
           </div>
