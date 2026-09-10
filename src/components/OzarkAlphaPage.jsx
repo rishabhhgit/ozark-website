@@ -137,12 +137,12 @@ function AlphaHero() {
             Presenting Ozark Alpha
           </div>
           <h1 ref={headingRef} className="mb-6 sm:mb-8 text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] font-bold leading-[1.05] tracking-tight">
-            {splitText("Cheat every exam.")}
+            {splitText("AI that bypasses")}
             <br />
-            <span className="text-ink/30">{splitText("They'll never know.")}</span>
+            <span className="text-ink/30">{splitText("your online exams.")}</span>
           </h1>
           <p ref={subtitleRef} className="mb-8 sm:mb-10 max-w-[520px] text-[16px] sm:text-[18px] lg:text-[20px] leading-relaxed text-sub" style={{ opacity: 0 }}>
-            Invisible AI that bypasses HackerRank, Mercer Mettl, and Safe Exam Browser. Capture questions, get instant answers, AutoType solutions — completely undetected.
+            Invisible overlay, instant AI solving, and auto-typing — built for HackerRank, Mercer Mettl, and Safe Exam Browser.
           </p>
           <div ref={ctaRef} className="flex flex-wrap items-center gap-4 sm:gap-5">
             <a href={ALPHA_DOWNLOAD_URL} className="ghs-btn-primary inline-flex items-center gap-3 rounded-xl bg-accent px-7 py-3.5 sm:px-8 sm:py-4 text-[14px] sm:text-[16px] font-semibold text-white shadow-premium relative overflow-hidden transition-all duration-300 hover:scale-105" style={{ opacity: 0 }} data-cursor="magnetic">
