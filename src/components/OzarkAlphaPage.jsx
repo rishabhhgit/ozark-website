@@ -170,9 +170,9 @@ function PlatformsDefeated() {
   const gridRef = useRef(null);
 
   const platforms = [
-    { name: "HackerRank", status: "DEFEATED", tagline: "DSA solved in 0.24s", gradient: "from-orange-500/20 to-red-500/20" },
-    { name: "Mercer Mettl", status: "DEFEATED", tagline: "Screen recording? Didn't see anything.", gradient: "from-purple-500/20 to-pink-500/20" },
-    { name: "Safe Exam Browser", status: "DEFEATED", tagline: "Lockdown? What lockdown?", gradient: "from-blue-500/20 to-cyan-500/20" },
+    { name: "HackerRank", image: "/hackerrank.svg", status: "DEFEATED", tagline: "DSA solved in 0.24s", sad: "Try again next time! 😭" },
+    { name: "Mercer Mettl", image: "/mercel-mettl.png", status: "DEFEATED", tagline: "Screen recording? Didn't see anything.", sad: "We never saw it coming 💀" },
+    { name: "Safe Exam Browser", image: "/seb.webp", status: "DEFEATED", tagline: "Lockdown? What lockdown?", sad: "Our security is a joke now 🤡" },
   ];
 
   useEffect(() => {
@@ -181,7 +181,7 @@ function PlatformsDefeated() {
       const items = gridRef.current?.querySelectorAll(".platform-card");
       if (items) {
         items.forEach((item, i) => {
-          gsap.fromTo(item, { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.6, delay: i * 0.15, ease: "back.out(1.4)", scrollTrigger: { trigger: item, start: "top 88%", toggleActions: "play none none none" } });
+          gsap.fromTo(item, { opacity: 0, scale: 0.9, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.7, delay: i * 0.15, ease: "back.out(1.4)", scrollTrigger: { trigger: item, start: "top 88%", toggleActions: "play none none none" } });
         });
       }
     }, sectionRef);
@@ -189,38 +189,45 @@ function PlatformsDefeated() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-8 md:py-12 overflow-hidden">
+    <section ref={sectionRef} className="relative py-6 md:py-10 overflow-hidden">
       <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-        <div className="text-center mb-8">
+        <div className="text-center mb-6">
           <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block mb-2">Platforms</span>
           <h2 className="text-3xl font-bold tracking-tight text-ink md:text-4xl lg:text-5xl">Beats them all</h2>
         </div>
         <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {platforms.map((p) => (
-            <div key={p.name} className="platform-card relative rounded-2xl overflow-hidden group cursor-pointer" style={{ opacity: 0 }}>
-              <div className={`aspect-[4/3] bg-gradient-to-br ${p.gradient} flex flex-col items-center justify-center p-8 border border-white/[0.08] transition-all duration-500 hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/10`}>
-                <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
-                <div className="relative z-10 text-center">
-                  <div className="inline-flex items-center gap-2 mb-4">
-                    <span className="px-3 py-1 rounded-full bg-red-500/20 border border-red-500/30 text-[11px] font-bold text-red-400 uppercase tracking-wider">
-                      {p.status}
-                    </span>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-ink mb-2">{p.name}</h3>
-                  <p className="text-[14px] text-sub">{p.tagline}</p>
-                  <div className="mt-6 flex items-center justify-center gap-2 text-[13px] font-semibold text-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span>Try to stop us</span>
-                    <Zap size={14} />
+            <div key={p.name} className="platform-card relative rounded-2xl overflow-hidden group cursor-pointer border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm transition-all duration-500 hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/10" style={{ opacity: 0 }}>
+              {/* Image container with sad overlay */}
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <img 
+                  src={p.image} 
+                  alt={p.name} 
+                  className="w-full h-full object-cover grayscale-[80%] opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+                />
+                {/* Red defeat overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-red-900/80 via-red-600/30 to-transparent" />
+                {/* DEFEATED stamp */}
+                <div className="absolute top-4 left-1/2 -translate-x-1/2 -rotate-12">
+                  <div className="px-4 py-2 border-4 border-red-500 rounded-lg bg-red-500/10 backdrop-blur-sm">
+                    <span className="text-2xl md:text-3xl font-black text-red-500 uppercase tracking-widest">DEFEATED</span>
                   </div>
                 </div>
-                <div className="absolute top-4 right-4">
-                  <span className="text-[80px] md:text-[100px] font-black text-white/[0.03] leading-none select-none">X</span>
+                {/* X mark */}
+                <div className="absolute top-3 right-3">
+                  <span className="text-[60px] font-black text-red-500/80 leading-none select-none drop-shadow-lg">X</span>
+                </div>
+                {/* Sad text at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
+                  <h3 className="text-xl font-bold text-ink mb-1">{p.name}</h3>
+                  <p className="text-[13px] text-sub">{p.tagline}</p>
+                  <p className="text-[12px] text-accent/80 mt-2 font-medium">{p.sad}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
-        <div className="mt-8 text-center">
+        <div className="mt-6 text-center">
           <p className="text-[15px] text-sub">
             <span className="text-accent font-semibold">17 hotkeys.</span>{" "}
             <span className="text-ink font-semibold">0 detections.</span>{" "}
