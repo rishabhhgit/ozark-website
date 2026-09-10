@@ -475,75 +475,97 @@ function AlphaFooter() {
 // ── Keyboard Shortcuts ──
 function Shortcuts() {
   const sectionRef = useRef(null);
-  const headerRef = useRef(null);
-  const gridRef = useRef(null);
+  const tableRef = useRef(null);
 
   const shortcuts = [
-    { keys: ["Ctrl", "Shift", "M"], desc: "Mouse double-click (take screenshot)", icon: Camera },
-    { keys: ["Alt", "T"], desc: "Start auto-typing (pending file → overlay → last AI response)", icon: Send },
-    { keys: ["Esc"], desc: "Stop auto-typing immediately", icon: Zap },
-    { keys: ["Alt", "H"], desc: "Toggle overlay visibility (show/hide)", icon: Eye },
-    { keys: ["Alt", "Z"], desc: "Increase window size", icon: ArrowRight },
-    { keys: ["Alt", "C"], desc: "Decrease window size", icon: ArrowRight },
-    { keys: ["Alt", "I"], desc: "Toggle input capture mode (type into overlay)", icon: Keyboard },
-    { keys: ["Alt", "Enter"], desc: "Send message from overlay input", icon: Send },
-    { keys: ["Alt", "S"], desc: "Take screenshot", icon: Camera },
-    { keys: ["Alt", "M"], desc: "Scroll chat up", icon: ArrowRight },
-    { keys: ["Alt", "N"], desc: "Scroll chat down", icon: ArrowRight },
-    { keys: ["Alt", "X"], desc: "Cycle AI provider", icon: Cpu },
-    { keys: ["Alt", "B"], desc: "Toggle YouTube window visibility", icon: Monitor },
-    { keys: ["Alt", "←"], desc: "Move overlay left", icon: ArrowRight },
-    { keys: ["Alt", "→"], desc: "Move overlay right", icon: ArrowRight },
-    { keys: ["Alt", "↑"], desc: "Move overlay up", icon: ArrowRight },
-    { keys: ["Alt", "↓"], desc: "Move overlay down", icon: ArrowRight },
+    { keys: ["Ctrl", "Shift", "M"], action: "Mouse double-click (take screenshot)" },
+    { keys: ["Alt", "T"], action: "Start auto-typing (pending file → overlay → last AI response)" },
+    { keys: ["Esc"], action: "Stop auto-typing immediately" },
+    { keys: ["Alt", "H"], action: "Toggle overlay visibility (show/hide)" },
+    { keys: ["Alt", "Z"], action: "Increase window size" },
+    { keys: ["Alt", "C"], action: "Decrease window size" },
+    { keys: ["Alt", "I"], action: "Toggle input capture mode (type into overlay)" },
+    { keys: ["Alt", "Enter"], action: "Send message from overlay input" },
+    { keys: ["Alt", "S"], action: "Take screenshot" },
+    { keys: ["Alt", "M"], action: "Scroll chat up" },
+    { keys: ["Alt", "N"], action: "Scroll chat down" },
+    { keys: ["Alt", "X"], action: "Cycle AI provider" },
+    { keys: ["Alt", "B"], action: "Toggle YouTube window visibility" },
+    { keys: ["Alt", "←"], action: "Move overlay left" },
+    { keys: ["Alt", "→"], action: "Move overlay right" },
+    { keys: ["Alt", "↑"], action: "Move overlay up" },
+    { keys: ["Alt", "↓"], action: "Move overlay down" },
   ];
 
   useEffect(() => {
     if (prefersReducedMotion()) return;
     const ctx = gsap.context(() => {
-      const headerChildren = headerRef.current?.children;
-      if (headerChildren) {
-        gsap.fromTo(headerChildren, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, stagger: 0.15, ease: "power3.out", scrollTrigger: { trigger: headerRef.current, start: "top 85%", toggleActions: "play none none none" } });
-      }
-      const items = gridRef.current?.querySelectorAll(".shortcut-item");
-      if (items) {
-        items.forEach((item, i) => {
-          gsap.fromTo(item, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.04, ease: "power3.out", scrollTrigger: { trigger: item, start: "top 88%", toggleActions: "play none none none" } });
-        });
+      if (tableRef.current) {
+        gsap.fromTo(tableRef.current,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: tableRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
       }
     }, sectionRef);
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative mx-auto max-w-[1400px] px-6 sm:px-10 py-8 md:py-10 overflow-hidden">
-      <div ref={headerRef} className="mb-6 md:mb-5 text-center">
-        <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block" style={{ opacity: 0 }}>Keyboard Shortcuts</span>
-        <h2 className="mt-2 text-4xl font-bold tracking-tight text-ink md:text-5xl lg:text-6xl" style={{ opacity: 0 }}>Master the Controls</h2>
-        <p className="mx-auto mt-3 max-w-[60ch] text-[16px] sm:text-[18px] leading-relaxed text-sub" style={{ opacity: 0 }}>Every action at your fingertips — no mouse needed during your assessment.</p>
-        <div className="halloween-divider mx-auto mt-5 w-[100px]" style={{ transformOrigin: "center" }} />
-      </div>
-      <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {shortcuts.map((s, i) => {
-          const Icon = s.icon;
-          return (
-            <div key={i} className="shortcut-item flex items-center gap-3 rounded-xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm p-4 transition-all duration-300 hover:border-white/[0.15] hover:shadow-md group" style={{ opacity: 0 }}>
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent/10 border border-accent/20 flex-shrink-0 transition-all duration-300 group-hover:bg-accent/15 group-hover:scale-110">
-                <Icon size={16} className="text-accent" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex flex-wrap gap-1 mb-1">
-                  {s.keys.map((k, ki) => (
-                    <kbd key={ki} className="inline-flex items-center justify-center rounded-md bg-white/[0.06] border border-white/[0.1] px-2 py-0.5 text-[11px] font-mono font-semibold text-ink/80 shadow-sm">
+    <section ref={sectionRef} className="relative py-20 md:py-28 overflow-hidden">
+      <div className="mx-auto max-w-[800px] px-6 md:px-10">
+        <div className="text-center mb-12">
+          <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block mb-3">
+            Keyboard Shortcuts
+          </span>
+          <h2 className="text-3xl font-bold tracking-tight text-ink md:text-4xl">
+            Control everything from anywhere
+          </h2>
+          <p className="mx-auto mt-4 max-w-[45ch] text-[15px] leading-relaxed text-sub">
+            Global hotkeys work even when Ozark Alpha is in the background. No need to switch windows.
+          </p>
+        </div>
+
+        <div
+          ref={tableRef}
+          className="rounded-xl overflow-hidden"
+          style={{ opacity: 0 }}
+        >
+          <div className="grid grid-cols-[1fr_1fr] gap-4 px-6 py-4 border-b border-border/30">
+            <span className="text-[13px] font-bold text-sub">Shortcut</span>
+            <span className="text-[13px] font-bold text-sub">Action</span>
+          </div>
+
+          {shortcuts.map((s, i) => (
+            <div
+              key={s.action}
+              className={`grid grid-cols-[1fr_1fr] gap-4 px-6 py-3.5 transition-colors hover:bg-hover/30 ${i % 2 === 0 ? "bg-bg/30" : "bg-transparent"}`}
+            >
+              <div className="flex items-center gap-1.5">
+                {s.keys.map((k, ki) => (
+                  <span key={ki} className="flex items-center gap-1.5">
+                    <kbd className="inline-flex h-7 min-w-[28px] items-center justify-center rounded-lg bg-ink/[0.08] border border-ink/[0.06] px-2 font-mono text-[12px] font-semibold text-ink shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
                       {k}
                     </kbd>
-                  ))}
-                </div>
-                <p className="text-[12px] leading-relaxed text-sub truncate">{s.desc}</p>
+                    {ki < s.keys.length - 1 && (
+                      <span className="text-[11px] text-sub/40 font-medium">+</span>
+                    )}
+                  </span>
+                ))}
               </div>
+              <span className="text-[13px] text-sub flex items-center">{s.action}</span>
             </div>
-          );
-        })}
+          ))}
+        </div>
       </div>
     </section>
   );
