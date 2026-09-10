@@ -170,9 +170,9 @@ function PlatformsDefeated() {
   const gridRef = useRef(null);
 
   const platforms = [
-    { name: "HackerRank", image: "/hackerrank.svg", tagline: "0.24s. That's all it took.", sad: "GG", emoji: "💀" },
-    { name: "Mercer Mettl", image: "/mercel-mettl.png", tagline: "Saw nothing. Recorded nothing.", sad: "RIP", emoji: "🪦" },
-    { name: "Safe Exam Browser", image: "/seb.webp", tagline: "Locked down? Not us.", sad: "L", emoji: "🤡" },
+    { name: "HackerRank", image: "/hackerrank.svg", tagline: "0.24s. That's all it took." },
+    { name: "Mercer Mettl", image: "/mercel-mettl.png", tagline: "Saw nothing. Recorded nothing." },
+    { name: "Safe Exam Browser", image: "/seb.webp", tagline: "Locked down? Not us." },
   ];
 
   useEffect(() => {
@@ -229,15 +229,10 @@ function PlatformsDefeated() {
                 <div className="absolute top-4 right-4 z-20">
                   <span className="text-5xl md:text-6xl font-black text-red-500/90 leading-none select-none drop-shadow-[0_0_15px_rgba(239,68,68,0.6)]">X</span>
                 </div>
-                {/* Sad emoji floating */}
-                <div className="absolute bottom-20 right-6 text-4xl opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:translate-y-[-10px] z-20">
-                  {p.emoji}
-                </div>
                 {/* Bottom text overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black via-black/95 to-transparent z-10">
                   <h3 className="text-xl font-bold text-ink mb-1">{p.name}</h3>
                   <p className="text-[13px] text-sub/80">{p.tagline}</p>
-                  <p className="text-[12px] text-red-400 mt-2 font-semibold">{p.sad}</p>
                 </div>
               </div>
             </div>
