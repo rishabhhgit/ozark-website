@@ -89,7 +89,7 @@ function MultitaskDemo() {
       </div>
 
       {/* Floating YouTube player - larger */}
-      <div className="absolute -top-10 left-[55%] w-[280px] rounded-lg border border-white/[0.1] bg-[#121215] shadow-2xl overflow-hidden z-10">
+      <div className="absolute -top-4 right-0 w-[240px] rounded-lg border border-white/[0.1] bg-[#121215] shadow-2xl overflow-hidden z-10">
         {/* Video header */}
         <div className="flex items-center gap-1.5 px-2.5 py-2 bg-red-500/10 border-b border-white/[0.06]">
           <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
