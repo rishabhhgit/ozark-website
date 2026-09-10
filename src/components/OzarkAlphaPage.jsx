@@ -115,11 +115,6 @@ function MultitaskDemo() {
         </div>
       </div>
 
-      {/* AI overlay badge */}
-      <div className="absolute -bottom-3 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/20 border border-accent/30 backdrop-blur-sm z-10">
-        <Eye size={10} className="text-accent" />
-        <span className="text-[11px] font-bold text-accent">AI solving invisibly</span>
-      </div>
     </div>
   );
 }
@@ -170,7 +165,7 @@ function AlphaHero() {
       <div className="absolute top-0 right-[10%] w-[600px] h-[600px] rounded-full opacity-20 pointer-events-none" style={{ background: "radial-gradient(circle, rgba(196,48,48,0.06) 0%, transparent 70%)", filter: "blur(100px)" }} />
       <div className="absolute bottom-0 left-[5%] w-[400px] h-[400px] rounded-full opacity-15 pointer-events-none" style={{ background: "radial-gradient(circle, rgba(196,48,48,0.04) 0%, transparent 70%)", filter: "blur(80px)" }} />
 
-      <div className="relative z-10 grid items-center gap-12 lg:grid-cols-[1fr_600px] lg:gap-16">
+      <div className="relative z-10 grid items-center gap-12 lg:grid-cols-[1fr_700px] lg:gap-8">
         <div>
           <div ref={badgeRef} className="mb-6 sm:mb-8 inline-flex items-center gap-2 rounded-full border border-border/50 bg-bg/80 px-4 py-2 sm:px-5 sm:py-2.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-accent backdrop-blur-sm" style={{ opacity: 0 }}>
             <Sparkles size={13} className="text-accent" />
