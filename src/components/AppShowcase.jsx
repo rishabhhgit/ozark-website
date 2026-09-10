@@ -46,7 +46,7 @@ export default function AppShowcase() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="section-lavender relative mx-auto w-full px-6 sm:px-10 py-16 md:py-20 overflow-hidden min-h-screen flex flex-col justify-center">
+    <section ref={sectionRef} className="relative mx-auto w-full px-6 sm:px-10 py-16 md:py-20 overflow-hidden min-h-screen flex flex-col justify-center">
       {/* Decorative golden blob */}
       <div
         ref={decoRef}

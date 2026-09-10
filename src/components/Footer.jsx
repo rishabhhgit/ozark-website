@@ -38,7 +38,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer ref={footerRef} className="border-t border-border/30 bg-[#1a1a1f] relative z-10">
+    <footer ref={footerRef} className="border-t border-border/30 relative z-10">
       <div ref={contentRef} className="mx-auto flex max-w-[1200px] flex-col items-center justify-between gap-6 px-6 sm:px-8 py-10 md:flex-row">
         <div className="flex items-center gap-2.5 footer-logo" style={{ opacity: 0 }}>
           <img src="/eyes-logo.png" alt="Ozark" className="h-8 w-8 object-contain" />

@@ -57,7 +57,7 @@ export default function Features() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="features" className="section-cool relative mx-auto max-w-[1400px] px-6 sm:px-10 py-24 md:py-36 overflow-hidden">
+    <section ref={sectionRef} id="features" className="relative mx-auto max-w-[1400px] px-6 sm:px-10 py-24 md:py-36 overflow-hidden">
       {/* Decorative golden accent */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-20 pointer-events-none deco-parallax" style={{ background: "radial-gradient(circle, rgba(196,48,48,0.04) 0%, transparent 70%)", filter: "blur(80px)" }} />
       

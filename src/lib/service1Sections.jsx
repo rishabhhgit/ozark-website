@@ -106,7 +106,7 @@ function Features() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="features" className="section-cool relative mx-auto max-w-[1400px] px-6 sm:px-10 py-8 md:py-10 overflow-hidden">
+    <section ref={sectionRef} id="features" className="relative mx-auto max-w-[1400px] px-6 sm:px-10 py-8 md:py-10 overflow-hidden">
       {/* Decorative red accent glows */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-20 pointer-events-none deco-parallax" style={{ background: "radial-gradient(circle, rgba(196,48,48,0.06) 0%, transparent 70%)", filter: "blur(80px)" }} />
       <div className="absolute bottom-0 left-[10%] w-[400px] h-[400px] rounded-full opacity-15 pointer-events-none" style={{ background: "radial-gradient(circle, rgba(196,48,48,0.04) 0%, transparent 70%)", filter: "blur(60px)" }} />
@@ -727,7 +727,7 @@ function ClosingCTA() {
   };
 
   return (
-    <section ref={sectionRef} className="section-peach relative mx-auto max-w-[1400px] px-6 sm:px-10 pb-16 pt-10 overflow-hidden">
+    <section ref={sectionRef} className="relative mx-auto max-w-[1400px] px-6 sm:px-10 pb-16 pt-10 overflow-hidden">
       <div
         ref={decoRef}
         className="absolute -bottom-[150px] -left-[150px] w-[500px] h-[500px] rounded-full pointer-events-none opacity-0"
@@ -837,7 +837,7 @@ function Footer() {
   }, []);
 
   return (
-    <footer ref={footerRef} className="border-t border-border/30 bg-[#1a1a1f] relative z-10">
+    <footer ref={footerRef} className="border-t border-border/30 relative z-10">
       <div ref={contentRef} className="mx-auto flex max-w-[1200px] flex-col items-center justify-between gap-6 px-6 sm:px-8 py-10 md:flex-row">
         <div className="flex items-center gap-2.5 footer-logo" style={{ opacity: 0 }}>
           <img src="/eyes-logo.png" alt="Ozark" className="h-8 w-8 object-contain" />

@@ -16,25 +16,25 @@ body {
   overflow-x: hidden;
 }
 
-/* ── Section Color Tints - unified dark background matching homepage ── */
+/* ── Section Color Tints - transparent to allow background animations ── */
 .section-warm {
-  background: #1a1a1f;
+  background: transparent;
 }
 
 .section-cool {
-  background: #1a1a1f;
+  background: transparent;
 }
 
 .section-lavender {
-  background: #1a1a1f;
+  background: transparent;
 }
 
 .section-peach {
-  background: #1a1a1f;
+  background: transparent;
 }
 
 .section-mint {
-  background: #1a1a1f;
+  background: transparent;
 }
 
 /* Grain texture overlay */

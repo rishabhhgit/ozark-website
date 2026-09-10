@@ -61,7 +61,7 @@ export default function App() {
   return (
     <MotionConfig reducedMotion={reducedMotion ? "always" : "never"}>
       <SmoothScroll>
-        <main className="min-h-screen bg-bg font-sans text-ink antialiased overflow-x-hidden">
+        <main className="min-h-screen font-sans text-ink antialiased overflow-x-hidden">
           <CursorMotion />
           <BackgroundMotion />
           <BrowserRouter>

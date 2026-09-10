@@ -81,7 +81,7 @@ export default function ClosingCTA() {
   };
 
   return (
-    <section ref={sectionRef} className="section-peach relative mx-auto max-w-[1400px] px-6 sm:px-10 pb-32 pt-16 overflow-hidden">
+    <section ref={sectionRef} className="relative mx-auto max-w-[1400px] px-6 sm:px-10 pb-32 pt-16 overflow-hidden">
       {/* Decorative golden blob */}
       <div
         ref={decoRef}
