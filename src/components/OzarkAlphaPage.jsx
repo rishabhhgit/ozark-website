@@ -11,74 +11,110 @@ gsap.registerPlugin(ScrollTrigger);
 
 const ALPHA_DOWNLOAD_URL = "#"; // TODO: Update with real Ozark Alpha download link
 
-// ── Chat Demo Component ──
-function ChatDemo() {
-  const [messages] = useState([
-    { role: "user", text: "Solve: Sliding Window Maximum — given array nums and window size k, return max in each window." },
-    { role: "ai", text: "Using a monotonic deque for O(N) time complexity.", code: `function maxSlidingWindow(nums, k) {
-  const deque = [], result = [];
-  for (let i = 0; i < nums.length; i++) {
-    while (deque.length && deque[0] < i - k + 1) deque.shift();
-    while (deque.length && nums[deque[deque.length - 1]] <= nums[i]) deque.pop();
-    deque.push(i);
-    if (i >= k - 1) result.push(nums[deque[0]]);
-  }
-  return result;
-}`, complexity: "O(N)", latency: "0.24s" },
-  ]);
+// ── Multitask Demo Component (Assessment + YouTube) ──
+function MultitaskDemo() {
+  const [line, setLine] = useState(0);
+  const codeLines = [
+    "function maxSlidingWindow(nums, k) {",
+    "  const deque = [], result = [];",
+    "  for (let i = 0; i < nums.length; i++) {",
+    "    while (deque.length && deque[0] < i - k + 1)",
+    "      deque.shift();",
+    "    while (deque.length &&",
+    "      nums[deque[deque.length - 1]] <= nums[i])",
+    "      deque.pop();",
+    "    deque.push(i);",
+    "    if (i >= k - 1)",
+    "      result.push(nums[deque[0]]);",
+    "  }",
+    "  return result;",
+    "}",
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setLine((prev) => (prev < codeLines.length - 1 ? prev + 1 : 0));
+    }, 400);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
-    <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm overflow-hidden shadow-2xl max-w-[600px] mx-auto">
-      <div className="flex items-center justify-between px-4 py-3 border-b border-white/[0.06]">
-        <div className="flex items-center gap-2">
-          <span className="text-[12px] font-bold text-accent bg-accent/10 px-2 py-0.5 rounded">GPT-4o</span>
-          <span className="flex items-center gap-1 text-[10px] text-green-400">
-            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-            Ready
-          </span>
+    <div className="relative w-full max-w-[520px] mx-auto">
+      {/* Main assessment window */}
+      <div className="rounded-xl border border-white/[0.1] bg-[#1a1a1f] overflow-hidden shadow-2xl">
+        {/* Browser chrome */}
+        <div className="flex items-center gap-2 px-3 py-2 bg-[#121215] border-b border-white/[0.06]">
+          <div className="flex gap-1.5">
+            <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
+            <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
+            <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
+          </div>
+          <div className="flex-1 flex items-center gap-2 ml-3 rounded-md bg-white/[0.04] px-2 py-1">
+            <span className="text-[10px] text-sub/40">🔒</span>
+            <span className="text-[10px] text-sub/50 truncate">hackerrank.com/challenges/sliding-window</span>
+          </div>
         </div>
-        <div className="flex items-center gap-1.5">
-          <Settings size={13} className="text-sub/50" />
-        </div>
-      </div>
-      <div className="p-4 space-y-4 custom-scrollbar max-h-[320px] overflow-y-auto">
-        <AnimatePresence>
-          {messages.map((msg, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: i * 0.3 }} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
-              <div className={`max-w-[85%] rounded-xl px-4 py-3 ${msg.role === "user" ? "bg-accent/15 border border-accent/20" : "bg-white/[0.04] border border-white/[0.06]"}`}>
-                <p className="text-[13px] text-ink/90 leading-relaxed">{msg.text}</p>
-                {msg.code && (
-                  <div className="mt-3 rounded-lg bg-[#0d0d10] border border-white/[0.06] overflow-hidden">
-                    <div className="flex items-center justify-between px-3 py-1.5 border-b border-white/[0.04]">
-                      <span className="text-[10px] text-sub/50 font-mono">solution.js</span>
-                      <div className="flex items-center gap-2">
-                        <span className="text-[9px] text-accent/70 bg-accent/10 px-1.5 py-0.5 rounded font-mono">{msg.complexity}</span>
-                        <span className="text-[9px] text-green-400/70 bg-green-400/10 px-1.5 py-0.5 rounded font-mono">{msg.latency}</span>
-                      </div>
-                    </div>
-                    <pre className="p-3 text-[12px] font-mono text-ink/80 leading-relaxed overflow-x-auto"><code>{msg.code}</code></pre>
-                  </div>
-                )}
-                {msg.role === "ai" && (
-                  <div className="flex items-center gap-2 mt-2">
-                    <button className="flex items-center gap-1 text-[10px] text-sub/50 hover:text-accent transition-colors"><Copy size={10} /> Copy</button>
-                    <button className="flex items-center gap-1 text-[10px] text-sub/50 hover:text-accent transition-colors"><Send size={10} /> AutoType</button>
-                  </div>
-                )}
+        {/* Assessment content */}
+        <div className="p-4">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="px-2 py-0.5 rounded bg-orange-500/10 border border-orange-500/20 text-[9px] font-bold text-orange-400 uppercase">Medium</span>
+            <span className="text-[11px] text-sub/50">Sliding Window Maximum</span>
+          </div>
+          <div className="rounded-lg bg-[#0d0d10] border border-white/[0.06] overflow-hidden">
+            <div className="flex items-center justify-between px-3 py-1.5 border-b border-white/[0.04]">
+              <span className="text-[9px] text-sub/40 font-mono">solution.js</span>
+              <div className="flex items-center gap-2">
+                <span className="text-[8px] text-green-400/80 bg-green-400/10 px-1.5 py-0.5 rounded font-mono">O(N)</span>
+                <span className="text-[8px] text-accent/80 bg-accent/10 px-1.5 py-0.5 rounded font-mono">0.24s</span>
               </div>
-            </motion.div>
-          ))}
-        </AnimatePresence>
-      </div>
-      <div className="px-4 py-2.5 border-t border-white/[0.06] flex items-center gap-2">
-        <div className="flex-1 flex items-center gap-2 rounded-lg bg-white/[0.03] border border-white/[0.06] px-3 py-2">
-          <input type="text" placeholder="Ask anything..." className="flex-1 bg-transparent text-[13px] text-ink placeholder:text-sub/30 outline-none" readOnly />
-          <span className="text-[10px] text-sub/30 font-mono">Ctrl+Enter</span>
+            </div>
+            <div className="p-3 font-mono text-[10px] leading-relaxed text-ink/70 h-[160px] overflow-hidden">
+              {codeLines.slice(0, line + 1).map((l, i) => (
+                <div key={i} className={i === line ? "text-accent" : ""}>
+                  {l}
+                  {i === line && <span className="inline-block w-1.5 h-3 bg-accent ml-0.5 animate-pulse" />}
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* AutoType indicator */}
+          <div className="mt-2 flex items-center gap-2">
+            <div className="flex items-center gap-1.5 px-2 py-1 rounded bg-accent/10 border border-accent/20">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+              <span className="text-[9px] font-mono text-accent">AutoTyping...</span>
+            </div>
+            <span className="text-[9px] text-sub/30">F10 to stop</span>
+          </div>
         </div>
-        <Camera size={16} className="text-sub/40" />
       </div>
-      <div className="px-4 pb-2.5">
-        <p className="text-[10px] text-sub/30 text-center">AI can make mistakes. Check important info.</p>
+
+      {/* Floating YouTube player */}
+      <div className="absolute -top-4 -right-6 w-[180px] rounded-lg border border-white/[0.1] bg-[#121215] shadow-2xl overflow-hidden z-10">
+        {/* Video header */}
+        <div className="flex items-center gap-1.5 px-2 py-1.5 bg-red-500/10 border-b border-white/[0.06]">
+          <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+          <span className="text-[8px] font-bold text-red-400 uppercase tracking-wider">Playing</span>
+        </div>
+        {/* Video placeholder */}
+        <div className="aspect-video bg-gradient-to-br from-purple-900/40 to-red-900/40 flex items-center justify-center relative">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center backdrop-blur-sm border border-white/10">
+              <div className="w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[10px] border-l-white ml-0.5" />
+            </div>
+          </div>
+          <span className="absolute bottom-1 right-1 text-[7px] text-white/40 font-mono">3:42</span>
+        </div>
+        {/* Video info */}
+        <div className="px-2 py-1.5">
+          <p className="text-[8px] text-ink/80 font-medium truncate">Fight Night - Best Knockouts</p>
+          <p className="text-[7px] text-sub/40">Watch later • 🎮 Entertainment</p>
+        </div>
+      </div>
+
+      {/* AI overlay badge */}
+      <div className="absolute -bottom-3 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/20 border border-accent/30 backdrop-blur-sm z-10">
+        <Eye size={10} className="text-accent" />
+        <span className="text-[9px] font-bold text-accent">AI solving invisibly</span>
       </div>
     </div>
   );
@@ -134,7 +170,7 @@ function AlphaHero() {
         <div>
           <div ref={badgeRef} className="mb-6 sm:mb-8 inline-flex items-center gap-2 rounded-full border border-border/50 bg-bg/80 px-4 py-2 sm:px-5 sm:py-2.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-accent backdrop-blur-sm" style={{ opacity: 0 }}>
             <Sparkles size={13} className="text-accent" />
-            Presenting Ozark Alpha
+            Play YouTube while AI writes your answer
           </div>
           <h1 ref={headingRef} className="mb-6 sm:mb-8 text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px] font-bold leading-[1.05] tracking-tight">
             {splitText("Cheat every exam.")}
@@ -157,7 +193,7 @@ function AlphaHero() {
           </div>
         </div>
         <div className="hidden lg:block">
-          <ChatDemo />
+          <MultitaskDemo />
         </div>
       </div>
     </section>
@@ -425,7 +461,7 @@ export default function OzarkAlphaPage() {
   return (
     <>
       <AlphaHero />
-      <div className="lg:hidden px-6 pb-10"><ChatDemo /></div>
+      <div className="lg:hidden px-6 pb-10"><MultitaskDemo /></div>
       <PlatformsDefeated />
       <Shortcuts />
       <Pricing />
