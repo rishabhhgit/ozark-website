@@ -122,7 +122,7 @@ export default function Hero() {
   };
 
   return (
-    <section ref={sectionRef} className="relative mx-auto w-full px-6 pb-16 pt-20 sm:px-10 sm:pb-20 sm:pt-24 md:pb-24 md:pt-28 min-h-screen">
+    <section ref={sectionRef} className="relative mx-auto w-full px-6 pb-16 pt-28 sm:px-10 sm:pb-20 sm:pt-36 md:pb-24 md:pt-44 min-h-screen">
       {/* Ambient glows */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div ref={ambientPurpleRef} className="absolute -top-[200px] left-[15%] w-[600px] h-[600px] sm:w-[900px] sm:h-[900px] rounded-full opacity-0" style={{ background: "radial-gradient(circle, rgba(196,48,48,0.04) 0%, transparent 70%)", filter: "blur(100px)" }} />
