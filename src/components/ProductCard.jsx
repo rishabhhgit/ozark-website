@@ -15,7 +15,7 @@ const PRODUCTS = [
     badge: "Flashkick",
     description: "Bypass SEB lockdown mode. Runs outside its monitoring scope — invisible to proctoring and tab-switch detection.",
     bgGradient: "from-[rgba(26,26,31,0.6)] via-[rgba(30,28,32,0.5)] to-[rgba(22,20,24,0.4)]",
-    icon: "🔒",
+    image: "/seb.webp",
     features: ["Invisible overlay", "Bypasses lockdown", "AutoType answers"],
   },
   {
@@ -25,7 +25,7 @@ const PRODUCTS = [
     badge: null,
     description: "Hidden from Mettl's screen recording, browser lockdown, and webcam monitoring. Full stealth mode.",
     bgGradient: "from-[rgba(26,26,31,0.6)] via-[rgba(29,27,31,0.5)] to-[rgba(21,19,23,0.4)]",
-    icon: "🛡️",
+    image: "/mercel-mettl.png",
     features: ["Screen recording bypass", "Webcam blind", "Zero detection"],
   },
   {
@@ -35,7 +35,7 @@ const PRODUCTS = [
     badge: "Flashkick",
     description: "Invisible AI assistance inside HackerRank. Capture questions, get instant solutions, AutoType answers.",
     bgGradient: "from-[rgba(26,26,31,0.6)] via-[rgba(28,26,30,0.5)] to-[rgba(20,18,22,0.4)]",
-    icon: "⚡",
+    image: "/hackerrank.svg",
     features: ["Screenshot capture", "AI code generation", "One-click AutoType"],
   },
 ];
@@ -68,7 +68,7 @@ function ProductCardItem({ product, index }) {
             <div className="absolute inset-0 opacity-30" style={{
               background: "radial-gradient(circle at 30% 40%, rgba(196,48,48,0.08) 0%, transparent 50%), radial-gradient(circle at 70% 60%, rgba(196,48,48,0.05) 0%, transparent 50%)",
             }} />
-            <span className="text-5xl mb-4">{product.icon}</span>
+            <img src={product.image} alt={product.name} className="h-20 w-auto object-contain mb-4" />
             <div className="flex flex-wrap gap-2 justify-center">
               {product.features.map((f) => (
                 <span key={f} className="text-[10px] font-medium text-accent/80 bg-accent/10 border border-accent/20 rounded-full px-2.5 py-1">
