@@ -145,14 +145,6 @@ export default function ProductCard() {
           <ProductCardItem key={product.id} product={product} index={idx} />
         ))}
       </div>
-
-      <div className="mx-auto max-w-[1200px] mt-8 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 flex items-center gap-6">
-        <img src="/globe.svg" alt="All Browser OAs" className="h-16 w-auto object-contain shrink-0" />
-        <div>
-          <h3 className="text-lg font-bold text-ink mb-1">All Browser-Based OAs</h3>
-          <p className="text-[14px] text-sub leading-relaxed">Works on any online assessment conducted in a browser — from campus placements to coding tests.</p>
-        </div>
-      </div>
     </section>
   );
 }
