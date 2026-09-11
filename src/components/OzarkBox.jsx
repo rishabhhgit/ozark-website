@@ -56,14 +56,14 @@ export default function OzarkBox() {
         <div className="halloween-divider mx-auto mt-8 w-[100px]" />
       </div>
 
-      <div className="mx-auto max-w-[400px] grid gap-6 items-stretch">
+      <div className="mx-auto max-w-[900px] grid gap-6 items-stretch">
         {PRODUCTS.map((product) => (
           <Link to="/ozark" key={product.id}>
           <div
             className="relative overflow-hidden rounded-2xl border border-[rgba(196,48,48,0.08)] bg-transparent transition-all duration-300 hover:border-[rgba(196,48,48,0.2)] hover:scale-[1.02]"
           >
             <div className="flex flex-col h-full">
-              <div className={`relative aspect-[16/10] bg-gradient-to-br ${product.bgGradient} flex items-center justify-center p-8 overflow-hidden`}>
+              <div className={`relative aspect-[16/8] bg-gradient-to-br ${product.bgGradient} flex items-center justify-center p-8 overflow-hidden`}>
                 <div className="absolute inset-0 opacity-30" style={{
                   background: "radial-gradient(circle at 30% 40%, rgba(196,48,48,0.08) 0%, transparent 50%), radial-gradient(circle at 70% 60%, rgba(196,48,48,0.05) 0%, transparent 50%)",
                 }} />
