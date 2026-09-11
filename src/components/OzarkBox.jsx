@@ -67,7 +67,7 @@ export default function OzarkBox() {
             </div>
             <div className="w-full md:w-1/2 p-8 md:p-10 flex flex-col justify-center">
               <h3 className="text-2xl font-bold text-ink mb-3">Browser Exam Crack</h3>
-              <p className="text-[15px] text-sub leading-relaxed mb-5">Bypass SEB lockdown mode. Runs outside its monitoring scope — invisible to proctoring and tab-switch detection.</p>
+              <p className="text-[15px] text-sub leading-relaxed mb-5">Crack any browser-based OA with the help of an invisible AI overlay</p>
               <div className="mb-5">
                 <span className="text-[12px] font-semibold text-accent uppercase tracking-wider">For browser-level exams only</span>
               </div>
