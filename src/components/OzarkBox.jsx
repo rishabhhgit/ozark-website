@@ -63,14 +63,14 @@ export default function OzarkBox() {
             <div className="absolute inset-0 opacity-30" style={{
               background: "radial-gradient(circle at 30% 40%, rgba(196,48,48,0.08) 0%, transparent 50%), radial-gradient(circle at 70% 60%, rgba(196,48,48,0.05) 0%, transparent 50%)",
             }} />
-            <img src={PRODUCTS[0].image} alt={PRODUCTS[0].name} className="h-24 w-auto object-contain" />
+            <img src="/globe.svg" alt="Browser Exam Crack" className="h-24 w-auto object-contain" />
             <div className="absolute top-3 left-3 rounded bg-[#c43030]/90 px-2 py-0.5 text-[9px] font-bold text-white uppercase tracking-wider">
               Flashkick
             </div>
-            <div className="absolute top-3 right-3 text-[10px] text-[#9a8a8a] font-medium">SEB</div>
+            <div className="absolute top-3 right-3 text-[10px] text-[#9a8a8a] font-medium">BRW</div>
           </div>
           <div className="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
-            <h3 className="text-xl font-bold text-ink mb-2">Safe Exam Browser Crack</h3>
+            <h3 className="text-xl font-bold text-ink mb-2">Browser Exam Crack</h3>
             <p className="text-sm text-sub leading-relaxed mb-4">Bypass SEB lockdown mode. Runs outside its monitoring scope — invisible to proctoring and tab-switch detection.</p>
             <div className="mb-4">
               <span className="text-[11px] font-semibold text-accent uppercase tracking-wider">For browser-level exams only</span>
