@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from "react-router-dom";
 import { prefersReducedMotion } from "@/lib/motion";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -57,8 +58,8 @@ export default function OzarkBox() {
 
       <div className="mx-auto max-w-[400px] grid gap-6 items-stretch">
         {PRODUCTS.map((product) => (
+          <Link to="/ozark" key={product.id}>
           <div
-            key={product.id}
             className="relative overflow-hidden rounded-2xl border border-[rgba(196,48,48,0.08)] bg-transparent transition-all duration-300 hover:border-[rgba(196,48,48,0.2)] hover:scale-[1.02]"
           >
             <div className="flex flex-col h-full">
@@ -82,6 +83,7 @@ export default function OzarkBox() {
               </div>
             </div>
           </div>
+          </Link>
         ))}
       </div>
 
