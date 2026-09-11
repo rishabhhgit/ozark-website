@@ -63,7 +63,7 @@ export default function OzarkBox() {
         <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block" style={{ opacity: 0 }}>Core Product</span>
         <h2 className="mt-3 text-4xl font-bold tracking-tight text-ink md:text-5xl lg:text-6xl" style={{ opacity: 0 }}>Ozark</h2>
         <p className="mx-auto mt-4 max-w-[60ch] text-[16px] sm:text-[18px] leading-relaxed text-sub md:text-[19px]" style={{ opacity: 0 }}>
-          The invisible AI copilot for online assessments and technical interviews.
+          The invisible AI copilot for online assessments conducted on browser.
         </p>
         <div className="halloween-divider mx-auto mt-8 w-[100px]" />
       </div>
