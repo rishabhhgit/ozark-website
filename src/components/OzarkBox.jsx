@@ -69,13 +69,15 @@ export default function OzarkBox() {
               <h3 className="text-2xl font-bold text-ink mb-3">Browser Exam Crack</h3>
               <p className="text-[15px] text-sub leading-relaxed mb-5">Crack any browser-based OA with the help of an invisible AI overlay</p>
               <div className="mb-5">
-                <span className="text-[12px] font-semibold text-accent uppercase tracking-wider">For browser-level exams only</span>
+                <span className="text-[12px] font-semibold text-sub uppercase tracking-wider">For browser-level exams only</span>
               </div>
-              <div className="flex flex-wrap gap-2">
-                <span className="text-[12px] font-medium text-accent/80 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5">Invisible overlay</span>
-                <span className="text-[12px] font-medium text-accent/80 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5">Bypasses lockdown</span>
-                <span className="text-[12px] font-medium text-accent/80 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5">AutoType answers</span>
-              </div>
+              <ul className="space-y-2">
+                <li className="text-[14px] text-sub flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-sub/40 shrink-0"></span>Invisible overlay — stays hidden from proctors</li>
+                <li className="text-[14px] text-sub flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-sub/40 shrink-0"></span>Bypasses lockdown browser restrictions</li>
+                <li className="text-[14px] text-sub flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-sub/40 shrink-0"></span>AutoType answers with one hotkey</li>
+                <li className="text-[14px] text-sub flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-sub/40 shrink-0"></span>Screenshot capture and AI solving</li>
+                <li className="text-[14px] text-sub flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-sub/40 shrink-0"></span>Works on any browser-based exam platform</li>
+              </ul>
             </div>
           </div>
         </div>
