@@ -15,24 +15,6 @@ const PRODUCTS = [
     bgGradient: "from-[rgba(26,26,31,0.6)] via-[rgba(30,28,32,0.5)] to-[rgba(22,20,24,0.4)]",
     image: "/seb.webp",
   },
-  {
-    id: 2,
-    name: "Mettl Secure Browser Crack",
-    tag: "MSB",
-    badge: null,
-    description: "Hidden from Mettl's screen recording, browser lockdown, and webcam monitoring. Full stealth mode.",
-    bgGradient: "from-[rgba(26,26,31,0.6)] via-[rgba(29,27,31,0.5)] to-[rgba(21,19,23,0.4)]",
-    image: "/mercel-mettl.png",
-  },
-  {
-    id: 3,
-    name: "HackerRank Bypass",
-    tag: "HRB",
-    badge: "Flashkick",
-    description: "Invisible AI assistance inside HackerRank. Capture questions, get instant solutions, AutoType answers.",
-    bgGradient: "from-[rgba(26,26,31,0.6)] via-[rgba(28,26,30,0.5)] to-[rgba(20,18,22,0.4)]",
-    image: "/hackerrank.svg",
-  },
 ];
 
 export default function OzarkBox() {
@@ -73,7 +55,7 @@ export default function OzarkBox() {
         <div className="halloween-divider mx-auto mt-8 w-[100px]" />
       </div>
 
-      <div className="mx-auto max-w-[1200px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+      <div className="mx-auto max-w-[400px] grid gap-6 items-stretch">
         {PRODUCTS.map((product) => (
           <div
             key={product.id}
