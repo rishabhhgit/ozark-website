@@ -1,15 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
   <defs>
-    <clipPath id="outer">
-      <circle cx="100" cy="100" r="96"/>
+    <clipPath id="circle-clip">
+      <circle cx="200" cy="200" r="188"/>
     </clipPath>
   </defs>
-  <circle cx="100" cy="100" r="96" fill="#DB4437"/>
-  <g clip-path="url(#outer)">
-    <path d="M100 4 L180 140 L100 100 Z" fill="#0F9D58"/>
-    <path d="M100 4 L20 140 L100 100 Z" fill="#DB4437"/>
-    <path d="M20 140 L180 140 L100 100 Z" fill="#F4B400"/>
+  <!-- Outer red -->
+  <circle cx="200" cy="200" r="188" fill="#EA4335"/>
+  <!-- Green section -->
+  <g clip-path="url(#circle-clip)">
+    <path d="M200 12 L320 220 L200 200 Z" fill="#34A853"/>
+    <path d="M200 12 L80 220 L200 200 Z" fill="#EA4335"/>
+    <path d="M80 220 L320 220 L200 200 Z" fill="#FBBC05"/>
+    <path d="M200 12 L200 200 L320 220 L350 100 Z" fill="#34A853"/>
+    <path d="M200 12 L200 200 L80 220 L50 100 Z" fill="#EA4335"/>
+    <path d="M80 220 L320 220 L200 200 Z" fill="#FBBC05"/>
   </g>
-  <circle cx="100" cy="100" r="36" fill="white"/>
-  <circle cx="100" cy="100" r="28" fill="#4285F4"/>
+  <!-- White ring -->
+  <circle cx="200" cy="200" r="72" fill="white"/>
+  <!-- Blue center -->
+  <circle cx="200" cy="200" r="56" fill="#4285F4"/>
 </svg>

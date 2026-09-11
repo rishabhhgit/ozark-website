@@ -59,7 +59,7 @@ export default function OzarkBox() {
               <div className="absolute inset-0 opacity-30" style={{
                 background: "radial-gradient(circle at 30% 40%, rgba(196,48,48,0.08) 0%, transparent 50%), radial-gradient(circle at 70% 60%, rgba(196,48,48,0.05) 0%, transparent 50%)",
               }} />
-              <img src="/chrome.png" alt="Browser Exam Crack" className="h-32 w-auto object-contain group-hover:scale-110 transition-transform duration-500" />
+              <img src="/chrome.svg" alt="Browser Exam Crack" className="h-32 w-auto object-contain group-hover:scale-110 transition-transform duration-500" />
               <div className="absolute top-4 left-4 rounded bg-[#c43030]/90 px-3 py-1 text-[10px] font-bold text-white uppercase tracking-wider">
                 Flashkick
               </div>
