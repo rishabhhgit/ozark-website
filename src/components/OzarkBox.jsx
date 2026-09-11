@@ -56,36 +56,34 @@ export default function OzarkBox() {
         <div className="halloween-divider mx-auto mt-8 w-[100px]" />
       </div>
 
-      <div className="mx-auto max-w-[900px] grid gap-6 items-stretch">
-        {PRODUCTS.map((product) => (
-          <Link to="/ozark" key={product.id}>
-          <div
-            className="relative overflow-hidden rounded-2xl border border-[rgba(196,48,48,0.08)] bg-transparent transition-all duration-300 hover:border-[rgba(196,48,48,0.2)] hover:scale-[1.02]"
-          >
-            <div className="flex flex-col h-full">
-              <div className={`relative aspect-[16/8] bg-gradient-to-br ${product.bgGradient} flex items-center justify-center p-8 overflow-hidden`}>
-                <div className="absolute inset-0 opacity-30" style={{
-                  background: "radial-gradient(circle at 30% 40%, rgba(196,48,48,0.08) 0%, transparent 50%), radial-gradient(circle at 70% 60%, rgba(196,48,48,0.05) 0%, transparent 50%)",
-                }} />
-                <img src={product.image} alt={product.name} className="h-20 w-auto object-contain" />
-                {product.badge && (
-                  <div className="absolute top-3 left-3 rounded bg-[#c43030]/90 px-2 py-0.5 text-[9px] font-bold text-white uppercase tracking-wider">
-                    {product.badge}
-                  </div>
-                )}
-                <div className="absolute top-3 right-3 text-[10px] text-[#9a8a8a] font-medium">
-                  {product.tag}
-                </div>
-              </div>
-              <div className="p-5 md:p-6 flex flex-col flex-1">
-                <h3 className="text-lg font-bold text-ink mb-2">{product.name}</h3>
-                <p className="text-sm text-sub leading-relaxed flex-1 min-h-[60px]">{product.description}</p>
-              </div>
+      <Link to="/ozark">
+      <div className="mx-auto max-w-[900px] rounded-2xl border border-[rgba(196,48,48,0.08)] bg-transparent transition-all duration-300 hover:border-[rgba(196,48,48,0.2)] hover:scale-[1.02] overflow-hidden">
+        <div className="flex flex-col md:flex-row">
+          <div className={`relative w-full md:w-1/2 aspect-[16/10] md:aspect-auto bg-gradient-to-br ${PRODUCTS[0].bgGradient} flex items-center justify-center p-8 overflow-hidden`}>
+            <div className="absolute inset-0 opacity-30" style={{
+              background: "radial-gradient(circle at 30% 40%, rgba(196,48,48,0.08) 0%, transparent 50%), radial-gradient(circle at 70% 60%, rgba(196,48,48,0.05) 0%, transparent 50%)",
+            }} />
+            <img src={PRODUCTS[0].image} alt={PRODUCTS[0].name} className="h-24 w-auto object-contain" />
+            <div className="absolute top-3 left-3 rounded bg-[#c43030]/90 px-2 py-0.5 text-[9px] font-bold text-white uppercase tracking-wider">
+              Flashkick
+            </div>
+            <div className="absolute top-3 right-3 text-[10px] text-[#9a8a8a] font-medium">SEB</div>
+          </div>
+          <div className="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
+            <h3 className="text-xl font-bold text-ink mb-2">Safe Exam Browser Crack</h3>
+            <p className="text-sm text-sub leading-relaxed mb-4">Bypass SEB lockdown mode. Runs outside its monitoring scope — invisible to proctoring and tab-switch detection.</p>
+            <div className="mb-4">
+              <span className="text-[11px] font-semibold text-accent uppercase tracking-wider">For browser-level exams only</span>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <span className="text-[11px] font-medium text-accent/80 bg-accent/10 border border-accent/20 rounded-full px-3 py-1">Invisible overlay</span>
+              <span className="text-[11px] font-medium text-accent/80 bg-accent/10 border border-accent/20 rounded-full px-3 py-1">Bypasses lockdown</span>
+              <span className="text-[11px] font-medium text-accent/80 bg-accent/10 border border-accent/20 rounded-full px-3 py-1">AutoType answers</span>
             </div>
           </div>
-          </Link>
-        ))}
+        </div>
       </div>
+      </Link>
 
       <div className="text-center mt-8">
         <a href="/ozark" className="inline-flex items-center gap-2 rounded-xl bg-[#c43030] px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#a02525] hover:scale-105">
