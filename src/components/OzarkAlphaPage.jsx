@@ -100,7 +100,7 @@ function MultitaskDemo() {
           <iframe
             width="100%"
             height="100%"
-            src="https://www.youtube.com/embed/Q-7menWAF1g?autoplay=1&mute=1&loop=1&playlist=Q-7menWAF1g&controls=0&disablekb=1&modestbranding=1&rel=0&showinfo=0&fs=0&iv_load_policy=3&playsinline=1"
+            src="https://www.youtube.com/embed/Q-7menWAF1g?autoplay=1&mute=1&loop=1&playlist=Q-7menWAF1g&controls=0&disablekb=1&modestbranding=1&rel=0&showinfo=0&fs=0&iv_load_policy=3&playsinline=1&enablejsapi=0&wmode=opaque"
             title="Fight Night"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
