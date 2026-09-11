@@ -299,7 +299,7 @@ function Pricing() {
           </ul>
           <a href={ALPHA_DOWNLOAD_URL} className="ghs-btn-primary inline-flex items-center gap-3 rounded-xl bg-accent px-8 py-4 text-[16px] font-semibold text-white shadow-premium relative overflow-hidden transition-all duration-300 hover:scale-105 w-full justify-center" data-cursor="magnetic">
             <Download size={18} strokeWidth={2.5} />
-            Start Cheating Now
+            Download for Windows 11
           </a>
         </div>
       </div>
