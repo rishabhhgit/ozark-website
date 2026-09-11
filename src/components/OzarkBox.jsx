@@ -83,6 +83,11 @@ export default function OzarkBox() {
           Explore Ozark Features
         </a>
       </div>
+
+      <div className="mx-auto max-w-[600px] mt-8 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 text-center">
+        <h3 className="text-lg font-bold text-ink mb-2">Works on All Browser-Based OAs</h3>
+        <p className="text-[14px] text-sub leading-relaxed">HackerRank, Mercer Mettl, Safe Exam Browser, and any other online assessment conducted in a browser — Ozark handles them all.</p>
+      </div>
     </section>
   );
 }
