@@ -38,6 +38,16 @@ const PRODUCTS = [
     image: "/hackerrank.svg",
     features: ["Screenshot capture", "AI code generation", "One-click AutoType"],
   },
+  {
+    id: 4,
+    name: "All Browser-Based OAs",
+    tag: "OA",
+    badge: null,
+    description: "Works on any online assessment conducted in a browser — from campus placements to coding tests.",
+    bgGradient: "from-[rgba(26,26,31,0.6)] via-[rgba(27,25,29,0.5)] to-[rgba(19,17,21,0.4)]",
+    image: "/globe.svg",
+    features: ["Universal support", "Any browser OA", "Works everywhere"],
+  },
 ];
 
 function ProductCardItem({ product, index }) {
@@ -140,7 +150,7 @@ export default function ProductCard() {
         <div className="halloween-divider mx-auto mt-8 w-[100px]" />
       </div>
 
-      <div className="mx-auto max-w-[1200px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+      <div className="mx-auto max-w-[1200px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
         {PRODUCTS.map((product, idx) => (
           <ProductCardItem key={product.id} product={product} index={idx} />
         ))}
