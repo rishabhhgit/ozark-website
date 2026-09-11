@@ -68,14 +68,7 @@ function ProductCardItem({ product, index }) {
             <div className="absolute inset-0 opacity-30" style={{
               background: "radial-gradient(circle at 30% 40%, rgba(196,48,48,0.08) 0%, transparent 50%), radial-gradient(circle at 70% 60%, rgba(196,48,48,0.05) 0%, transparent 50%)",
             }} />
-            <img src={product.image} alt={product.name} className="h-20 w-auto object-contain mb-4" />
-            <div className="flex flex-wrap gap-2 justify-center">
-              {product.features.map((f) => (
-                <span key={f} className="text-[10px] font-medium text-accent/80 bg-accent/10 border border-accent/20 rounded-full px-2.5 py-1">
-                  {f}
-                </span>
-              ))}
-            </div>
+            <img src={product.image} alt={product.name} className="h-20 w-auto object-contain" />
             {product.badge && (
               <div className="absolute top-3 left-3 rounded bg-[#c43030]/90 px-2 py-0.5 text-[9px] font-bold text-white uppercase tracking-wider">
                 {product.badge}
