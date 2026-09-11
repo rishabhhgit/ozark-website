@@ -38,16 +38,6 @@ const PRODUCTS = [
     image: "/hackerrank.svg",
     features: ["Screenshot capture", "AI code generation", "One-click AutoType"],
   },
-  {
-    id: 4,
-    name: "All Browser-Based OAs",
-    tag: "OA",
-    badge: null,
-    description: "Works on any online assessment conducted in a browser — from campus placements to coding tests.",
-    bgGradient: "from-[rgba(26,26,31,0.6)] via-[rgba(27,25,29,0.5)] to-[rgba(19,17,21,0.4)]",
-    image: "/globe.svg",
-    features: ["Universal support", "Any browser OA", "Works everywhere"],
-  },
 ];
 
 function ProductCardItem({ product, index }) {
@@ -150,10 +140,18 @@ export default function ProductCard() {
         <div className="halloween-divider mx-auto mt-8 w-[100px]" />
       </div>
 
-      <div className="mx-auto max-w-[1200px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+      <div className="mx-auto max-w-[1200px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
         {PRODUCTS.map((product, idx) => (
           <ProductCardItem key={product.id} product={product} index={idx} />
         ))}
+      </div>
+
+      <div className="mx-auto max-w-[1200px] mt-8 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 flex items-center gap-6">
+        <img src="/globe.svg" alt="All Browser OAs" className="h-16 w-auto object-contain shrink-0" />
+        <div>
+          <h3 className="text-lg font-bold text-ink mb-1">All Browser-Based OAs</h3>
+          <p className="text-[14px] text-sub leading-relaxed">Works on any online assessment conducted in a browser — from campus placements to coding tests.</p>
+        </div>
       </div>
     </section>
   );
