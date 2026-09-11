@@ -52,8 +52,9 @@ export default function OzarkBox() {
         <div className="halloween-divider mx-auto mt-8 w-[100px]" />
       </div>
 
+      <div ref={cardRef} style={{ opacity: 0 }}>
       <Link to="/ozark">
-        <div ref={cardRef} className="mx-auto max-w-[1000px] rounded-2xl border border-[rgba(196,48,48,0.08)] bg-transparent transition-all duration-500 hover:border-[rgba(196,48,48,0.3)] hover:shadow-2xl hover:shadow-red-500/10 overflow-hidden group cursor-pointer" style={{ opacity: 0 }}>
+        <div className="mx-auto max-w-[1000px] rounded-2xl border border-[rgba(196,48,48,0.08)] bg-transparent transition-all duration-500 hover:border-[rgba(196,48,48,0.3)] hover:shadow-2xl hover:shadow-red-500/10 overflow-hidden group cursor-pointer">
           <div className="flex flex-col md:flex-row">
             <div className="relative w-full md:w-1/2 aspect-[16/10] md:aspect-auto bg-gradient-to-br from-[rgba(26,26,31,0.6)] via-[rgba(30,28,32,0.5)] to-[rgba(22,20,24,0.4)] flex items-center justify-center p-10 overflow-hidden">
               <div className="absolute inset-0 opacity-30" style={{
@@ -82,6 +83,7 @@ export default function OzarkBox() {
           </div>
         </div>
       </Link>
+      </div>
 
       <div className="text-center mt-10">
         <a href="/ozark" className="inline-flex items-center gap-2 rounded-xl bg-[#c43030] px-6 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#a02525] hover:scale-105">
