@@ -65,6 +65,11 @@ export default function OzarkBox() {
         <p className="mx-auto mt-4 max-w-[60ch] text-[16px] sm:text-[18px] leading-relaxed text-sub md:text-[19px]" style={{ opacity: 0 }}>
           The invisible AI copilot for online assessments conducted on browser.
         </p>
+        <div className="inline-flex items-baseline gap-2 mt-4" style={{ opacity: 0 }}>
+          <span className="text-sm font-medium text-sub">Starting from</span>
+          <span className="text-2xl sm:text-3xl font-bold text-ink">₹1299</span>
+          <span className="text-sm font-medium text-sub">/month</span>
+        </div>
         <div className="halloween-divider mx-auto mt-8 w-[100px]" />
       </div>
 
