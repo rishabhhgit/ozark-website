@@ -21,7 +21,10 @@ export default function OzarkBox() {
       }
 
       if (cardRef.current) {
-        gsap.fromTo(cardRef.current, { opacity: 0, y: 40, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "power3.out", scrollTrigger: { trigger: cardRef.current, start: "top 88%", toggleActions: "play none none none" } });
+        gsap.fromTo(cardRef.current, { opacity: 0, y: 50, scale: 0.95 }, {
+          opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "power3.out",
+          scrollTrigger: { trigger: cardRef.current, start: "top 85%", toggleActions: "play none none none" }
+        });
       }
     }, sectionRef);
 
