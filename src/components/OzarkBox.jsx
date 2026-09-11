@@ -57,6 +57,20 @@ export default function OzarkBox() {
         <div className="halloween-divider mx-auto mt-5 w-[100px]" />
       </div>
 
+      <div className="mx-auto max-w-[400px] mt-6 mb-6 relative overflow-hidden rounded-2xl border border-[rgba(196,48,48,0.08)] bg-transparent transition-all duration-300 hover:border-[rgba(196,48,48,0.2)]">
+        <div className="relative aspect-[16/10] bg-gradient-to-br from-[rgba(26,26,31,0.6)] via-[rgba(27,25,29,0.5)] to-[rgba(19,17,21,0.4)] flex items-center justify-center p-8 overflow-hidden">
+          <div className="absolute inset-0 opacity-30" style={{
+            background: "radial-gradient(circle at 30% 40%, rgba(196,48,48,0.08) 0%, transparent 50%), radial-gradient(circle at 70% 60%, rgba(196,48,48,0.05) 0%, transparent 50%)",
+          }} />
+          <img src="/globe.svg" alt="All Browser-Based OAs" className="h-20 w-auto object-contain" />
+          <div className="absolute top-3 right-3 text-[10px] text-[#9a8a8a] font-medium">OA</div>
+        </div>
+        <div className="p-5">
+          <h3 className="text-lg font-bold text-ink mb-2">All Browser-Based OAs</h3>
+          <p className="text-sm text-sub leading-relaxed">Works on any online assessment conducted in a browser — from campus placements to coding tests.</p>
+        </div>
+      </div>
+
       <div className="mx-auto max-w-[1000px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch">
         {FEATURES.map((feature, idx) => {
           const Icon = feature.icon;
