@@ -79,6 +79,14 @@ export default function AppShowcase() {
 
       <OzarkBox />
 
+      <div className="mx-auto max-w-[800px] mt-8 rounded-2xl border border-[rgba(196,48,48,0.08)] bg-transparent p-6 flex items-center gap-6">
+        <img src="/globe.svg" alt="All Browser OAs" className="h-16 w-auto object-contain shrink-0" />
+        <div>
+          <h3 className="text-lg font-bold text-ink mb-1">All Browser-Based OAs</h3>
+          <p className="text-[14px] text-sub leading-relaxed">Works on any online assessment conducted in a browser — from campus placements to coding tests.</p>
+        </div>
+      </div>
+
       <div ref={headingRef} className="mb-16 md:mb-24 text-center">
         <span className="text-[12px] sm:text-xs font-bold uppercase tracking-wider text-accent block" style={{ opacity: 0 }}>Interactive Demo</span>
         <h2 className="mt-3 text-4xl font-bold tracking-tight text-ink md:text-5xl lg:text-6xl" style={{ opacity: 0 }}>An interface that stays out of your way</h2>
