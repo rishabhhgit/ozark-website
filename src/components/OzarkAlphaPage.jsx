@@ -96,7 +96,7 @@ function MultitaskDemo() {
           <span className="text-[9px] font-bold text-red-400 uppercase tracking-wider">Playing</span>
         </div>
         {/* Actual YouTube embed */}
-        <div className="aspect-video">
+        <div className="aspect-video relative">
           <iframe
             width="100%"
             height="100%"
@@ -107,6 +107,7 @@ function MultitaskDemo() {
             allowFullScreen={false}
             className="w-full h-full pointer-events-none"
           />
+          <div className="absolute inset-0 z-10" />
         </div>
         {/* Video info */}
         <div className="px-3 py-2">
