@@ -79,11 +79,21 @@ export default function AppShowcase() {
 
       <OzarkBox />
 
-      <div className="mx-auto max-w-[800px] mt-8 rounded-2xl border border-[rgba(196,48,48,0.08)] bg-transparent p-6 flex items-center gap-6">
-        <img src="/globe.svg" alt="All Browser OAs" className="h-16 w-auto object-contain shrink-0" />
-        <div>
-          <h3 className="text-lg font-bold text-ink mb-1">All Browser-Based OAs</h3>
-          <p className="text-[14px] text-sub leading-relaxed">Works on any online assessment conducted in a browser — from campus placements to coding tests.</p>
+      <div className="mx-auto max-w-[1200px] mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+        <div className="relative overflow-hidden rounded-2xl border border-[rgba(196,48,48,0.08)] bg-transparent transition-all duration-300 hover:border-[rgba(196,48,48,0.2)] hover:scale-[1.02]">
+          <div className="flex flex-col h-full">
+            <div className="relative aspect-[16/10] bg-gradient-to-br from-[rgba(26,26,31,0.6)] via-[rgba(27,25,29,0.5)] to-[rgba(19,17,21,0.4)] flex items-center justify-center p-8 overflow-hidden">
+              <div className="absolute inset-0 opacity-30" style={{
+                background: "radial-gradient(circle at 30% 40%, rgba(196,48,48,0.08) 0%, transparent 50%), radial-gradient(circle at 70% 60%, rgba(196,48,48,0.05) 0%, transparent 50%)",
+              }} />
+              <img src="/globe.svg" alt="All Browser-Based OAs" className="h-20 w-auto object-contain" />
+              <div className="absolute top-3 right-3 text-[10px] text-[#9a8a8a] font-medium">OA</div>
+            </div>
+            <div className="p-5 md:p-6 flex flex-col flex-1">
+              <h3 className="text-lg font-bold text-ink mb-2">All Browser-Based OAs</h3>
+              <p className="text-sm text-sub leading-relaxed flex-1 min-h-[60px]">Works on any online assessment conducted in a browser — from campus placements to coding tests.</p>
+            </div>
+          </div>
         </div>
       </div>
 
