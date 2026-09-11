@@ -39,7 +39,7 @@ export default function OzarkBox() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative mx-auto w-full px-6 sm:px-10 py-8 md:py-10 overflow-hidden">
+    <section ref={sectionRef} className="relative mx-auto w-full px-6 sm:px-10 py-8 md:py-10">
       {/* Decorative background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] pointer-events-none opacity-15" style={{
         background: "radial-gradient(circle, rgba(196,48,48,0.04) 0%, transparent 70%)",
@@ -84,7 +84,7 @@ export default function OzarkBox() {
         </a>
       </div>
 
-      <div className="mx-auto max-w-[800px] mt-8 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 flex items-center gap-6">
+      <div className="mx-auto max-w-[800px] mt-8 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 flex items-center gap-6" style={{ opacity: 1 }}>
         <img src="/globe.svg" alt="All Browser OAs" className="h-16 w-auto object-contain shrink-0" />
         <div>
           <h3 className="text-lg font-bold text-ink mb-1">All Browser-Based OAs</h3>
