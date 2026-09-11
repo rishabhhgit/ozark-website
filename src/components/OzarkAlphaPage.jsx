@@ -190,7 +190,7 @@ function AlphaHero() {
 
         {/* Right side - headline + demo */}
         <div className="hidden lg:block">
-          <div ref={badgeRef} className="mb-5 inline-flex items-center gap-3 rounded-full border border-accent/40 bg-accent/10 px-6 py-3.5 text-[16px] sm:text-[20px] font-black uppercase tracking-wider text-accent backdrop-blur-sm ml-4" style={{ opacity: 0 }}>
+          <div ref={badgeRef} className="mb-5 inline-flex items-center gap-3 rounded-full border border-white/[0.15] bg-white/[0.05] px-6 py-3.5 text-[16px] sm:text-[20px] font-black uppercase tracking-wider text-white backdrop-blur-sm ml-4" style={{ opacity: 0 }}>
             <Sparkles size={16} className="text-white" />
             Play YouTube while AI writes your answer
           </div>
