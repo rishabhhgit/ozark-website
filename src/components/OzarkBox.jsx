@@ -22,17 +22,19 @@ export default function OzarkBox() {
 
       if (cardRef.current) {
         gsap.fromTo(cardRef.current, { opacity: 0, y: 50, scale: 0.95 }, {
-          opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "power3.out",
-          scrollTrigger: { trigger: cardRef.current, start: "top 85%", toggleActions: "play none none none" }
+          opacity: 1, y: 0, scale: 1, duration: 1, ease: "power3.out",
+          scrollTrigger: { trigger: cardRef.current, start: "top 90%", toggleActions: "play none none none", refreshPriority: 1 }
         });
       }
     }, sectionRef);
+
+    ScrollTrigger.refresh();
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative mx-auto w-full px-6 sm:px-10 py-10 md:py-14 overflow-hidden">
+    <section ref={sectionRef} className="relative mx-auto w-full px-6 sm:px-10 py-10 md:py-14">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] pointer-events-none opacity-15" style={{
         background: "radial-gradient(circle, rgba(196,48,48,0.04) 0%, transparent 70%)",
         filter: "blur(80px)",
