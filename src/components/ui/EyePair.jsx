@@ -4,7 +4,7 @@ import { prefersReducedMotion } from "@/lib/motion";
 
 function Eye({ flip, pupilRef, lidRef }) {
   return (
-    <svg viewBox="0 0 100 80" width="100%" height="100%" style={{ transform: flip ? "scaleX(-1)" : undefined }}>
+    <svg viewBox="-10 -10 120 100" width="100%" height="100%" style={{ transform: flip ? "scaleX(-1)" : undefined, overflow: "visible" }}>
       {/* main eye — bold red almond shape */}
       <path
         d="M5 42C5 42 20 8 50 5C80 8 95 42 95 42C95 42 80 65 50 75C20 65 5 42 5 42Z"
@@ -16,13 +16,25 @@ function Eye({ flip, pupilRef, lidRef }) {
         fill="#ff3333"
         opacity="0.5"
       />
+      {/* inner glow */}
+      <ellipse cx="50" cy="40" rx="30" ry="18" fill="#cc0000" opacity="0.3" />
       {/* black slit pupil */}
       <g ref={pupilRef}>
         <ellipse cx="50" cy="40" rx="5" ry="25" fill="#000000" />
+        <ellipse cx="50" cy="40" rx="3" ry="20" fill="#111111" />
       </g>
+      {/* pupil highlight */}
+      <circle cx="46" cy="30" r="2" fill="white" opacity="0.15" />
       {/* bottom shadow lines */}
       <path d="M12 55C25 65 40 70 55 68" stroke="#8a0000" strokeWidth="2.5" fill="none" opacity="0.6" />
       <path d="M15 58C28 67 42 72 57 69" stroke="#660000" strokeWidth="1.5" fill="none" opacity="0.4" />
+      {/* blink lid */}
+      <g ref={lidRef} style={{ transformOrigin: "50px 40px", transform: "scaleY(0)" }}>
+        <path
+          d="M-10 -10 L120 -10 L120 50 C120 50 100 80 50 85 C0 80 -10 50 -10 50 Z"
+          fill="var(--eye-lid-bg, #0a0a0f)"
+        />
+      </g>
     </svg>
   );
 }
@@ -53,8 +65,8 @@ export default function EyePair({
     const doBlink = () => {
       if (killed) return;
       gsap.timeline()
-        .to(lids, { scaleY: 1, duration: 0.08, ease: "power2.in" })
-        .to(lids, { scaleY: 0, duration: 0.14, ease: "power2.out" }, "+=0.02");
+        .to(lids, { scaleY: 1, duration: 0.12, ease: "power2.in" })
+        .to(lids, { scaleY: 0, duration: 0.18, ease: "power2.out" }, "+=0.05");
     };
     const schedule = () => {
       const delay = blinkMin + Math.random() * (blinkMax - blinkMin);
@@ -99,11 +111,9 @@ export default function EyePair({
     >
       <div style={{ width: "50%", aspectRatio: "100/80", position: "relative" }}>
         <Eye flip pupilRef={leftPupil} lidRef={leftLid} />
-        <div ref={leftLid} className="absolute inset-0" style={{ background: "var(--eye-lid-bg, #0a0a0f)", transform: "scaleY(0)", transformOrigin: "50% 50%" }} />
       </div>
       <div style={{ width: "50%", aspectRatio: "100/80", position: "relative" }}>
         <Eye pupilRef={rightPupil} lidRef={rightLid} />
-        <div ref={rightLid} className="absolute inset-0" style={{ background: "var(--eye-lid-bg, #0a0a0f)", transform: "scaleY(0)", transformOrigin: "50% 50%" }} />
       </div>
     </div>
   );
